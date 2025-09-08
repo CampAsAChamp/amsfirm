@@ -1,43 +1,68 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
 
-# vercel
-.vercel
+# Next.js build output
+.next/
+out/
 
-# typescript
+# Build output
+build/
+dist/
+
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and config
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+
+# MacOS files
+.DS_Store
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Optional Yarn v2 and pnpm files
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.pnpm-debug.log
+
+# TypeScript build output
 *.tsbuildinfo
-next-env.d.ts
 
-# OpenNext
-/.open-next
+# Test coverage output
+coverage/
 
-# wrangler files
-.wrangler
-.dev.vars*
+# Debug-related files
+debug.log
+
+# ESLint cache
+.eslintcache
+
+# Prettier generated file artifacts
+.prettierignore

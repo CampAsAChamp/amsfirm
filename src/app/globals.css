@@ -3,6 +3,34 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-brown: #451a03;
+    /* amber-950 */
+    --primary-brown-hover: #292524;
+    /* amber-950 with slight darkening */
+    --light-brown-bg: #fef3c7;
+    /* amber-50 */
+    --medium-brown-bg: #fde68a;
+    /* amber-200 */
+  
+    /* Common spacing */
+    --section-padding: 5rem;
+    --container-padding: 1rem;
+    --card-padding: 2rem;
+  
+    /* Common border radius */
+    --border-radius-sm: 0.375rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 0.75rem;
+  
+    /* Common shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+    /* Common transitions */
+    --transition-colors: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    --transition-shadow: box-shadow 0.15s ease-in-out;
 }
 
 @theme inline {
@@ -23,4 +51,82 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Utility classes for common patterns */
+.section-container {
+  max-width: 80rem;
+  /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section-padding {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.card-base {
+  background-color: white;
+  padding: var(--card-padding);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-shadow);
+}
+
+.card-base:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.btn-primary {
+  background-color: var(--primary-brown);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius-lg);
+  font-weight: 600;
+  transition: var(--transition-colors);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-brown-hover);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--primary-brown);
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius-lg);
+  font-weight: 600;
+  transition: var(--transition-colors);
+  display: inline-block;
+  text-decoration: none;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: var(--primary-brown);
+}
+
+.icon-circle {
+  background-color: var(--medium-brown-bg);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.icon-circle svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary-brown);
 }

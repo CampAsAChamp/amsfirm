@@ -1,0 +1,85 @@
+import Link from 'next/link';
+
+export default function Footer() {
+  return (
+    <footer className="bg-amber-950 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="col-span-1 md:col-span-2">
+            <h3 className="text-2xl font-bold mb-4">AMS Law</h3>
+            <p className="text-amber-50 mb-4">
+              Professional legal services specializing in estate planning, wills, trusts, and probate. 
+              Protecting your family's future with expert legal guidance.
+            </p>
+            <div className="text-amber-50">
+              <p className="mb-2">
+                <strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM
+              </p>
+              <p className="mb-2">
+                <strong>Emergency:</strong> Available 24/7 for urgent matters
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-amber-50 hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-amber-50 hover:text-white transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-amber-50 hover:text-white transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-amber-50 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+            <div className="text-amber-50 space-y-2">
+              <p>123 Legal Street</p>
+              <p>Suite 100</p>
+              <p>Your City, ST 12345</p>
+              <p className="mt-4">
+                <strong>Phone:</strong> (555) 123-4567
+              </p>
+              <p>
+                <strong>Email:</strong> info@amslaw.com
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-amber-800 mt-8 pt-8 text-center text-amber-50">
+          <p>&copy; 2024 AMS Law. All rights reserved. | 
+            <Link href="/privacy" className="hover:text-white transition-colors ml-2">
+              Privacy Policy
+            </Link> | 
+            <Link href="/terms" className="hover:text-white transition-colors ml-2">
+              Terms of Service
+            </Link>
+          </p>
+          <p className="mt-2 text-sm">
+            This website is for informational purposes only and does not constitute legal advice.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
