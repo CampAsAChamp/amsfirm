@@ -55,7 +55,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         message: '',
         preferredContact: 'email'
       });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -68,7 +68,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
       
       {submitStatus === 'success' && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-          Thank you for your message! We'll contact you within 24 hours to schedule your consultation.
+          Thank you for your message! We&apos;ll contact you within 24 hours to schedule your consultation.
         </div>
       )}
 

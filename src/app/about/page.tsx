@@ -1,4 +1,4 @@
-import { icons, philosophyFeatures, stats, testimonials } from "../constants/data";
+import { philosophyFeatures, stats, testimonials } from "../constants/data";
 
 import CallToAction from "../components/CallToAction";
 import FeatureCard from "../components/FeatureCard";
@@ -42,7 +42,7 @@ export default function About() {
                   I understand that discussing estate planning can be difficult, which is why 
                   I approach every client relationship with compassion, patience, and clear 
                   communication. My goal is to make the process as straightforward as possible 
-                  while ensuring your family's future is secure.
+                  while ensuring your family&apos;s future is secure.
                 </p>
               </div>
               
@@ -91,7 +91,7 @@ export default function About() {
               Our Philosophy
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We believe that estate planning is about more than just legal documents—it's about 
+              We believe that estate planning is about more than just legal documents—it&apos;s about 
               protecting the people and values you hold most dear.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function About() {
               Experience & Results
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our track record speaks for itself. We've helped hundreds of families 
+              Our track record speaks for itself. We&apos;ve helped hundreds of families 
               protect their assets and secure their legacies.
             </p>
           </div>

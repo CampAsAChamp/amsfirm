@@ -10,7 +10,7 @@ export default function Footer() {
             <h3 className="text-2xl font-bold mb-4">AMS Law</h3>
             <p className="text-amber-50 mb-4">
               Professional legal services specializing in estate planning, wills, trusts, and probate. 
-              Protecting your family's future with expert legal guidance.
+              Protecting your family&apos;s future with expert legal guidance.
             </p>
             <div className="text-amber-50">
               <p className="mb-2">

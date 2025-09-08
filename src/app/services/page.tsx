@@ -10,7 +10,7 @@ export default function Services() {
       {/* Hero Section */}
       <HeroSection
         title="Comprehensive Legal Services"
-        subtitle="Expert guidance for all your estate planning and probate needs. Protecting your family's future with professional legal services."
+        subtitle="Expert guidance for all your estate planning and probate needs. Protecting your family&apos;s future with professional legal services."
         primaryButtonText="Free Consultation"
         primaryButtonLink="/contact"
       />
@@ -29,7 +29,7 @@ export default function Services() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Wills & Testaments</h2>
               <p className="text-gray-600 mb-6">
                 A will is the foundation of any estate plan. It ensures your assets are distributed 
-                according to your wishes and provides for your loved ones after you're gone.
+                according to your wishes and provides for your loved ones after you&apos;re gone.
               </p>
               
               <h3 className="text-lg font-semibold text-gray-900 mb-3">What We Include:</h3>
@@ -166,7 +166,7 @@ export default function Services() {
 
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Planning Benefits:</h3>
               <ul className="text-gray-600 space-y-2 mb-6">
-                <li>• Protect your family's future</li>
+                <li>• Protect your family&apos;s future</li>
                 <li>• Minimize estate taxes</li>
                 <li>• Avoid probate delays</li>
                 <li>• Maintain asset control</li>
@@ -214,7 +214,7 @@ export default function Services() {
       {/* Call to Action */}
       <CallToAction
         title="Ready to Secure Your Legacy?"
-        subtitle="Don't leave your family's future to chance. Schedule a free consultation to discuss your estate planning needs today."
+        subtitle="Don&apos;t leave your family&apos;s future to chance. Schedule a free consultation to discuss your estate planning needs today."
         buttonText="Schedule Free Consultation"
         buttonLink="/contact"
       />
