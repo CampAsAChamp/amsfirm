@@ -2,6 +2,7 @@ import "@/app/globals.css";
 
 import { Geist, Geist_Mono } from "next/font/google";
 
+import ConstructionBanner from "@/app/components/layout/ConstructionBanner";
 import Footer from "@/app/components/layout/Footer";
 import type { Metadata } from "next";
 import Navigation from "@/app/components/layout/Navigation";
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ConstructionBanner />
         <Navigation />
         <main className="min-h-screen">
           {children}
