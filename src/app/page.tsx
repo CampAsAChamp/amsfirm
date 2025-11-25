@@ -13,7 +13,7 @@ export default function Home() {
       <HeroSection
         title="Protect Your Family's Future"
         subtitle="Expert legal services for wills, trusts, and estate planning. Secure your legacy with professional guidance you can trust."
-        primaryButtonText="Consultation"
+        primaryButtonText="Contact"
         primaryButtonLink="/contact"
         secondaryButtonText="Our Services"
         secondaryButtonLink="/services"

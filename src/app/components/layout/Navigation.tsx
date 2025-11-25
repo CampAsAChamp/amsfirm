@@ -48,15 +48,9 @@ export default function Navigation() {
               </Link>
               <Link
                 href="/contact"
-                className="text-nav hover:text-primary-dark px-3 py-2 text-sm font-semibold transition-colors"
-              >
-                Contact
-              </Link>
-              <Link
-                href="/contact"
                 className="btn-nav"
               >
-                Consultation
+                Contact
               </Link>
             </div>
           </div>
@@ -105,17 +99,10 @@ export default function Navigation() {
               </Link>
               <Link
                 href="/contact"
-                className="text-nav hover:text-primary-dark block px-3 py-2 text-base font-semibold"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <Link
-                href="/contact"
                 className="btn-nav-mobile"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Consultation
+                Contact
               </Link>
             </div>
           </div>
