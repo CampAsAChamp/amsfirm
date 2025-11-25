@@ -17,13 +17,13 @@ export default function HeroSection({
       <div className="section-container">
         <div className="text-center">
           {showLogo && (
-            <div className="mb-8 flex justify-center">
+            <div className="mb-16 flex justify-center">
               <Image 
                 src="/schneider-law-logo.svg" 
                 alt="Schneider Law" 
-                width={300} 
-                height={100}
-                className="h-24 w-auto filter brightness-0 invert"
+                width={400} 
+                height={133}
+                className="h-40 w-auto filter brightness-0 invert"
                 priority
               />
             </div>
