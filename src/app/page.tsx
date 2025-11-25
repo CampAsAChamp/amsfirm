@@ -1,9 +1,9 @@
-import { services, whyChooseUsFeatures } from "./constants/data";
+import { services, whyChooseUsFeatures } from "@/app/constants";
 
-import CallToAction from "./components/CallToAction";
-import FeatureCard from "./components/FeatureCard";
-import HeroSection from "./components/HeroSection";
-import ServiceCard from "./components/ServiceCard";
+import CallToAction from "@/app/components/sections/CallToAction";
+import FeatureCard from "@/app/components/cards/FeatureCard";
+import HeroSection from "@/app/components/hero/HeroSection";
+import ServiceCard from "@/app/components/cards/ServiceCard";
 
 export default function Home() {
   return (

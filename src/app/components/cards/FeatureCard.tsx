@@ -1,8 +1,4 @@
-interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
+import { FeatureCardProps } from '@/types';
 
 export default function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (

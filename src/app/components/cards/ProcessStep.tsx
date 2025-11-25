@@ -1,8 +1,4 @@
-interface ProcessStepProps {
-  stepNumber: number;
-  title: string;
-  description: string;
-}
+import { ProcessStepProps } from '@/types';
 
 export default function ProcessStep({ stepNumber, title, description }: ProcessStepProps) {
   return (

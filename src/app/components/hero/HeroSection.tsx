@@ -1,16 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
-interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-  primaryButtonText: string;
-  primaryButtonLink: string;
-  secondaryButtonText?: string;
-  secondaryButtonLink?: string;
-  backgroundClass?: string;
-  showLogo?: boolean;
-}
+import { HeroSectionProps } from '@/types';
 
 export default function HeroSection({
   title,

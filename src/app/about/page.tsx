@@ -1,11 +1,11 @@
-import { philosophyFeatures, stats, testimonials } from "../constants/data";
+import { philosophyFeatures, stats, testimonials } from "@/app/constants";
 
-import CallToAction from "../components/CallToAction";
-import FeatureCard from "../components/FeatureCard";
-import HeroSection from "../components/HeroSection";
+import CallToAction from "@/app/components/sections/CallToAction";
+import FeatureCard from "@/app/components/cards/FeatureCard";
+import HeroSection from "@/app/components/hero/HeroSection";
 import Link from "next/link";
-import StatsCard from "../components/StatsCard";
-import TestimonialCard from "../components/TestimonialCard";
+import StatsCard from "@/app/components/cards/StatsCard";
+import TestimonialCard from "@/app/components/cards/TestimonialCard";
 
 export default function About() {
   return (

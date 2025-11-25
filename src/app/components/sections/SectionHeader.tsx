@@ -1,8 +1,4 @@
-interface SectionHeaderProps {
-  title: string;
-  subtitle: string;
-  className?: string;
-}
+import { SectionHeaderProps } from '@/types';
 
 export default function SectionHeader({ title, subtitle, className = "" }: SectionHeaderProps) {
   return (

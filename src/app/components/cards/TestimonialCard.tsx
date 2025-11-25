@@ -1,7 +1,4 @@
-interface TestimonialCardProps {
-  quote: string;
-  author: string;
-}
+import { TestimonialCardProps } from '@/types';
 
 export default function TestimonialCard({ quote, author }: TestimonialCardProps) {
   return (

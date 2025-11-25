@@ -1,13 +1,5 @@
 import Link from 'next/link';
-
-interface ServiceCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  features: string[];
-  buttonText: string;
-  buttonLink: string;
-}
+import { ServiceCardProps } from '@/types';
 
 export default function ServiceCard({
   icon,

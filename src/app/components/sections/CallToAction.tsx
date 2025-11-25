@@ -1,12 +1,5 @@
 import Link from 'next/link';
-
-interface CallToActionProps {
-  title: string;
-  subtitle: string;
-  buttonText: string;
-  buttonLink: string;
-  backgroundClass?: string;
-}
+import { CallToActionProps } from '@/types';
 
 export default function CallToAction({
   title,

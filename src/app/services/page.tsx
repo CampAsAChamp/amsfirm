@@ -1,8 +1,8 @@
-import CallToAction from "../components/CallToAction";
-import HeroSection from "../components/HeroSection";
+import CallToAction from "@/app/components/sections/CallToAction";
+import HeroSection from "@/app/components/hero/HeroSection";
 import Link from "next/link";
-import ProcessStep from "../components/ProcessStep";
-import { processSteps } from "../constants/data";
+import ProcessStep from "@/app/components/cards/ProcessStep";
+import { processSteps } from "@/app/constants";
 
 export default function Services() {
   return (

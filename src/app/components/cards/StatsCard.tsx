@@ -1,7 +1,4 @@
-interface StatsCardProps {
-  number: string;
-  label: string;
-}
+import { StatsCardProps } from '@/types';
 
 export default function StatsCard({ number, label }: StatsCardProps) {
   return (
