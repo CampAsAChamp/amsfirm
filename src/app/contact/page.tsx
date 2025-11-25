@@ -46,15 +46,15 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-page">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-amber-950 to-amber-950 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-primary-hover to-primary-dark text-on-primary py-20">
+        <div className="container-page">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-hero-heading">
               Contact Us
             </h1>
-            <p className="text-xl md:text-2xl text-amber-50 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-hero-body max-w-3xl mx-auto">
               Ready to protect your family&apos;s future? Schedule a free consultation 
               to discuss your estate planning needs.
             </p>
@@ -63,12 +63,12 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-amber-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-surface-secondary">
+        <div className="container-page">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Schedule Your Free Consultation</h2>
+            <div className="card">
+              <h2 className="text-2xl font-bold text-heading mb-6">Schedule Your Free Consultation</h2>
               
               {submitStatus === 'success' && (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
@@ -84,7 +84,7 @@ export default function Contact() {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-nav mb-2">
                     Full Name *
                   </label>
                   <input
@@ -94,13 +94,13 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     placeholder="Your full name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-nav mb-2">
                     Email Address *
                   </label>
                   <input
@@ -110,13 +110,13 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-nav mb-2">
                     Phone Number
                   </label>
                   <input
@@ -125,13 +125,13 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     placeholder="(555) 123-4567"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-nav mb-2">
                     Subject *
                   </label>
                   <select
@@ -140,7 +140,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   >
                     <option value="">Select a subject</option>
                     <option value="wills">Wills & Testaments</option>
@@ -153,7 +153,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="preferredContact" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="preferredContact" className="block text-sm font-medium text-nav mb-2">
                     Preferred Contact Method
                   </label>
                   <select
@@ -161,7 +161,7 @@ export default function Contact() {
                     name="preferredContact"
                     value={formData.preferredContact}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   >
                     <option value="email">Email</option>
                     <option value="phone">Phone</option>
@@ -170,7 +170,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-nav mb-2">
                     Message *
                   </label>
                   <textarea
@@ -180,7 +180,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     placeholder="Please describe your estate planning needs or any questions you have..."
                   />
                 </div>
@@ -188,7 +188,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-amber-950 text-white py-3 px-6 rounded-md font-semibold hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="w-full bg-primary text-on-primary py-3 px-6 rounded-md font-semibold hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
@@ -197,16 +197,16 @@ export default function Contact() {
 
             {/* Contact Information */}
             <div className="space-y-8">
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Office Information</h3>
+              <div className="card">
+                <h3 className="text-xl font-bold text-heading mb-6">Office Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <svg className="w-6 h-6 text-amber-950 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-6 h-6 text-primary-hover mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
                     <div>
-                      <div className="font-semibold text-gray-900">Address</div>
-                      <div className="text-gray-600">
+                      <div className="font-semibold text-heading">Address</div>
+                      <div className="text-body">
                         123 Legal Street<br />
                         Suite 100<br />
                         Your City, ST 12345
@@ -215,31 +215,31 @@ export default function Contact() {
                   </div>
 
                   <div className="flex items-start">
-                    <svg className="w-6 h-6 text-amber-950 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-6 h-6 text-primary-hover mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
                     <div>
-                      <div className="font-semibold text-gray-900">Phone</div>
-                      <div className="text-gray-600">(555) 123-4567</div>
+                      <div className="font-semibold text-heading">Phone</div>
+                      <div className="text-body">(555) 123-4567</div>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <svg className="w-6 h-6 text-amber-950 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-6 h-6 text-primary-hover mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
                     <div>
-                      <div className="font-semibold text-gray-900">Email</div>
-                      <div className="text-gray-600">info@amslaw.com</div>
+                      <div className="font-semibold text-heading">Email</div>
+                      <div className="text-body">info@amslaw.com</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Office Hours</h3>
-                <div className="space-y-2 text-gray-600">
+              <div className="card">
+                <h3 className="text-xl font-bold text-heading mb-6">Office Hours</h3>
+                <div className="space-y-2 text-body">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
                     <span>9:00 AM - 5:00 PM</span>
@@ -253,37 +253,37 @@ export default function Contact() {
                     <span>Closed</span>
                   </div>
                 </div>
-                <div className="mt-4 p-4 bg-amber-50 rounded-lg">
-                  <div className="font-semibold text-amber-950 mb-2">Emergency Services</div>
-                  <div className="text-amber-800 text-sm">
+                <div className="mt-4 p-4 bg-primary-lighter rounded-lg">
+                  <div className="font-semibold text-primary-dark mb-2">Emergency Services</div>
+                  <div className="text-primary-hover text-sm">
                     Available 24/7 for urgent estate planning matters
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Free Consultation Includes</h3>
-                <ul className="space-y-3 text-gray-600">
+              <div className="card">
+                <h3 className="text-xl font-bold text-heading mb-6">Free Consultation Includes</h3>
+                <ul className="space-y-3 text-body">
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-amber-950 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span>Review of your current situation</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-amber-950 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span>Discussion of your goals and concerns</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-amber-950 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span>Explanation of available options</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-amber-950 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <span>No obligation to proceed</span>
@@ -296,20 +296,20 @@ export default function Contact() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-surface">
+        <div className="container-page">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
               Visit Our Office
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-body max-w-3xl mx-auto">
               Located in the heart of downtown, our office provides a comfortable and 
               professional environment for your consultation.
             </p>
           </div>
 
-          <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center">
-            <div className="text-center text-gray-500">
+          <div className="bg-surface-tertiary h-96 rounded-lg flex items-center justify-center">
+            <div className="text-center text-muted">
               <svg className="w-16 h-16 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
               </svg>

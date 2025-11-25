@@ -13,20 +13,20 @@ export default function CallToAction({
   subtitle,
   buttonText,
   buttonLink,
-  backgroundClass = "bg-amber-950"
+  backgroundClass = "bg-gradient-to-r from-primary-hover to-primary-dark"
 }: CallToActionProps) {
   return (
-    <section className={`${backgroundClass} text-white py-16`}>
+    <section className={`${backgroundClass} text-on-primary py-16`}>
       <div className="section-container text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-hero-heading">
           {title}
         </h2>
-        <p className="text-xl mb-8 text-amber-50 max-w-2xl mx-auto">
+        <p className="text-xl mb-8 text-hero-body max-w-2xl mx-auto">
           {subtitle}
         </p>
         <Link
           href={buttonLink}
-          className="btn-secondary"
+          className="btn-hero-secondary"
         >
           {buttonText}
         </Link>

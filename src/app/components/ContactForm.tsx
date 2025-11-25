@@ -63,8 +63,8 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Schedule Your Free Consultation</h2>
+    <div className="card">
+      <h2 className="text-2xl font-bold text-heading mb-6">Schedule Your Free Consultation</h2>
       
       {submitStatus === 'success' && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
@@ -80,7 +80,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-nav mb-2">
             Full Name *
           </label>
           <input
@@ -90,13 +90,13 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             value={formData.name}
             onChange={handleChange}
             required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             placeholder="Your full name"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-nav mb-2">
             Email Address *
           </label>
           <input
@@ -106,13 +106,13 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             value={formData.email}
             onChange={handleChange}
             required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             placeholder="your.email@example.com"
           />
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="phone" className="block text-sm font-medium text-nav mb-2">
             Phone Number
           </label>
           <input
@@ -121,13 +121,13 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             placeholder="(555) 123-4567"
           />
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="subject" className="block text-sm font-medium text-nav mb-2">
             Subject *
           </label>
           <select
@@ -136,7 +136,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             value={formData.subject}
             onChange={handleChange}
             required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           >
             <option value="">Select a subject</option>
             <option value="wills">Wills & Testaments</option>
@@ -149,7 +149,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         </div>
 
         <div>
-          <label htmlFor="preferredContact" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="preferredContact" className="block text-sm font-medium text-nav mb-2">
             Preferred Contact Method
           </label>
           <select
@@ -157,7 +157,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             name="preferredContact"
             value={formData.preferredContact}
             onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           >
             <option value="email">Email</option>
             <option value="phone">Phone</option>
@@ -166,7 +166,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="message" className="block text-sm font-medium text-nav mb-2">
             Message *
           </label>
           <textarea
@@ -176,7 +176,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             onChange={handleChange}
             required
             rows={5}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             placeholder="Please describe your estate planning needs or any questions you have..."
           />
         </div>
@@ -184,7 +184,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-amber-950 text-white py-3 px-6 rounded-md font-semibold hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors btn-hover"
+          className="w-full bg-primary text-on-primary py-3 px-6 rounded-md font-semibold hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors btn-hover"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>

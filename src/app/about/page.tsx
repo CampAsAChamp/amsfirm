@@ -9,7 +9,7 @@ import TestimonialCard from "../components/TestimonialCard";
 
 export default function About() {
   return (
-    <div className="bg-white">
+    <div className="bg-page">
       {/* Hero Section */}
       <HeroSection
         title="About AMS Law"
@@ -19,14 +19,14 @@ export default function About() {
       />
 
       {/* Attorney Profile */}
-      <section className="py-20 bg-amber-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-surface-secondary">
+        <div className="container-page">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-heading mb-6">
                 Meet Your Attorney
               </h2>
-              <div className="space-y-4 text-gray-600 mb-8">
+              <div className="space-y-4 text-body mb-8">
                 <p>
                   With over 15 years of experience in estate planning and probate law, 
                   I am dedicated to helping families protect their assets and ensure their 
@@ -46,9 +46,9 @@ export default function About() {
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Education & Credentials</h3>
-                <ul className="space-y-2 text-gray-600">
+              <div className="card-info">
+                <h3 className="text-xl font-semibold text-heading mb-4">Education & Credentials</h3>
+                <ul className="space-y-2 text-body">
                   <li>• Juris Doctor, [Law School Name]</li>
                   <li>• Bachelor of Arts, [University Name]</li>
                   <li>• Licensed to practice in [State]</li>
@@ -59,21 +59,21 @@ export default function About() {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="aspect-square bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
-                <svg className="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <div className="card">
+              <div className="aspect-square bg-placeholder rounded-lg mb-6 flex items-center justify-center">
+                <svg className="w-24 h-24 text-muted" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
               </div>
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Attorney Name</h3>
-                <p className="text-amber-950 font-semibold mb-4">Principal Attorney</p>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-2xl font-bold text-heading mb-2">Attorney Name</h3>
+                <p className="text-primary-hover font-semibold mb-4">Principal Attorney</p>
+                <p className="text-body mb-6">
                   Specializing in Estate Planning, Wills, Trusts, and Probate Administration
                 </p>
                 <Link
                   href="/contact"
-                  className="bg-amber-950 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors inline-block"
+                  className="btn-cta"
                 >
                   Schedule Consultation
                 </Link>
@@ -84,13 +84,13 @@ export default function About() {
       </section>
 
       {/* Philosophy */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="section-container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
               Our Philosophy
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-body max-w-3xl mx-auto">
               We believe that estate planning is about more than just legal documents—it&apos;s about 
               protecting the people and values you hold most dear.
             </p>
@@ -110,13 +110,13 @@ export default function About() {
       </section>
 
       {/* Experience & Results */}
-      <section className="py-20 bg-amber-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-surface-secondary">
+        <div className="container-page">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
               Experience & Results
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-body max-w-3xl mx-auto">
               Our track record speaks for itself. We&apos;ve helped hundreds of families 
               protect their assets and secure their legacies.
             </p>
@@ -132,8 +132,8 @@ export default function About() {
             ))}
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <div className="card">
+            <h3 className="text-2xl font-bold text-heading mb-6 text-center">
               What Our Clients Say
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

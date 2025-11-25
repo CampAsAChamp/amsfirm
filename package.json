@@ -2,6 +2,9 @@
   "name": "amslaw",
   "description": "Build a full-stack web application with Next.js.",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "cloudflare": {
     "label": "Next.js Framework Starter",
     "products": [

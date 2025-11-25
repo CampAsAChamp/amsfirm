@@ -1,19 +1,27 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-surface shadow-lg sticky top-0 z-50">
+      <div className="container-page">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-amber-950">
-              AMS Law
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/schneider-law-logo.svg" 
+                alt="Schneider Law" 
+                width={360} 
+                height={120}
+                className="h-24 md:h-28 w-auto"
+                priority
+              />
             </Link>
           </div>
 
@@ -22,31 +30,31 @@ export default function Navigation() {
             <div className="ml-10 flex items-baseline space-x-8">
               <Link
                 href="/"
-                className="text-gray-700 hover:text-amber-950 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-nav hover:text-primary-dark px-3 py-2 text-sm font-semibold transition-colors"
               >
                 Home
               </Link>
               <Link
                 href="/services"
-                className="text-gray-700 hover:text-amber-950 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-nav hover:text-primary-dark px-3 py-2 text-sm font-semibold transition-colors"
               >
                 Services
               </Link>
               <Link
                 href="/about"
-                className="text-gray-700 hover:text-amber-950 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-nav hover:text-primary-dark px-3 py-2 text-sm font-semibold transition-colors"
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className="text-gray-700 hover:text-amber-950 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-nav hover:text-primary-dark px-3 py-2 text-sm font-semibold transition-colors"
               >
                 Contact
               </Link>
               <Link
                 href="/contact"
-                className="bg-amber-950 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+                className="btn-nav"
               >
                 Free Consultation
               </Link>
@@ -57,7 +65,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-amber-950 focus:outline-none focus:text-amber-950"
+              className="text-nav hover:text-primary-dark focus:outline-none focus:text-primary-dark"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
@@ -73,38 +81,38 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface border-t">
               <Link
                 href="/"
-                className="text-gray-700 hover:text-amber-950 block px-3 py-2 text-base font-medium"
+                className="text-nav hover:text-primary-dark block px-3 py-2 text-base font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/services"
-                className="text-gray-700 hover:text-amber-950 block px-3 py-2 text-base font-medium"
+                className="text-nav hover:text-primary-dark block px-3 py-2 text-base font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
               <Link
                 href="/about"
-                className="text-gray-700 hover:text-amber-950 block px-3 py-2 text-base font-medium"
+                className="text-nav hover:text-primary-dark block px-3 py-2 text-base font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className="text-gray-700 hover:text-amber-950 block px-3 py-2 text-base font-medium"
+                className="text-nav hover:text-primary-dark block px-3 py-2 text-base font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
               <Link
                 href="/contact"
-                className="bg-amber-950 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 transition-colors"
+                className="btn-nav-mobile"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Free Consultation

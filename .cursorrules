@@ -1,0 +1,108 @@
+# Cursor Rules for AMS Law Project
+
+## Color Usage - STRICT RULE
+
+**NEVER hardcode colors in components or pages. ALWAYS use CSS variables and utility classes.**
+
+### ❌ NEVER DO THIS:
+- `className="text-white"` or `className="bg-white"`
+- `className="text-gray-500"` or `className="bg-gray-200"`
+- `style={{ color: '#ffffff' }}` or any inline hex colors
+- Direct hex color values like `#00AEEF` in components
+
+### ✅ ALWAYS DO THIS:
+
+#### For Text Colors:
+- **Headings on colored backgrounds**: Use `text-hero-heading`
+- **Body text on colored backgrounds**: Use `text-hero-body`
+- **Footer content**: Use `text-footer`
+- **Footer links**: Use `text-footer-muted`
+- **Regular body text**: Use `text-body`
+- **Headings**: Use `text-heading`
+- **Muted text**: Use `text-muted`
+- **Navigation text**: Use `text-nav`
+- **Text on primary colored backgrounds**: Use `text-on-primary`
+
+#### For Background Colors:
+- **Page background**: Use `bg-page`
+- **Card/surface background**: Use `bg-surface`
+- **Alternate section background**: Use `bg-surface-secondary`
+- **Subtle backgrounds**: Use `bg-surface-tertiary`
+- **Primary blue**: Use `bg-primary`
+- **Primary blue hover**: Use `bg-primary-hover`
+- **Primary dark blue**: Use `bg-primary-dark`
+- **Placeholder/gray backgrounds**: Use `bg-placeholder`
+
+#### For Buttons:
+- **Hero section primary button (blue)**: Use `btn-hero-primary`
+- **Hero section secondary button (white)**: Use `btn-hero-secondary`
+- **Call-to-action buttons (medium size)**: Use `btn-cta`
+- **Desktop navigation button**: Use `btn-nav`
+- **Mobile navigation button**: Use `btn-nav-mobile`
+- **Primary button (legacy)**: Use `btn-primary`
+- **Secondary button (legacy)**: Use `btn-secondary`
+
+#### For Borders:
+- Use `border-primary`, `border-primary-hover`, etc.
+
+### Color Variable Reference (globals.css)
+
+All colors are defined in `/src/app/globals.css`:
+```css
+--cyan-500: #00AEEF;           /* Primary blue */
+--cyan-700: #0284c7;           /* Primary blue hover */
+--cyan-900: #0c4a6e;           /* Primary dark */
+--cyan-200: #bae6fd;           /* Primary light */
+--cyan-50: #f0f9ff;            /* Primary lighter */
+
+--text-heading: #111827;       /* Dark headings */
+--text-body: #374151;          /* Body text */
+--text-muted: #6b7280;         /* Muted text */
+--text-nav: #374151;           /* Navigation text */
+--text-on-primary: #ffffff;    /* Text on colored backgrounds */
+
+--bg-surface: #ffffff;         /* Card backgrounds */
+--bg-surface-secondary: #f9fafb; /* Alternate sections */
+--bg-surface-tertiary: #e5e7eb;  /* Subtle backgrounds */
+--bg-page: #ffffff;            /* Page background */
+```
+
+### Why This Rule Exists
+
+1. **Maintainability**: Change colors site-wide by editing one file (globals.css)
+2. **Consistency**: All colors follow the design system
+3. **Theming**: Easy to implement dark mode or rebrand in the future
+4. **Accessibility**: Color variables can be adjusted for contrast requirements
+
+### Exception
+
+The ONLY place hex colors should appear is in `src/app/globals.css` where CSS variables are defined.
+
+---
+
+## Other Code Style Rules
+
+### Components
+- Always use TypeScript for type safety
+- Use functional components with hooks
+- Keep components focused and single-responsibility
+- Extract reusable logic into custom hooks
+
+### Styling
+- Use Tailwind CSS utility classes for layout and spacing
+- Use custom CSS utility classes (from globals.css) for colors and buttons
+- Avoid inline styles unless absolutely necessary
+- Keep component-specific styles in the component file only if they're truly unique
+
+### File Organization
+- Components go in `src/app/components/`
+- Pages go in their respective route folders (`src/app/[route]/`)
+- Shared constants and data go in `src/app/constants/`
+- All styling goes in `src/app/globals.css`
+
+### Naming Conventions
+- Components: PascalCase (e.g., `HeroSection.tsx`)
+- Utility functions: camelCase (e.g., `formatDate`)
+- CSS classes: kebab-case for custom classes, Tailwind utilities as-is
+- Constants: camelCase for objects, SCREAMING_SNAKE_CASE for true constants
+

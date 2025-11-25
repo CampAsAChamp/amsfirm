@@ -7,7 +7,7 @@ import ServiceCard from "./components/ServiceCard";
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-page">
       {/* Hero Section */}
       <HeroSection
         title="Protect Your Family's Future"
@@ -16,16 +16,17 @@ export default function Home() {
         primaryButtonLink="/contact"
         secondaryButtonText="Our Services"
         secondaryButtonLink="/services"
+        showLogo={true}
       />
 
       {/* Services Overview */}
-      <section className="section-padding bg-amber-50">
+      <section className="section-padding bg-surface-secondary">
         <div className="section-container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
               Comprehensive Estate Planning Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-body max-w-3xl mx-auto">
               We provide expert legal guidance to help you create a comprehensive estate plan 
               that protects your assets and ensures your wishes are carried out.
             </p>
@@ -48,13 +49,13 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="section-container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
               Why Choose AMS Law?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-body max-w-3xl mx-auto">
               With years of experience in estate planning, we provide personalized service 
               and expert guidance to protect what matters most to you.
             </p>
