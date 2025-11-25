@@ -1,36 +1,60 @@
-# Next.js Framework Starter
+# AMS Law - Anna M. Schneider Law Firm Website
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/next-starter-template)
+Professional law firm website built with Next.js and deployed on Cloudflare Workers.
 
-<!-- dash-content-start -->
+## Live Site
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It's deployed on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+🌐 **[annamschneiderlaw.com](https://annamschneiderlaw.com)**
 
-This template uses [OpenNext](https://opennext.js.org/) via the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare), which works by taking the Next.js build output and transforming it, so that it can run in Cloudflare Workers.
+The site automatically deploys to production when commits are pushed to the repository.
 
-<!-- dash-content-end -->
+## About This Project
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+This is the official website for Anna M. Schneider Law, a law firm specializing in professional legal services. The site is built with modern web technologies to provide a fast, accessible, and user-friendly experience for clients.
 
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/next-starter-template
-```
+## Tech Stack
 
-A live public deployment of this template is available at [https://next-starter-template.templates.workers.dev](https://next-starter-template.templates.workers.dev)
+- **Framework**: [Next.js](https://nextjs.org/) 15 (React-based)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with custom CSS variables for theming
+- **Deployment**: Cloudflare Workers via [OpenNext](https://opennext.js.org/)
+- **Runtime**: Node.js 22
 
-## Getting Started
+## Site Structure
 
-First, run:
+The website includes the following pages:
+
+- **Home** (`/`) - Hero section, key features, services overview, and call-to-action
+- **About** (`/about`) - Attorney profile, philosophy, and experience
+- **Services** (`/services`) - Detailed information about legal services offered
+- **Contact** (`/contact`) - Contact form, office information, and map
+
+## Prerequisites
+
+This project requires **Node.js 22** or higher.
+
+## Features
+
+- **Responsive Design** - Mobile-first approach with seamless desktop experience
+- **Component-Based Architecture** - Reusable React components for maintainability
+- **Type Safety** - Full TypeScript implementation
+- **Custom Design System** - CSS variables for consistent theming and easy customization
+- **Performance Optimized** - Static generation and edge deployment for fast load times
+- **SEO Friendly** - Proper meta tags and semantic HTML structure
+- **Contact Form** - Integrated contact form for client inquiries
+- **Interactive Maps** - Office location map integration
+
+## Development
+
+### Getting Started
+
+First, install dependencies:
 
 ```bash
 npm install
-# or
-yarn install
-# or
-bun install
 ```
 
-Then run the development server (using the package manager of your choice):
+Then run the development server:
 
 ```bash
 npm run dev
@@ -38,24 +62,63 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The page auto-updates as you edit files. Start by modifying `src/app/page.tsx` for the home page.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Project Structure
 
-## Deploying To Production
+```
+src/
+├── app/
+│   ├── about/           # About page and components
+│   ├── components/      # Reusable UI components
+│   │   ├── cards/       # Card components
+│   │   ├── forms/       # Form components
+│   │   ├── hero/        # Hero section
+│   │   ├── layout/      # Navigation, Footer
+│   │   └── sections/    # Section components
+│   ├── constants/       # Site data and configuration
+│   ├── contact/         # Contact page
+│   ├── services/        # Services page
+│   └── globals.css      # Global styles and CSS variables
+├── types/               # TypeScript type definitions
+└── utils/               # Utility functions
+```
+
+## Deployment
+
+### Automatic Deployment (Primary Method)
+
+Changes pushed to the repository are automatically built and deployed to [annamschneiderlaw.com](https://annamschneiderlaw.com) via Cloudflare Workers. No manual deployment steps required.
+
+### Manual Deployment (Optional)
 
 | Command                           | Action                                       |
 | :-------------------------------- | :------------------------------------------- |
 | `npm run build`                   | Build your production site                   |
 | `npm run preview`                 | Preview your build locally, before deploying |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare    |
-| `npm wrangler tail`               | View real-time logs for all Workers          |
+| `npm run build && npm run deploy` | Manually deploy to Cloudflare                |
+| `npm run wrangler tail`           | View real-time logs for all Workers          |
 
-## Learn More
+## Design System
 
-To learn more about Next.js, take a look at the following resources:
+This project uses a custom design system with CSS variables defined in `src/app/globals.css`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Color Variables** - Consistent color palette using CSS custom properties
+- **Utility Classes** - Pre-defined button styles, text colors, and backgrounds
+- **Responsive Breakpoints** - Tailwind CSS breakpoints for responsive design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Key Guidelines
+
+- Always use CSS variables and utility classes for colors (never hardcode colors)
+- Use absolute imports with `@/` alias for all local files
+- Follow TypeScript strict mode for type safety
+- Keep components focused and single-responsibility
+
+See `.cursorrules` for complete coding standards and conventions.
+
+## Resources
+
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js features and API
+- [Tailwind CSS](https://tailwindcss.com/docs) - Utility-first CSS framework
+- [OpenNext Documentation](https://opennext.js.org/) - Learn about the deployment adapter
+- [Cloudflare Workers](https://developers.cloudflare.com/workers/) - Deployment platform
