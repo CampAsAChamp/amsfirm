@@ -67,14 +67,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-hover mt-8 pt-8 text-center text-footer-muted">
-          <p>&copy; 2025 Anna M. Schneider Law. All rights reserved. | 
-            <Link href="/privacy" className="hover:text-on-primary transition-colors ml-2">
-              Privacy Policy
-            </Link> | 
-            <Link href="/terms" className="hover:text-on-primary transition-colors ml-2">
-              Terms of Service
-            </Link>
-          </p>
+          <p>&copy; 2025 Anna M. Schneider Law. All rights reserved.</p>
           <p className="mt-2 text-sm">
             This website is for informational purposes only and does not constitute legal advice.
           </p>
