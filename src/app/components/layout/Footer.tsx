@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CopyButton } from '@/app/components/ui';
 
 export default function Footer() {
   return (
@@ -14,10 +15,10 @@ export default function Footer() {
             </p>
             <div className="text-footer">
               <p className="mb-2">
-                <strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM
+                <strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 4:00 PM
               </p>
               <p className="mb-2">
-                <strong>Emergency:</strong> Available 24/7 for urgent matters
+                <strong>Saturday & Sunday:</strong> Closed
               </p>
             </div>
           </div>
@@ -56,11 +57,25 @@ export default function Footer() {
               <p>21250 Hawthorne Blvd.</p>
               <p>Suite 500</p>
               <p>Torrance, CA 90503</p>
-              <p className="mt-4">
-                <strong>Phone:</strong> (555) 123-4567
+              <p className="mt-4 flex items-center gap-2">
+                <strong>Phone:</strong>{' '}
+                <a 
+                  href="tel:3107927454" 
+                  className="text-footer-muted hover:text-on-primary transition-colors hover:underline"
+                >
+                  (310) 792-7454
+                </a>
+                <CopyButton textToCopy="(310) 792-7454" label="Copy phone number" className="text-footer-muted hover:text-on-primary" />
               </p>
-              <p>
-                <strong>Email:</strong> info@amslaw.com
+              <p className="flex items-center gap-2">
+                <strong>Email:</strong>{' '}
+                <a 
+                  href="mailto:amschneiderlaw@gmail.com" 
+                  className="text-footer-muted hover:text-on-primary transition-colors hover:underline"
+                >
+                  amschneiderlaw@gmail.com
+                </a>
+                <CopyButton textToCopy="amschneiderlaw@gmail.com" label="Copy email address" className="text-footer-muted hover:text-on-primary" />
               </p>
             </div>
           </div>

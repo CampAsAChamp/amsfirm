@@ -69,7 +69,7 @@ export default function Home() {
       <CallToAction
         title="Ready to Protect Your Legacy?"
         subtitle="Don't wait to secure your family's future. Schedule a consultation to discuss your estate planning needs."
-        buttonText="Schedule Consultation"
+        buttonText="Contact"
         buttonLink="/contact"
       />
     </div>

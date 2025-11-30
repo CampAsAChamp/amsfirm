@@ -52,11 +52,11 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
 
   return (
     <div className="card">
-      <h2 className="text-2xl font-bold text-heading mb-6">Schedule Your Consultation</h2>
+      <h2 className="text-2xl font-bold text-heading mb-6">Contact</h2>
       
       {submitStatus === 'success' && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-          Thank you for your message! We&apos;ll contact you within 24 hours to schedule your consultation.
+          Thank you for your message! We&apos;ll contact you within 24 hours.
         </div>
       )}
 
@@ -110,7 +110,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             value={formData.phone}
             onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            placeholder="(555) 123-4567"
+            placeholder="(310) 792-7454"
           />
         </div>
 
@@ -131,7 +131,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             <option value="trusts">Trust Planning</option>
             <option value="probate">Probate & Administration</option>
             <option value="estate-planning">Comprehensive Estate Planning</option>
-            <option value="consultation">Consultation</option>
+            <option value="general">General Inquiry</option>
             <option value="other">Other</option>
           </select>
         </div>

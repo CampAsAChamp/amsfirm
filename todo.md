@@ -1,31 +1,34 @@
 # Likes
--
 
 # Dislikes
--
 
 # Changes
-- Update About Me page
-- Update Consultation Page 
-    - Remove free
-    - Contact through Email/Phone for consultation
-    - Schedule is always up in the air so don't have specific calendar availability
-    - Form is still good
-    - Remove emergency services
-    - M-F 9-4
-    - Sat & Sun closed
-    - Update the location
-- Update the services
-  - Get proper services from Mom
-  - Get process stages from Mom 
-- Update the home page with main 
-- Get logo from Mom
-- Get headshots from Mom
-- Get info from living trust and wills markdown files
+- [ ] Update About Me page
+- [ ] Update Consultation Page 
+    - [x] Remove free
+    - [x] Contact through Email/Phone for consultation
+    - [x] Form is still good
+    - [x] Remove emergency services
+    - [x] M-F 9-4
+    - [x] Sat & Sun closed
+    - [x] Update the location
+- [ ] Update the services
+  - [ ] Get proper services from Mom
+  - [ ] Get process stages from Mom 
+- [ ] Update the home page with main 
+- [x] Get logo from Mom
+- [x] Get headshots from Mom
+- [x] Get info from living trust and wills markdown files
 
 # Address
-- 21250 Hawthorne Blvd. Suite 500, Torrance, CA 90503
+- [x] 21250 Hawthorne Blvd. Suite 500, Torrance, CA 90503
+
+# Phone
+- [x] (310) 792-7454
+
+# Email
+- [x] amschneiderlaw@gmail.com
 
 # Scheduling Link
-https://schneiderlaw.cliogrow.com/book/23e33029a379134b415e1386768a136d
+- [x]https://schneiderlaw.cliogrow.com/book/23e33029a379134b415e1386768a136d
 

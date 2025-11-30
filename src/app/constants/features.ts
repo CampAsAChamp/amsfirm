@@ -47,7 +47,7 @@ export const philosophyFeatures = [
 export const processSteps = [
   {
     stepNumber: 1,
-    title: "Initial Consultation",
+    title: "Initial Contact",
     description: "We discuss your goals, family situation, and assets to understand your needs."
   },
   {
@@ -69,20 +69,19 @@ export const processSteps = [
 
 // Statistics
 export const stats = [
-  { number: "500+", label: "Estate Plans Created" },
+  { number: "1000+", label: "Estate Plans Created" },
   { number: "15+", label: "Years Experience" },
-  { number: "100%", label: "Client Satisfaction" },
-  { number: "24/7", label: "Emergency Support" }
+  { number: "100%", label: "Client Satisfaction" }
 ];
 
 // Testimonials
 export const testimonials = [
   {
-    quote: "Attorney [Name] made the estate planning process so much easier than I expected. They explained everything clearly and helped us create a plan that truly protects our family.",
+    quote: "Anna made the estate planning process so much easier than I expected. She explained everything clearly and helped us create a plan that truly protects our family.",
     author: "Sarah M."
   },
   {
-    quote: "Professional, knowledgeable, and compassionate. They took the time to understand our unique situation and created a comprehensive plan that gives us peace of mind.",
+    quote: "Professional, knowledgeable, and compassionate. Anna took the time to understand our unique situation and created a comprehensive plan that gavs us peace of mind.",
     author: "Robert & Linda K."
   }
 ];

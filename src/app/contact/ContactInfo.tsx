@@ -1,3 +1,5 @@
+import { CopyButton } from '@/app/components/ui';
+
 export default function ContactInfo() {
   return (
     <div className="space-y-8">
@@ -10,11 +12,16 @@ export default function ContactInfo() {
             </svg>
             <div>
               <div className="font-semibold text-heading">Address</div>
-              <div className="text-body">
+              <a 
+                href="https://www.google.com/maps/place/21250+Hawthorne+Blvd,+Torrance,+CA+90503/@33.8361803,-118.353406,18.81z/data=!4m6!3m5!1s0x80c2b4d35aa9c9b3:0x9718c991148def10!8m2!3d33.8361935!4d-118.3526581!16s%2Fg%2F11bw3fbbpr?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-body hover:text-primary-hover transition-colors hover:underline"
+              >
                 21250 Hawthorne Blvd.<br />
                 Suite 500<br />
                 Torrance, CA 90503
-              </div>
+              </a>
             </div>
           </div>
 
@@ -24,7 +31,15 @@ export default function ContactInfo() {
             </svg>
             <div>
               <div className="font-semibold text-heading">Phone</div>
-              <div className="text-body">(555) 123-4567</div>
+              <div className="text-body flex items-center gap-2">
+                <a 
+                  href="tel:3107927454" 
+                  className="hover:text-primary-hover transition-colors hover:underline"
+                >
+                  (310) 792-7454
+                </a>
+                <CopyButton textToCopy="(310) 792-7454" label="Copy phone number" className="text-primary-hover hover:text-primary" />
+              </div>
             </div>
           </div>
 
@@ -35,7 +50,15 @@ export default function ContactInfo() {
             </svg>
             <div>
               <div className="font-semibold text-heading">Email</div>
-              <div className="text-body">info@amslaw.com</div>
+              <div className="text-body flex items-center gap-2">
+                <a 
+                  href="mailto:amschneiderlaw@gmail.com" 
+                  className="hover:text-primary-hover transition-colors hover:underline"
+                >
+                  amschneiderlaw@gmail.com
+                </a>
+                <CopyButton textToCopy="amschneiderlaw@gmail.com" label="Copy email address" className="text-primary-hover hover:text-primary" />
+              </div>
             </div>
           </div>
         </div>
@@ -46,27 +69,17 @@ export default function ContactInfo() {
         <div className="space-y-2 text-body">
           <div className="flex justify-between">
             <span>Monday - Friday</span>
-            <span>9:00 AM - 5:00 PM</span>
+            <span>9:00 AM - 4:00 PM</span>
           </div>
           <div className="flex justify-between">
-            <span>Saturday</span>
-            <span>By Appointment</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Sunday</span>
+            <span>Saturday & Sunday</span>
             <span>Closed</span>
-          </div>
-        </div>
-        <div className="mt-4 p-4 bg-primary-lighter rounded-lg">
-          <div className="font-semibold text-primary-dark mb-2">Emergency Services</div>
-          <div className="text-primary-hover text-sm">
-            Available 24/7 for urgent estate planning matters
           </div>
         </div>
       </div>
 
       <div className="card">
-        <h3 className="text-xl font-bold text-heading mb-6">Consultation Includes</h3>
+        <h3 className="text-xl font-bold text-heading mb-6">What to Expect</h3>
         <ul className="space-y-3 text-body">
           <li className="flex items-start">
             <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">

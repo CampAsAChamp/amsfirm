@@ -30,16 +30,24 @@ export default function AttorneyProfile() {
               </p>
             </div>
             
-            <div className="card-info">
-              <h3 className="text-xl font-semibold text-heading mb-4">Education & Credentials</h3>
-              <ul className="space-y-2 text-body">
-                <li>• Juris Doctor, [Law School Name]</li>
-                <li>• Bachelor of Arts, [University Name]</li>
-                <li>• Licensed to practice in [State]</li>
-                <li>• Member, [State] Bar Association</li>
-                <li>• Member, Estate Planning Council</li>
-                <li>• Certified Estate Planning Specialist</li>
-              </ul>
+            <div className="space-y-6">
+              <div className="card-info">
+                <h3 className="text-xl font-semibold text-heading mb-4">Education</h3>
+                <ul className="space-y-2 text-body">
+                  <li>• Juris Doctor - Whittier Law School</li>
+                  <li>• Bachelor of Science - California State University of Long Beach</li>
+                </ul>
+              </div>
+              
+              <div className="card-info">
+                <h3 className="text-xl font-semibold text-heading mb-4">Credentials</h3>
+                <ul className="space-y-2 text-body">
+                  <li>• Licensed to practice in California</li>
+                  <li>• California State Bar Association - Member</li>
+                  <li>• U.S. District Court for the Eastern District - State of California</li>
+                  <li>• U.S. District Court for the Central District - State of California</li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -57,13 +65,13 @@ export default function AttorneyProfile() {
               <h3 className="text-2xl font-bold text-heading mb-2">Amy Schneider</h3>
               <p className="text-primary-hover font-semibold mb-4">Principal Attorney</p>
               <p className="text-body mb-6">
-                Specializing in Estate Planning, Wills, Trusts, and Probate Administration
+                Focus on Estate Planning, Wills, Trusts, Trust Administration, and Probate matters.
               </p>
               <Link
                 href="/contact"
                 className="btn-cta"
               >
-                Schedule Consultation
+                Contact
               </Link>
             </div>
           </div>

@@ -8,9 +8,9 @@ export default function About() {
   return (
     <div className="bg-page">
       <HeroSection
-        title="About Anna M Schneider Law"
+        title="About Anna Schneider"
         subtitle="Dedicated to protecting your family's future with expert legal guidance and personalized estate planning solutions."
-        primaryButtonText="Schedule Consultation"
+        primaryButtonText="Contact"
         primaryButtonLink="/contact"
       />
 
@@ -21,7 +21,7 @@ export default function About() {
       <CallToAction
         title="Ready to Work Together?"
         subtitle="Let's discuss how we can help protect your family's future. Schedule a consultation to get started."
-        buttonText="Schedule Consultation"
+        buttonText="Contact"
         buttonLink="/contact"
       />
     </div>
