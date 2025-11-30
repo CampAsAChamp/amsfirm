@@ -1,4 +1,4 @@
-import { icons } from '@/app/constants/icons';
+import { icons } from './icons';
 
 // Service data for estate planning services
 export const services = [

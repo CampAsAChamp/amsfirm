@@ -1,7 +1,7 @@
 import HeroSection from "@/app/components/hero/HeroSection";
 import ContactForm from "@/app/components/forms/ContactForm";
-import ContactInfo from "@/app/contact/ContactInfo";
-import MapSection from "@/app/contact/MapSection";
+import ContactInfo from "./ContactInfo";
+import MapSection from "./MapSection";
 
 export default function Contact() {
   return (

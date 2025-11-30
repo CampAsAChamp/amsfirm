@@ -2,10 +2,10 @@ import "@/app/globals.css";
 
 import { Geist, Geist_Mono } from "next/font/google";
 
-import ConstructionBanner from "@/app/components/layout/ConstructionBanner";
-import Footer from "@/app/components/layout/Footer";
+import ConstructionBanner from "./components/layout/ConstructionBanner";
+import Footer from "./components/layout/Footer";
 import type { Metadata } from "next";
-import Navigation from "@/app/components/layout/Navigation";
+import Navigation from "./components/layout/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

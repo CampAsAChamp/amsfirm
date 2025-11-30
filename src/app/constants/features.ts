@@ -1,4 +1,4 @@
-import { icons } from '@/app/constants/icons';
+import { icons } from './icons';
 
 // Why choose us features
 export const whyChooseUsFeatures = [
