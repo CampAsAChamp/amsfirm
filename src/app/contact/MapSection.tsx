@@ -4,10 +4,10 @@ export default function MapSection() {
       <div className="container-page">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
-            Visit Our Office
+            Visit My Office
           </h2>
           <p className="text-xl text-body max-w-3xl mx-auto mb-4">
-            Conveniently located in Torrance, our office provides a comfortable and 
+            Conveniently located in Torrance, my office provides a comfortable and 
             professional environment for your consultation.
           </p>
           <a 

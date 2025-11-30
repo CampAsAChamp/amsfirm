@@ -20,7 +20,7 @@ export default function About() {
 
       <CallToAction
         title="Ready to Work Together?"
-        subtitle="Let's discuss how we can help protect your family's future. Schedule a consultation to get started."
+        subtitle="Let's discuss how I can help protect your family's future. Schedule a consultation to get started."
         buttonText="Contact"
         buttonLink="/contact"
       />

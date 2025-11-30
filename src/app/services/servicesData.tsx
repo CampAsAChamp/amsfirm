@@ -8,13 +8,9 @@ export const servicesData = [
       "A will is the foundation of any estate plan. It ensures your assets are distributed according to your wishes and provides for your loved ones after you're gone.",
     sections: [
       {
-        heading: "What We Include:",
+        heading: "What I Include:",
         items: [
           "Last Will and Testament",
-          "Living Will (Healthcare Directive)",
-          "Durable Power of Attorney",
-          "Healthcare Power of Attorney",
-          "HIPAA Authorization",
           "Asset Inventory and Planning",
         ],
       },
@@ -24,54 +20,58 @@ export const servicesData = [
           "Control asset distribution",
           "Name guardians for minor children",
           "Minimize family disputes",
-          "Reduce probate costs and delays",
           "Ensure your wishes are legally binding",
         ],
       },
     ],
-    buttonText: "Get Started Today",
-    buttonLink: "/contact",
   },
   {
     icon: icons.trustLarge,
-    title: "Trust Planning",
+    title: "Revocable Living Trusts (RLT)",
     description:
-      "Trusts offer advanced estate planning benefits including asset protection, tax minimization, and avoiding probate while maintaining control over your assets.",
+      "Trusts offer advanced estate planning benefits including asset protection, tax minimization, and avoiding probate while maintaining control over your assets. Unlike a will, which must go through probate, a living trust allows for a seamless transfer of assets without court involvement.",
     sections: [
-      {
-        heading: "Types of Trusts We Create:",
-        items: [
-          "Revocable Living Trusts",
-          "Irrevocable Trusts",
-          "Special Needs Trusts",
-          "Charitable Remainder Trusts",
-          "Asset Protection Trusts",
-          "Generation-Skipping Trusts",
-        ],
-      },
       {
         heading: "Trust Benefits:",
         items: [
           "Avoid probate proceedings",
           "Maintain privacy",
-          "Reduce estate taxes",
+          "Maintain control over your assets during your lifetime",
           "Protect assets from creditors",
-          "Provide for special needs beneficiaries",
+          "Transfer of assets after your passing",
           "Control distribution timing",
         ],
       },
     ],
-    buttonText: "Learn More",
-    buttonLink: "/contact",
+  },
+  {
+    icon: icons.probateLarge,
+    title: "Advance Healthcare Directive & Durable Power of Attorney",
+    description:
+      "Both are legal documents that allow an agent to make decisions for you during your lifetime.",
+    sections: [
+      {
+        heading: "Advance Healthcare Directive",
+        items: [
+          <>This is a legal document that allows you to appoint an agent to make <strong><em>healthcare</em></strong> decisions for you if you are unable to do so yourself.</>,
+        ],
+      },
+      {
+        heading: "Durable Power of Attorney",
+        items: [
+          <>This is a legal document that allows you to appoint an agent to make <strong><em>financial</em></strong> decisions for you if you are unable to do so yourself.</>,
+        ],
+      },
+    ],
   },
   {
     icon: icons.probateLarge,
     title: "Probate & Administration",
     description:
-      "When a loved one passes away, navigating the probate process can be overwhelming. We guide you through every step with compassion and expertise.",
+      "When a loved one passes away, navigating the probate process can be overwhelming. I guide you through every step with compassion and expertise.",
     sections: [
       {
-        heading: "Our Probate Services:",
+        heading: "My Probate Services:",
         items: [
           "Probate Court Filings",
           "Estate Administration",
@@ -82,7 +82,7 @@ export const servicesData = [
         ],
       },
       {
-        heading: "How We Help:",
+        heading: "How I Help:",
         items: [
           "Handle all court proceedings",
           "Manage estate assets",
@@ -93,8 +93,6 @@ export const servicesData = [
         ],
       },
     ],
-    buttonText: "Get Help Now",
-    buttonLink: "/contact",
   },
   {
     icon: icons.checkmarkLarge,
@@ -125,8 +123,6 @@ export const servicesData = [
         ],
       },
     ],
-    buttonText: "Start Planning",
-    buttonLink: "/contact",
   },
 ];
 

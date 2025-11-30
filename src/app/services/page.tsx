@@ -28,8 +28,6 @@ export default function Services() {
                 title={service.title}
                 description={service.description}
                 sections={service.sections}
-                buttonText={service.buttonText}
-                buttonLink={service.buttonLink}
               />
             ))}
           </div>
@@ -40,17 +38,19 @@ export default function Services() {
       <section className="section-padding bg-surface">
         <div className="section-container">
           <SectionHeader
-            title="Our Simple Process"
-            subtitle="We make estate planning straightforward and stress-free with our proven process that ensures your documents are comprehensive and legally sound."
+            title="My Simple Process"
+            subtitle="I make estate planning straightforward and understandable that ensures your documents are comprehensive and legally sound."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
             {processSteps.map((step, index) => (
               <ProcessStep
                 key={index}
                 stepNumber={step.stepNumber}
+                icon={step.icon}
                 title={step.title}
                 description={step.description}
+                showArrow={index < processSteps.length - 1}
               />
             ))}
           </div>

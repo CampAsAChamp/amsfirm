@@ -8,7 +8,6 @@ export const services = [
     description: "Create legally binding documents that ensure your assets are distributed according to your wishes and your family is protected.",
     features: [
       "Last Will and Testament",
-      "Living Wills",
       "Healthcare Directives",
       "Power of Attorney"
     ]

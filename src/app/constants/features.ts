@@ -5,7 +5,7 @@ export const whyChooseUsFeatures = [
   {
     icon: icons.checkmark,
     title: "Expert Knowledge",
-    description: "Specialized expertise in estate planning and probate law"
+    description: "Expertise in estate planning and probate law"
   },
   {
     icon: icons.checkmark,
@@ -29,17 +29,17 @@ export const philosophyFeatures = [
   {
     icon: icons.heart,
     title: "Compassionate Service",
-    description: "We understand that estate planning involves sensitive family matters. We approach every case with empathy and respect for your unique situation."
+    description: "I understand that estate planning involves sensitive family matters. I approach every case with empathy and respect for your unique situation."
   },
   {
     icon: icons.checkmark,
     title: "Expert Knowledge",
-    description: "Our specialized focus on estate planning means we stay current with the latest laws and strategies to provide you with the best possible protection."
+    description: "My focus on estate planning means I stay current with the latest laws and strategies to provide you with the best possible outcome for your family."
   },
   {
     icon: icons.info,
     title: "Clear Communication",
-    description: "Legal matters can be complex, but we explain everything in plain language so you understand your options and can make informed decisions."
+    description: "Legal matters can be complex, but I explain everything in plain language so you understand your options and can make informed decisions."
   }
 ];
 
@@ -47,31 +47,34 @@ export const philosophyFeatures = [
 export const processSteps = [
   {
     stepNumber: 1,
+    icon: icons.phoneContact,
     title: "Initial Contact",
-    description: "We discuss your goals, family situation, and assets to understand your needs."
+    description: "I discuss your goals, family situation, and assets to understand your needs."
   },
   {
     stepNumber: 2,
-    title: "Custom Plan",
-    description: "We create a personalized estate plan tailored to your specific circumstances."
+    icon: icons.documentEdit,
+    title: "Create Your Plan",
+    description: "I create a personalized estate plan tailored to your specific circumstances."
   },
   {
     stepNumber: 3,
+    icon: icons.documentSearch,
     title: "Document Review",
-    description: "We review all documents with you to ensure they meet your expectations."
+    description: "I send all documents to you for review and approval to ensure they meet your goals & needs."
   },
   {
     stepNumber: 4,
-    title: "Execution",
-    description: "We guide you through signing and properly executing your estate plan."
+    icon: icons.documentCheck,
+    title: "Sign & Finalize",
+    description: "We meet to sign and properly execute your estate plan documents."
   }
 ];
 
 // Statistics
 export const stats = [
   { number: "1000+", label: "Estate Plans Created" },
-  { number: "15+", label: "Years Experience" },
-  { number: "100%", label: "Client Satisfaction" }
+  { number: "30+", label: "Years Experience" },
 ];
 
 // Testimonials

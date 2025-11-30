@@ -7,10 +7,10 @@ export default function PhilosophySection() {
       <div className="section-container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
-            Our Philosophy
+            My Philosophy
           </h2>
           <p className="text-xl text-body max-w-3xl mx-auto">
-            We believe that estate planning is about more than just legal documents—it&apos;s about 
+            I believe that estate planning is about more than just legal documents—it&apos;s about 
             protecting the people and values you hold most dear.
           </p>
         </div>

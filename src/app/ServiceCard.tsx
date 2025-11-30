@@ -1,13 +1,10 @@
-import Link from 'next/link';
 import { ServiceCardProps } from '@/types';
 
 export default function ServiceCard({
   icon,
   title,
   description,
-  features,
-  buttonText,
-  buttonLink
+  features
 }: ServiceCardProps) {
   return (
     <div className="card-base">
@@ -18,17 +15,11 @@ export default function ServiceCard({
       <p className="text-body mb-6">
         {description}
       </p>
-      <ul className="text-sm text-body space-y-2 mb-6">
+      <ul className="text-sm text-body space-y-2">
         {features.map((feature, index) => (
           <li key={index}>• {feature}</li>
         ))}
       </ul>
-      <Link
-        href={buttonLink}
-        className="btn-primary"
-      >
-        {buttonText}
-      </Link>
     </div>
   );
 }

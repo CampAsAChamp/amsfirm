@@ -31,7 +31,7 @@ export default function ConstructionBanner() {
               <span className="font-semibold">Website Under Construction</span>
               <span className="hidden sm:inline">
                 {" "}
-                — We&apos;re currently updating our website. Some features may be unavailable.
+                — I&apos;m currently updating my website. Some features may be unavailable.
               </span>
             </div>
           </div>

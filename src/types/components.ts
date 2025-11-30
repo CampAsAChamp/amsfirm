@@ -5,8 +5,6 @@ export interface ServiceCardProps {
   title: string;
   description: string;
   features: string[];
-  buttonText: string;
-  buttonLink: string;
 }
 
 export interface FeatureCardProps {
@@ -17,8 +15,10 @@ export interface FeatureCardProps {
 
 export interface ProcessStepProps {
   stepNumber: number;
+  icon: React.ReactNode;
   title: string;
   description: string;
+  showArrow?: boolean;
 }
 
 export interface StatsCardProps {

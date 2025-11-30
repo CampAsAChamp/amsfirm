@@ -15,7 +15,7 @@ export default function Home() {
         subtitle="Expert legal services for wills, trusts, and estate planning. Secure your legacy with professional guidance you can trust."
         primaryButtonText="Contact"
         primaryButtonLink="/contact"
-        secondaryButtonText="Our Services"
+        secondaryButtonText="Services"
         secondaryButtonLink="/services"
         showLogo={true}
       />
@@ -25,7 +25,7 @@ export default function Home() {
         <div className="section-container">
           <SectionHeader
             title="Comprehensive Estate Planning Services"
-            subtitle="We provide expert legal guidance to help you create a comprehensive estate plan that protects your assets and ensures your wishes are carried out."
+            subtitle="I provide expert legal guidance to help you create a comprehensive estate plan that protects your assets and ensures your wishes are carried out."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -36,8 +36,6 @@ export default function Home() {
                 title={service.title}
                 description={service.description}
                 features={service.features}
-                buttonText="Learn More"
-                buttonLink="/services"
               />
             ))}
           </div>
@@ -49,7 +47,7 @@ export default function Home() {
         <div className="section-container">
           <SectionHeader
             title="Why Choose Anna M Schneider Law?"
-            subtitle="With years of experience in estate planning, we provide personalized service and expert guidance to protect what matters most to you."
+            subtitle="With years of experience in estate planning, I provide personalized service and expert guidance to protect what matters most to you."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

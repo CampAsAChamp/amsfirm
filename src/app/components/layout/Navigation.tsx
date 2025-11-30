@@ -41,6 +41,12 @@ export default function Navigation() {
                 Services
               </Link>
               <Link
+                href="/faq"
+                className="text-nav hover:text-primary-dark px-3 py-2 text-sm font-semibold transition-colors"
+              >
+                FAQ
+              </Link>
+              <Link
                 href="/about"
                 className="text-nav hover:text-primary-dark px-3 py-2 text-sm font-semibold transition-colors"
               >
@@ -89,6 +95,13 @@ export default function Navigation() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
+              </Link>
+              <Link
+                href="/faq"
+                className="text-nav hover:text-primary-dark block px-3 py-2 text-base font-semibold"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                FAQ
               </Link>
               <Link
                 href="/about"

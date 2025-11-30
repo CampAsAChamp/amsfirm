@@ -11,12 +11,12 @@ export default function ExperienceResults() {
             Experience & Results
           </h2>
           <p className="text-xl text-body max-w-3xl mx-auto">
-            Our track record speaks for itself. We&apos;ve helped hundreds of families 
-            protect their assets and secure their legacies.
+            I have helped hundreds of families 
+            transfer their assets and secure their legacies.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {stats.map((stat, index) => (
             <StatsCard
               key={index}
@@ -28,7 +28,7 @@ export default function ExperienceResults() {
 
         <div className="card">
           <h3 className="text-2xl font-bold text-heading mb-6 text-center">
-            What Our Clients Say
+            What My Clients Say
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
