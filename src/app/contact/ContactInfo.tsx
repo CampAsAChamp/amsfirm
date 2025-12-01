@@ -1,5 +1,5 @@
 import { CopyButton } from '@/app/components/ui';
-import { icons, whatToExpect } from '@/app/constants';
+import { icons, whatToExpect, officeHours } from '@/app/constants';
 
 export default function ContactInfo() {
   return (
@@ -68,14 +68,12 @@ export default function ContactInfo() {
       <div className="card">
         <h3 className="text-xl font-bold text-heading mb-6">Office Hours</h3>
         <div className="space-y-2 text-body">
-          <div className="flex justify-between">
-            <span>Monday - Friday</span>
-            <span>9:00 AM - 4:00 PM</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Saturday - Sunday</span>
-            <span>Closed</span>
-          </div>
+          {officeHours.map((schedule, index) => (
+            <div key={index} className="flex justify-between">
+              <span>{schedule.days}</span>
+              <span>{schedule.hours}</span>
+            </div>
+          ))}
         </div>
       </div>
 

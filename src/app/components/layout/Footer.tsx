@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CopyButton } from '@/app/components/ui';
-import { navigationLinks } from '@/app/constants';
+import { navigationLinks, officeHours } from '@/app/constants';
 
 export default function Footer() {
   return (
@@ -19,8 +19,11 @@ export default function Footer() {
                 <strong>Office Hours:</strong>
               </p>
               <ul className="ml-4 space-y-1 list-disc list-inside text-sm">
-                <li><strong>Mon - Fri:</strong> 9:00 AM - 4:00 PM</li>
-                <li><strong>Sat - Sun:</strong> Closed</li>
+                {officeHours.map((schedule, index) => (
+                  <li key={index}>
+                    <strong>{schedule.days}:</strong> {schedule.hours}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
