@@ -2,4 +2,5 @@
 export * from './icons';
 export * from './services';
 export * from './features';
+export * from './contact';
 

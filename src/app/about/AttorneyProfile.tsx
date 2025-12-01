@@ -17,7 +17,7 @@ export default function AttorneyProfile() {
                 wishes are carried out exactly as intended.
               </p>
               <p>
-                Allowing me to provide extra care and tailored solutions to my clients for each family's unique situation. 
+                Allowing me to provide extra care and tailored solutions to my clients for each family&apos;s unique situation. 
                 I believe that every family deserves personalized attention
               </p>
               <p>

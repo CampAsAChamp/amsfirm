@@ -27,7 +27,7 @@ export const servicesData = [
   },
   {
     icon: icons.trustLarge,
-    title: "Revocable Living Trusts (RLT)",
+    title: "Trust Planning",
     description:
       "Trusts offer advanced estate planning benefits including asset protection, tax minimization, and avoiding probate while maintaining control over your assets. Unlike a will, which must go through probate, a living trust allows for a seamless transfer of assets without court involvement.",
     sections: [
@@ -65,8 +65,24 @@ export const servicesData = [
     ],
   },
   {
+    icon: icons.trustLarge,
+    title: "Trust Administration",
+    description:
+      "After the passing of a person, who has created a Living Trust, the successor trustee is responsible for administering the Trust and distributing the assets to the beneficiaries.",
+    sections: [
+      {
+        items: [
+          "Gather and inventory trust assets",
+          "Pay any debts and taxes",
+          "Transfer assets to beneficiaries",
+          "Follow the instructions in the Trust",
+        ],
+      },
+    ],
+  },
+  {
     icon: icons.probateLarge,
-    title: "Probate & Administration",
+    title: "Probate",
     description:
       "When a loved one passes away, navigating the probate process can be overwhelming. I guide you through every step with compassion and expertise.",
     sections: [
@@ -77,19 +93,7 @@ export const servicesData = [
           "Estate Administration",
           "Asset Inventory and Valuation",
           "Creditor Notification",
-          "Tax Return Preparation",
           "Final Distribution to Beneficiaries",
-        ],
-      },
-      {
-        heading: "How I Help:",
-        items: [
-          "Handle all court proceedings",
-          "Manage estate assets",
-          "Resolve disputes among heirs",
-          "Minimize delays and costs",
-          "Ensure legal compliance",
-          "Provide peace of mind",
         ],
       },
     ],
@@ -105,9 +109,6 @@ export const servicesData = [
         items: [
           "Will and Trust Creation",
           "Beneficiary Designations",
-          "Tax Planning Strategies",
-          "Business Succession Planning",
-          "Charitable Giving Plans",
           "Regular Plan Reviews",
         ],
       },
@@ -115,11 +116,9 @@ export const servicesData = [
         heading: "Planning Benefits:",
         items: [
           "Protect your family's future",
-          "Minimize estate taxes",
           "Avoid probate delays",
           "Maintain asset control",
           "Plan for incapacity",
-          "Ensure business continuity",
         ],
       },
     ],

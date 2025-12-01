@@ -3,7 +3,7 @@ interface ServiceDetailProps {
   title: string;
   description: string;
   sections: {
-    heading: string;
+    heading?: string;
     items: (string | React.ReactNode)[];
   }[];
 }
@@ -24,7 +24,9 @@ export default function ServiceDetail({
       
       {sections.map((section, index) => (
         <div key={index} className="mb-6">
-          <h3 className="text-lg font-semibold text-heading mb-3">{section.heading}</h3>
+          {section.heading && (
+            <h3 className="text-lg font-semibold text-heading mb-3">{section.heading}</h3>
+          )}
           {section.items.length === 1 ? (
             <p className="text-body">{section.items[0]}</p>
           ) : (
