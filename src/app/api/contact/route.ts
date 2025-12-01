@@ -3,8 +3,6 @@ import { NextResponse } from 'next/server';
 import { FormData } from '@/types';
 import { generateContactEmailHTML } from './emailTemplate';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const body = await request.json() as FormData;
@@ -17,6 +15,9 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    // Initialize Resend client at runtime (not build time)
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
