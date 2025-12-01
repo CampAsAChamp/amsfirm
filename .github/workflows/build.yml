@@ -1,4 +1,4 @@
-name: CI/CD - Build, Lint & Deploy
+name: CI - Build & Lint
 
 on:
   push:
@@ -9,9 +9,9 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build-and-lint:
     runs-on: ubuntu-latest
-    name: Build, Lint and Deploy
+    name: Build and Lint
     
     steps:
       - name: Checkout code
@@ -34,14 +34,4 @@ jobs:
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
-
-      - name: Build OpenNext for Cloudflare
-        run: npx opennextjs-cloudflare build
-
-      - name: Deploy to Cloudflare Workers
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
