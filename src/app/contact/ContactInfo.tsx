@@ -1,4 +1,5 @@
 import { CopyButton } from '@/app/components/ui';
+import { icons, whatToExpect } from '@/app/constants';
 
 export default function ContactInfo() {
   return (
@@ -81,30 +82,12 @@ export default function ContactInfo() {
       <div className="card">
         <h3 className="text-xl font-bold text-heading mb-6">What to Expect</h3>
         <ul className="space-y-3 text-body">
-          <li className="flex items-start">
-            <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>Review of your current situation</span>
-          </li>
-          <li className="flex items-start">
-            <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>Discussion of your goals and concerns</span>
-          </li>
-          <li className="flex items-start">
-            <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>Explanation of available options</span>
-          </li>
-          <li className="flex items-start">
-            <svg className="w-5 h-5 text-primary-hover mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>No obligation to proceed</span>
-          </li>
+          {whatToExpect.map((item, index) => (
+            <li key={index} className="flex items-start">
+              {icons.checkmarkSmall}
+              <span>{item}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

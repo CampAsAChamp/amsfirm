@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ContactFormProps, FormData } from '@/types';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ContactForm({ onSubmit }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -26,15 +27,27 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
     
     try {
       if (onSubmit) {
         await onSubmit(formData);
       } else {
-        // Default form submission simulation
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Send email via API route
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to send message');
+        }
       }
       setSubmitStatus('success');
+      toast.success("Email sent successfully!");
       setFormData({
         name: '',
         email: '',
@@ -45,26 +58,64 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
       });
     } catch {
       setSubmitStatus('error');
+      toast.error('Failed to send message. Please try again or call us directly.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="card">
-      <h2 className="text-2xl font-bold text-heading mb-6">Contact</h2>
-      
-      {submitStatus === 'success' && (
-        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-          Thank you for your message! I&apos;ll contact you within 24 hours.
-        </div>
-      )}
+    <>
+      <Toaster 
+        position="bottom-center"
+        toastOptions={{
+          duration: 5000,
+          style: {
+            background: 'var(--bg-surface)',
+            color: 'var(--text-body)',
+            borderRadius: 'var(--border-radius-lg)',
+            boxShadow: 'var(--shadow-xl)',
+            padding: '16px 24px',
+            fontSize: '16px',
+            fontWeight: '500',
+            maxWidth: '500px',
+          },
+          success: {
+            style: {
+              background: '#10b981',
+              color: 'white',
+            },
+            iconTheme: {
+              primary: 'white',
+              secondary: '#10b981',
+            },
+          },
+          error: {
+            style: {
+              background: '#ef4444',
+              color: 'white',
+            },
+            iconTheme: {
+              primary: 'white',
+              secondary: '#ef4444',
+            },
+          },
+        }}
+      />
+      <div className="card">
+        <h2 className="text-2xl font-bold text-heading mb-6">Contact</h2>
+        
+        {submitStatus === 'success' && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+            Email sent successfully!
+          </div>
+        )}
 
-      {submitStatus === 'error' && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-          There was an error sending your message. Please try again or call us directly.
-        </div>
-      )}
+        {submitStatus === 'error' && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+            There was an error sending your message. Please try again or call us directly.
+          </div>
+        )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
@@ -177,7 +228,8 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>
-    </div>
+      </div>
+    </>
   );
 }
 
