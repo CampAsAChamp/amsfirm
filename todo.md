@@ -6,6 +6,7 @@
 - [ ] Update About Me page
 - [ ] Update icons
 - [ ] Fix mobile logo
+- [ ] Add animations
 - [x] Update Consultation Page 
     - [x] Remove free
     - [x] Contact through Email/Phone for consultation
