@@ -19,7 +19,7 @@ export default function HeroSection({
           {showLogo && (
             <div className="mb-16 flex justify-center">
               <Image 
-                src="/schneider-law-logo.svg" 
+                src="/schneider-law-logo.svg?v=2" 
                 alt="Schneider Law" 
                 width={400} 
                 height={133}

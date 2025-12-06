@@ -16,7 +16,7 @@ export default function Navigation() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/schneider-law-logo.svg" 
+                src="/schneider-law-logo.svg?v=2" 
                 alt="Schneider Law" 
                 width={360} 
                 height={120}
