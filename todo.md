@@ -5,6 +5,7 @@
 # Changes
 - [ ] Update About Me page
 - [ ] Update icons
+- [ ] Update/recreate logo
 - [ ] Fix mobile logo
 - [ ] Add animations
 - [x] Update Consultation Page 
