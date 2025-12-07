@@ -28,6 +28,7 @@ export default function Services() {
                 title={service.title}
                 description={service.description}
                 sections={service.sections}
+                delay={0.1 + index * 0.15}
               />
             ))}
           </div>

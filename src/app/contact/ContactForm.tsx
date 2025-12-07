@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { ContactFormProps, FormData } from '@/types';
 import toast, { Toaster } from 'react-hot-toast';
-import { contactInfo } from '@/app/data';
-import { formatPhoneNumber } from '@/utils';
+import { motion } from 'framer-motion';
+import FormField from '@/app/components/ui/FormField';
 
 export default function ContactForm({ onSubmit }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -13,11 +13,39 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
     phone: '',
     subject: '',
     message: '',
-    preferredContact: 'email'
+    preferredContact: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Animation delay constants
+  const ANIMATION_BASE_DELAY = 0.1;
+  const ANIMATION_DELAY_INCREMENT = 0.05;
+
+  const cardVariants = {
+    initial: { 
+      scaleX: 0.05,
+      scaleY: 0.05,
+      opacity: 0
+    },
+    animate: { 
+      scaleX: 1,
+      scaleY: 1,
+      opacity: 1
+    }
+  };
+
+  const contentVariants = {
+    initial: { 
+      opacity: 0,
+      y: 10
+    },
+    animate: { 
+      opacity: 1,
+      y: 0
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -56,7 +84,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         phone: '',
         subject: '',
         message: '',
-        preferredContact: 'email'
+        preferredContact: ''
       });
     } catch {
       setSubmitStatus('error');
@@ -104,10 +132,30 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
           },
         }}
       />
-      <div className="card">
-        <h2 className="text-2xl font-bold text-heading mb-6">Contact</h2>
-        
-        {submitStatus === 'success' && (
+      <motion.div 
+        className="card"
+        variants={cardVariants}
+        initial="initial"
+        animate="animate"
+        transition={{ 
+          type: 'spring' as const,
+          stiffness: 200,
+          damping: 20,
+          delay: 0.1
+        }}
+      >
+        <motion.div
+          variants={contentVariants}
+          initial="initial"
+          animate="animate"
+          transition={{ 
+            duration: 0.4,
+            delay: 0.4
+          }}
+        >
+          <h2 className="text-2xl font-bold text-heading mb-6">Contact</h2>
+          
+          {submitStatus === 'success' && (
           <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
             Email sent successfully!
           </div>
@@ -120,117 +168,101 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-nav mb-2">
-            Full Name *
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            placeholder="Your full name"
-          />
-        </div>
+        <FormField
+          id="name"
+          name="name"
+          label="Full Name"
+          type="text"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          placeholder="Your full name"
+          delay={ANIMATION_BASE_DELAY}
+        />
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-nav mb-2">
-            Email Address *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            placeholder="your.email@example.com"
-          />
-        </div>
+        <FormField
+          id="email"
+          name="email"
+          label="Email Address"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          placeholder="your.email@example.com"
+          delay={ANIMATION_BASE_DELAY + ANIMATION_DELAY_INCREMENT}
+        />
 
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-nav mb-2">
-            Phone Number
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            placeholder={formatPhoneNumber(contactInfo.phone)}
-          />
-        </div>
+        <FormField
+          id="phone"
+          name="phone"
+          label="Phone Number"
+          type="tel"
+          value={formData.phone}
+          onChange={handleChange}
+          placeholder="(555) 123-4567"
+          delay={ANIMATION_BASE_DELAY + ANIMATION_DELAY_INCREMENT * 2}
+        />
 
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-nav mb-2">
-            Subject *
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          >
-            <option value="">Select a subject</option>
-            <option value="wills">Wills & Testaments</option>
-            <option value="trusts">Trust Planning</option>
-            <option value="probate">Probate & Administration</option>
-            <option value="estate-planning">Comprehensive Estate Planning</option>
-            <option value="general">General Inquiry</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+        <FormField
+          id="subject"
+          name="subject"
+          label="Subject"
+          type="select"
+          value={formData.subject}
+          onChange={handleChange}
+          required
+          delay={ANIMATION_BASE_DELAY + ANIMATION_DELAY_INCREMENT * 3}
+          options={[
+            { value: '', label: 'Select a subject' },
+            { value: 'wills', label: 'Wills & Testaments' },
+            { value: 'trusts', label: 'Trust Planning' },
+            { value: 'probate', label: 'Probate & Administration' },
+            { value: 'estate-planning', label: 'Comprehensive Estate Planning' },
+            { value: 'general', label: 'General Inquiry' },
+            { value: 'other', label: 'Other' },
+          ]}
+        />
 
-        <div>
-          <label htmlFor="preferredContact" className="block text-sm font-medium text-nav mb-2">
-            Preferred Contact Method
-          </label>
-          <select
-            id="preferredContact"
-            name="preferredContact"
-            value={formData.preferredContact}
-            onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          >
-            <option value="email">Email</option>
-            <option value="phone">Phone</option>
-            <option value="either">Either Email or Phone</option>
-          </select>
-        </div>
+        <FormField
+          id="preferredContact"
+          name="preferredContact"
+          label="Preferred Contact Method"
+          type="select"
+          value={formData.preferredContact}
+          onChange={handleChange}
+          required
+          delay={ANIMATION_BASE_DELAY + ANIMATION_DELAY_INCREMENT * 4}
+          options={[
+            { value: '', label: 'Select a contact method' },
+            { value: 'email', label: 'Email' },
+            { value: 'phone', label: 'Phone' },
+            { value: 'either', label: 'Either Email or Phone' },
+          ]}
+        />
 
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-nav mb-2">
-            Message *
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={5}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            placeholder="Please describe your estate planning needs or any questions you have..."
-          />
-        </div>
+        <FormField
+          id="message"
+          name="message"
+          label="Message"
+          type="textarea"
+          value={formData.message}
+          onChange={handleChange}
+          required
+          placeholder="Please describe your estate planning needs or any questions you have..."
+          rows={5}
+          delay={ANIMATION_BASE_DELAY + ANIMATION_DELAY_INCREMENT * 5}
+        />
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-primary text-on-primary py-3 px-6 rounded-md font-semibold hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors btn-hover"
+          className="w-full bg-primary text-on-primary py-3 px-6 rounded-md font-semibold hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 }

@@ -5,12 +5,14 @@ export interface ServiceCardProps {
   title: string;
   description: string;
   features: string[];
+  delay?: number;
 }
 
 export interface FeatureCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  delay?: number;
 }
 
 export interface ProcessStepProps {
@@ -54,6 +56,7 @@ export interface SectionHeaderProps {
   title: string;
   subtitle: string;
   className?: string;
+  delay?: number;
 }
 
 export interface ContactFormProps {

@@ -17,17 +17,19 @@
     --light-bg: #fafbfc;
     --medium-bg: #f5f6f7;
   
-    /* Semantic text colors */
-    --text-heading: #111827;
-    /* gray-900 for headings */
-    --text-body: #374151;
-    /* gray-700 for body text - darker for better legibility */
-    --text-muted: #6b7280;
-    /* gray-500 for muted text */
-    --text-nav: #374151;
-    /* gray-700 for navigation */
-    --text-on-primary: #ffffff;
-    /* white text on colored backgrounds */
+  /* Semantic text colors */
+  --text-heading: #111827;
+  /* gray-900 for headings */
+  --text-body: #374151;
+  /* gray-700 for body text - darker for better legibility */
+  --text-muted: #6b7280;
+  /* gray-500 for muted text */
+  --text-placeholder: #9ca3af;
+  /* gray-400 for placeholder text in inputs and selects */
+  --text-nav: #374151;
+  /* gray-700 for navigation */
+  --text-on-primary: #ffffff;
+  /* white text on colored backgrounds */
   
     /* Semantic background colors */
     --bg-surface: #ffffff;
@@ -58,6 +60,7 @@
   /* Common transitions */
     --transition-colors: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
     --transition-shadow: box-shadow 0.15s ease-in-out;
+    --transition-button: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 @theme inline {
@@ -80,13 +83,14 @@
       --color-light: #fafbfc;
       --color-medium: #f5f6f7;
     
-      /* Semantic text color mappings */
-      --color-text-heading: var(--text-heading);
-      --color-text-body: var(--text-body);
-      --color-text-muted: var(--text-muted);
-      --color-text-nav: var(--text-nav);
-      --color-text-on-primary: var(--text-on-primary);
-      --color-on-primary: var(--text-on-primary);
+    /* Semantic text color mappings */
+    --color-text-heading: var(--text-heading);
+    --color-text-body: var(--text-body);
+    --color-text-muted: var(--text-muted);
+    --color-text-placeholder: var(--text-placeholder);
+    --color-text-nav: var(--text-nav);
+    --color-text-on-primary: var(--text-on-primary);
+    --color-on-primary: var(--text-on-primary);
     
       /* Border radius mappings */
       --radius-sm: var(--border-radius-sm);
@@ -105,6 +109,11 @@
       --color-surface-secondary: var(--bg-surface-secondary);
       --color-surface-tertiary: var(--bg-surface-tertiary);
       --color-page: var(--bg-page);
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -146,13 +155,16 @@ body {
   padding: 1rem 2rem;
   border-radius: var(--border-radius-lg);
   font-weight: 600;
-  transition: var(--transition-colors);
+  transition: var(--transition-button);
   display: inline-block;
   text-decoration: none;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-blue-hover);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-secondary {
@@ -161,15 +173,18 @@ body {
   padding: 1rem 2rem;
   border-radius: var(--border-radius-lg);
   font-weight: 600;
-  transition: var(--transition-colors);
+  transition: var(--transition-button);
   display: inline-block;
   text-decoration: none;
   border: 2px solid white;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary:hover {
   background-color: white;
   color: var(--primary-blue);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
 }
 
 .icon-circle {
@@ -267,13 +282,16 @@ body {
     border-radius: var(--border-radius-lg);
     font-size: 1.125rem;
     font-weight: 600;
-    transition: var(--transition-colors);
+    transition: var(--transition-button);
     display: inline-block;
     text-decoration: none;
+    box-shadow: var(--shadow-md);
   }
   
   .btn-hero-primary:hover {
     background-color: var(--primary-blue-hover);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
   }
   
   .btn-hero-secondary {
@@ -283,14 +301,17 @@ body {
     border-radius: var(--border-radius-lg);
     font-size: 1.125rem;
     font-weight: 600;
-    transition: var(--transition-colors);
+    transition: var(--transition-button);
     display: inline-block;
     text-decoration: none;
+    box-shadow: var(--shadow-md);
   }
   
   .btn-hero-secondary:hover {
     background-color: white;
     color: var(--primary-blue);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
   }
   
   /* CTA button styles - used in service cards and other content */
@@ -300,13 +321,16 @@ body {
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius-lg);
     font-weight: 600;
-    transition: var(--transition-colors);
+    transition: var(--transition-button);
     display: inline-block;
     text-decoration: none;
+    box-shadow: var(--shadow-md);
   }
   
   .btn-cta:hover {
     background-color: var(--primary-blue-hover);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
   }
   
   /* Background utilities */
@@ -322,11 +346,14 @@ body {
     border-radius: var(--border-radius-lg);
     font-size: 0.875rem;
     font-weight: 600;
-    transition: var(--transition-colors);
+    transition: var(--transition-button);
+    box-shadow: var(--shadow-md);
   }
   
   .btn-nav:hover {
     background-color: var(--primary-blue-hover);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
   }
   
   .btn-nav-mobile {
@@ -337,9 +364,47 @@ body {
     border-radius: var(--border-radius-lg);
     font-size: 1rem;
     font-weight: 600;
-    transition: var(--transition-colors);
+    transition: var(--transition-button);
+    box-shadow: var(--shadow-md);
   }
   
   .btn-nav-mobile:hover {
     background-color: var(--primary-blue-hover);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Navigation link wipe animation */
+.nav-link-wipe {
+  color: var(--text-nav);
+  background: linear-gradient(
+    to right,
+    var(--cyan-500) 0%,
+    var(--cyan-500) 50%,
+    var(--text-nav) 50%,
+    var(--text-nav) 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.5s ease;
+}
+
+.nav-link-wipe:hover {
+  background-position: 0 0;
+}
+
+/* Select dropdown placeholder styling */
+select option[value=""] {
+  color: var(--text-placeholder);
+}
+
+select.select-placeholder {
+  color: var(--text-placeholder);
+}
+
+select:not(.select-placeholder) {
+  color: var(--text-body);
 }

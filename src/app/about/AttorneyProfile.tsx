@@ -1,5 +1,8 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from 'framer-motion';
 
 export default function AttorneyProfile() {
   return (
@@ -7,10 +10,29 @@ export default function AttorneyProfile() {
       <div className="container-page">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-heading mb-6">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold text-heading mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.6,
+                ease: [0.25, 0.4, 0.25, 1]
+              }}
+            >
               Meet Your Attorney
-            </h2>
-            <div className="space-y-4 text-body mb-8">
+            </motion.h2>
+            <motion.div 
+              className="space-y-4 text-body mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.1,
+                ease: [0.25, 0.4, 0.25, 1]
+              }}
+            >
               <p>
                 I have been a practicing attorney for 32 years and focus on <strong>Estate Planning</strong>, <strong>Wills</strong>, <strong>Trusts</strong>, <strong>Trust Administration</strong>, and <strong>Probate</strong> matters.
                 I am dedicated to helping families protect their assets and ensure their 
@@ -26,18 +48,38 @@ export default function AttorneyProfile() {
                 communication. My goal is to make the process as straightforward as possible 
                 while ensuring your family&apos;s future is secure.
               </p>
-            </div>
+            </motion.div>
             
             <div className="space-y-6">
-              <div className="card-info">
+              <motion.div 
+                className="card-info"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.2,
+                  ease: [0.25, 0.4, 0.25, 1]
+                }}
+              >
                 <h3 className="text-xl font-semibold text-heading mb-4">Education</h3>
                 <ul className="space-y-2 text-body">
                   <li>• Juris Doctor - Whittier Law School</li>
                   <li>• Bachelor of Science - California State University of Long Beach</li>
                 </ul>
-              </div>
+              </motion.div>
               
-              <div className="card-info">
+              <motion.div 
+                className="card-info"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.3,
+                  ease: [0.25, 0.4, 0.25, 1]
+                }}
+              >
                 <h3 className="text-xl font-semibold text-heading mb-4">Credentials</h3>
                 <ul className="space-y-2 text-body">
                   <li>• Licensed to practice in California</li>
@@ -45,11 +87,21 @@ export default function AttorneyProfile() {
                   <li>• U.S. District Court for the Eastern District - State of California</li>
                   <li>• U.S. District Court for the Central District - State of California</li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
 
-          <div className="card">
+          <motion.div 
+            className="card"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{
+              duration: 0.7,
+              delay: 0.15,
+              ease: [0.25, 0.4, 0.25, 1]
+            }}
+          >
             <div className="relative w-full aspect-square rounded-lg overflow-hidden mb-6">
               <Image 
                 src="/attorney-headshot.jpg" 
@@ -72,7 +124,7 @@ export default function AttorneyProfile() {
                 Contact
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

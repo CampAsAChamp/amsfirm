@@ -26,6 +26,7 @@ export default function Home() {
           <SectionHeader
             title="Comprehensive Estate Planning Services"
             subtitle="I provide expert legal guidance to help you create a comprehensive estate plan that protects your assets and ensures your wishes are carried out."
+            delay={0.8}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -36,6 +37,7 @@ export default function Home() {
                 title={service.title}
                 description={service.description}
                 features={service.features}
+                delay={1.0 + index * 0.15}
               />
             ))}
           </div>
@@ -57,6 +59,7 @@ export default function Home() {
                 icon={feature.icon}
                 title={feature.title}
                 description={feature.description}
+                delay={0.35 + index * 0.15}
               />
             ))}
           </div>

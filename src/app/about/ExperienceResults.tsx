@@ -1,22 +1,54 @@
+'use client';
+
 import { stats, testimonials } from "@/app/data";
 import StatsCard from "@/app/about/StatsCard";
 import TestimonialCard from "@/app/about/TestimonialCard";
+import { motion } from 'framer-motion';
 
 export default function ExperienceResults() {
   return (
     <section className="py-20 bg-surface-secondary">
       <div className="container-page">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-heading mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{
+              duration: 0.6,
+              ease: [0.25, 0.4, 0.25, 1]
+            }}
+          >
             Experience & Results
-          </h2>
-          <p className="text-xl text-body max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-body max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.1,
+              ease: [0.25, 0.4, 0.25, 1]
+            }}
+          >
             I have helped hundreds of families 
             transfer their assets and secure their legacies.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{
+            duration: 0.6,
+            delay: 0.2,
+            ease: [0.25, 0.4, 0.25, 1]
+          }}
+        >
           {stats.map((stat, index) => (
             <StatsCard
               key={index}
@@ -24,9 +56,19 @@ export default function ExperienceResults() {
               label={stat.label}
             />
           ))}
-        </div>
+        </motion.div>
 
-        <div className="card">
+        <motion.div 
+          className="card"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{
+            duration: 0.7,
+            delay: 0.3,
+            ease: [0.25, 0.4, 0.25, 1]
+          }}
+        >
           <h3 className="text-2xl font-bold text-heading mb-6 text-center">
             What My Clients Say
           </h3>
@@ -39,7 +81,7 @@ export default function ExperienceResults() {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

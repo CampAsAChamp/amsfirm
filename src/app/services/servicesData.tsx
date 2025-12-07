@@ -53,13 +53,13 @@ export const servicesData = [
       {
         heading: "Advance Healthcare Directive",
         items: [
-          <>This is a legal document that allows you to appoint an agent to make <strong><em>healthcare</em></strong> decisions for you if you are unable to do so yourself.</>,
+          <span key="healthcare">This is a legal document that allows you to appoint an agent to make <strong><em>healthcare</em></strong> decisions for you if you are unable to do so yourself.</span>,
         ],
       },
       {
         heading: "Durable Power of Attorney",
         items: [
-          <>This is a legal document that allows you to appoint an agent to make <strong><em>financial</em></strong> decisions for you if you are unable to do so yourself.</>,
+          <span key="financial">This is a legal document that allows you to appoint an agent to make <strong><em>financial</em></strong> decisions for you if you are unable to do so yourself.</span>,
         ],
       },
     ],

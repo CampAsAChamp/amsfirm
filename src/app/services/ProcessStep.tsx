@@ -1,9 +1,27 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { ProcessStepProps } from '@/types';
 
 export default function ProcessStep({ stepNumber, icon, title, description, showArrow = false }: ProcessStepProps) {
+  // Base delay to allow SectionHeader to animate in first
+  const baseDelay = 0.35;
+  // Calculate delay based on step number (0.2s between each step)
+  const animationDelay = baseDelay + (stepNumber - 1) * 0.2;
+
   return (
     <div className="flex items-center gap-4">
-      <div className="text-center flex-1">
+      <motion.div 
+        className="text-center flex-1"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{
+          duration: 0.5,
+          delay: animationDelay,
+          ease: [0.25, 0.4, 0.25, 1]
+        }}
+      >
         <div className="relative inline-flex justify-center items-center mb-4">
           <div className="bg-surface-tertiary w-20 h-20 rounded-full flex items-center justify-center text-primary">
             {icon}
@@ -14,10 +32,20 @@ export default function ProcessStep({ stepNumber, icon, title, description, show
         </div>
         <h3 className="text-lg font-semibold text-heading mb-2">{title}</h3>
         <p className="text-body">{description}</p>
-      </div>
+      </motion.div>
       
       {showArrow && (
-        <div className="hidden md:block flex-shrink-0">
+        <motion.div 
+          className="hidden md:block flex-shrink-0"
+          initial={{ opacity: 0, x: -10 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{
+            duration: 0.4,
+            delay: animationDelay + 0.3,
+            ease: [0.25, 0.4, 0.25, 1]
+          }}
+        >
           <svg 
             className="w-8 h-8 text-primary" 
             fill="none" 
@@ -31,7 +59,7 @@ export default function ProcessStep({ stepNumber, icon, title, description, show
               d="M13 7l5 5m0 0l-5 5m5-5H6" 
             />
           </svg>
-        </div>
+        </motion.div>
       )}
     </div>
   );
