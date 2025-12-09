@@ -23,7 +23,7 @@ export default function Navigation() {
                 alt="Schneider Law" 
                 width={360} 
                 height={120}
-                className="h-10 md:h-12 w-auto"
+                className="h-6 md:h-8 w-auto"
                 priority
               />
             </Link>
