@@ -10,11 +10,11 @@ export const whatToExpect = [
 
 export const officeHours: OfficeHours[] = [
   {
-    days: "Monday - Friday",
+    days: "Monday - Thursday",
     hours: "9:00 AM - 4:00 PM",
   },
   {
-    days: "Saturday - Sunday",
+    days: "Friday - Sunday",
     hours: "Closed",
   },
 ];
