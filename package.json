@@ -29,7 +29,6 @@
     "resend": "^6.5.2"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.13",
     "@types/react": "^19",
@@ -47,7 +46,7 @@
     "check": "npm run build && tsc",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "dev": "next dev",
-    "lint": "next lint",
+    "lint": "eslint .",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "start": "next start",
     "prepare": "husky"
