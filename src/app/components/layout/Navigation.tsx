@@ -70,7 +70,7 @@ export default function Navigation() {
                 {/* Top line */}
                 <span 
                   className={`block h-0.5 w-full bg-nav transition-all duration-300 ease-in-out ${
-                    isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                    isMenuOpen ? 'rotate-45 translate-y-[9px]' : ''
                   }`}
                 />
                 {/* Middle line */}
@@ -82,7 +82,7 @@ export default function Navigation() {
                 {/* Bottom line */}
                 <span 
                   className={`block h-0.5 w-full bg-nav transition-all duration-300 ease-in-out ${
-                    isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                    isMenuOpen ? '-rotate-45 -translate-y-[9px]' : ''
                   }`}
                 />
               </div>
