@@ -17,8 +17,8 @@ test.describe('Contact Form', () => {
 
     // Fill out the form
     await page.getByLabel('Full Name').fill('John Doe');
-    await page.getByLabel('Email Address').fill('john.doe@example.com');
-    await page.getByLabel('Phone Number').fill('(555) 123-4567');
+    await page.getByRole('textbox', { name: /Email Address/i }).fill('john.doe@example.com');
+    await page.getByRole('textbox', { name: /Phone Number/i }).fill('(555) 123-4567');
     await page.getByLabel('Subject').selectOption('estate-planning');
     await page.getByLabel('Preferred Contact Method').selectOption('email');
     await page.getByLabel('Message').fill('I would like to discuss estate planning options for my family.');
@@ -26,13 +26,13 @@ test.describe('Contact Form', () => {
     // Submit the form
     await page.getByRole('button', { name: /send message/i }).click();
 
-    // Wait for success toast to appear
-    await expect(page.getByText(/email sent successfully/i)).toBeVisible({ timeout: 5000 });
+    // Wait for success toast to appear (use role=status to target the toast specifically)
+    await expect(page.getByRole('status')).toContainText(/email sent successfully/i, { timeout: 5000 });
 
     // Verify form is cleared after successful submission
     await expect(page.getByLabel('Full Name')).toHaveValue('');
-    await expect(page.getByLabel('Email Address')).toHaveValue('');
-    await expect(page.getByLabel('Phone Number')).toHaveValue('');
+    await expect(page.getByRole('textbox', { name: /Email Address/i })).toHaveValue('');
+    await expect(page.getByRole('textbox', { name: /Phone Number/i })).toHaveValue('');
     await expect(page.getByLabel('Message')).toHaveValue('');
   });
 
@@ -48,7 +48,7 @@ test.describe('Contact Form', () => {
 
     // Fill out the form
     await page.getByLabel('Full Name').fill('Jane Smith');
-    await page.getByLabel('Email Address').fill('jane.smith@example.com');
+    await page.getByRole('textbox', { name: /Email Address/i }).fill('jane.smith@example.com');
     await page.getByLabel('Subject').selectOption('wills');
     await page.getByLabel('Preferred Contact Method').selectOption('phone');
     await page.getByLabel('Message').fill('I need help with creating a will.');
@@ -56,12 +56,12 @@ test.describe('Contact Form', () => {
     // Submit the form
     await page.getByRole('button', { name: /send message/i }).click();
 
-    // Wait for error toast to appear
-    await expect(page.getByText(/failed to send message/i)).toBeVisible({ timeout: 5000 });
+    // Wait for error toast to appear (use role=status to target the toast specifically)
+    await expect(page.getByRole('status')).toContainText(/failed to send message/i, { timeout: 5000 });
 
     // Verify form data is preserved after error
     await expect(page.getByLabel('Full Name')).toHaveValue('Jane Smith');
-    await expect(page.getByLabel('Email Address')).toHaveValue('jane.smith@example.com');
+    await expect(page.getByRole('textbox', { name: /Email Address/i })).toHaveValue('jane.smith@example.com');
     await expect(page.getByLabel('Message')).toHaveValue('I need help with creating a will.');
   });
 
@@ -83,7 +83,7 @@ test.describe('Contact Form', () => {
   test('disables submit button while submitting', async ({ page }) => {
     // Mock a slow API response
     await page.route('**/api/contact', async (route) => {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
       await route.fulfill({
         status: 200,
         contentType: 'application/json',
@@ -93,24 +93,27 @@ test.describe('Contact Form', () => {
 
     // Fill out the form
     await page.getByLabel('Full Name').fill('Test User');
-    await page.getByLabel('Email Address').fill('test@example.com');
+    await page.getByRole('textbox', { name: /Email Address/i }).fill('test@example.com');
     await page.getByLabel('Subject').selectOption('general');
     await page.getByLabel('Preferred Contact Method').selectOption('either');
     await page.getByLabel('Message').fill('Test message');
 
-    // Submit the form
-    const submitButton = page.getByRole('button', { name: /send message/i });
+    // Get the submit button by its type attribute (more stable than text)
+    const submitButton = page.locator('button[type="submit"]');
+    
+    // Click the submit button
     await submitButton.click();
-
-    // Check that button is disabled and shows "Sending..."
+    
+    // The button should show "Sending..." and be disabled
+    await expect(submitButton).toContainText(/sending/i, { timeout: 1000 });
     await expect(submitButton).toBeDisabled();
-    await expect(submitButton).toContainText(/sending/i);
 
-    // Wait for submission to complete
-    await expect(page.getByText(/email sent successfully/i)).toBeVisible({ timeout: 5000 });
+    // Wait for submission to complete (use role=status to target the toast)
+    await expect(page.getByRole('status')).toContainText(/email sent successfully/i, { timeout: 5000 });
 
-    // Button should be enabled again
+    // Button should be enabled again and show "Send Message"
     await expect(submitButton).toBeEnabled();
+    await expect(submitButton).toContainText(/send message/i);
   });
 
   test('navigates to contact page from home', async ({ page }) => {
