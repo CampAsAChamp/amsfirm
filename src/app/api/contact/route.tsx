@@ -1,7 +1,8 @@
 import { Resend } from "resend"
 import { NextResponse } from "next/server"
 import { FormData } from "@/types"
-import { generateContactEmailHTML } from "./emailTemplate"
+import { render } from "@react-email/components"
+import { ContactEmailTemplate } from "@/app/components/contact/ContactEmailTemplate"
 
 export async function POST(request: Request) {
   try {
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
       to: process.env.CONTACT_EMAIL || "your-email@example.com", // Your email address
       replyTo: email, // User's email for easy replies
       subject: subjectLine,
-      html: await generateContactEmailHTML(body),
+      html: await render(<ContactEmailTemplate {...body} />),
     })
 
     if (error) {
