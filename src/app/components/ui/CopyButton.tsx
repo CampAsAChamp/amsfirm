@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { icons } from "@/app/data"
+import { Check } from "lucide-react"
 
 interface CopyButtonProps {
   textToCopy: string
@@ -30,7 +30,7 @@ export default function CopyButton({ textToCopy, label = "Copy", className = "" 
       aria-label={label}
     >
       {copied ? (
-        icons.checkmarkTiny
+        <Check className="w-4 h-4" />
       ) : (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

@@ -1,8 +1,8 @@
-import { icons } from "@/app/data/icons"
+import { FileSignature, Scroll, HeartPulse, ClipboardCheck, Gavel, ShieldCheck } from "lucide-react"
 
 export const servicesData = [
   {
-    icon: icons.willLarge,
+    icon: <FileSignature className="w-16 h-16" />,
     title: "Wills & Testaments",
     description:
       "A will is the foundation of any estate plan. It ensures your assets are distributed according to your wishes and provides for your loved ones after you're gone.",
@@ -23,7 +23,7 @@ export const servicesData = [
     ],
   },
   {
-    icon: icons.trustLarge,
+    icon: <Scroll className="w-16 h-16" />,
     title: "Trust Planning",
     description:
       "Trusts offer advanced estate planning benefits including asset protection, tax minimization, and avoiding probate while maintaining control over your assets. Unlike a will, which must go through probate, a living trust allows for a seamless transfer of assets without court involvement.",
@@ -42,7 +42,7 @@ export const servicesData = [
     ],
   },
   {
-    icon: icons.healthcareLarge,
+    icon: <HeartPulse className="w-16 h-16" />,
     title: "Advance Healthcare Directive & Durable Power of Attorney",
     description: "Both are legal documents that allow an agent to make decisions for you during your lifetime.",
     sections: [
@@ -73,7 +73,7 @@ export const servicesData = [
     ],
   },
   {
-    icon: icons.trustAdminLarge,
+    icon: <ClipboardCheck className="w-16 h-16" />,
     title: "Trust Administration",
     description:
       "After the passing of a person, who has created a Living Trust, the successor trustee is responsible for administering the Trust and distributing the assets to the beneficiaries.",
@@ -89,7 +89,7 @@ export const servicesData = [
     ],
   },
   {
-    icon: icons.probateLarge,
+    icon: <Gavel className="w-16 h-16" />,
     title: "Probate",
     description:
       "When a loved one passes away, navigating the probate process can be overwhelming. I guide you through every step with compassion and expertise.",
@@ -107,7 +107,7 @@ export const servicesData = [
     ],
   },
   {
-    icon: icons.comprehensiveLarge,
+    icon: <ShieldCheck className="w-16 h-16" />,
     title: "Comprehensive Estate Planning",
     description:
       "A complete estate plan protects your family and assets while minimizing taxes and ensuring your wishes are carried out exactly as you intend.",

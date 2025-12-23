@@ -1,24 +1,35 @@
-import { icons } from "./icons"
+import {
+  GraduationCap,
+  UserCheck,
+  Lock,
+  Clock,
+  Heart,
+  MessageCircle,
+  Handshake,
+  FileEdit,
+  FileSearch,
+  FileCheck,
+} from "lucide-react"
 
 // Why choose us features
 export const whyChooseUsFeatures = [
   {
-    icon: icons.expertise,
+    icon: <GraduationCap className="w-8 h-8 text-primary-hover" />,
     title: "Expert Knowledge",
     description: "Expertise in estate planning and probate law",
   },
   {
-    icon: icons.personalized,
+    icon: <UserCheck className="w-8 h-8 text-primary-hover" />,
     title: "Personalized Service",
     description: "Tailored solutions that meet your unique needs and goals",
   },
   {
-    icon: icons.lock,
+    icon: <Lock className="w-8 h-8 text-primary-hover" />,
     title: "Confidentiality",
     description: "Complete privacy and discretion in all matters",
   },
   {
-    icon: icons.clock,
+    icon: <Clock className="w-8 h-8 text-primary-hover" />,
     title: "Quick Response",
     description: "Fast, reliable service when you need it most",
   },
@@ -27,19 +38,19 @@ export const whyChooseUsFeatures = [
 // Philosophy features
 export const philosophyFeatures = [
   {
-    icon: icons.heart,
+    icon: <Heart className="w-8 h-8 text-primary-hover" />,
     title: "Compassionate Service",
     description:
       "I understand that estate planning involves sensitive family matters. I approach every case with empathy and respect for your unique situation.",
   },
   {
-    icon: icons.expertise,
+    icon: <GraduationCap className="w-8 h-8 text-primary-hover" />,
     title: "Expert Knowledge",
     description:
       "My focus on estate planning means I stay current with the latest laws and strategies to provide you with the best possible outcome for your family.",
   },
   {
-    icon: icons.communication,
+    icon: <MessageCircle className="w-8 h-8 text-primary-hover" />,
     title: "Clear Communication",
     description:
       "Legal matters can be complex, but I explain everything in plain language so you understand your options and can make informed decisions.",
@@ -50,25 +61,25 @@ export const philosophyFeatures = [
 export const processSteps = [
   {
     stepNumber: 1,
-    icon: icons.initialContact,
+    icon: <Handshake className="w-12 h-12" />,
     title: "Initial Contact",
     description: "I discuss your goals, family situation, and assets to understand your needs.",
   },
   {
     stepNumber: 2,
-    icon: icons.documentEdit,
+    icon: <FileEdit className="w-12 h-12" />,
     title: "Create Your Plan",
     description: "I create a personalized estate plan tailored to your specific circumstances.",
   },
   {
     stepNumber: 3,
-    icon: icons.documentSearch,
+    icon: <FileSearch className="w-12 h-12" />,
     title: "Document Review",
     description: "I send all documents to you for review and approval to ensure they meet your goals & needs.",
   },
   {
     stepNumber: 4,
-    icon: icons.documentCheck,
+    icon: <FileCheck className="w-12 h-12" />,
     title: "Sign & Finalize",
     description: "We meet to sign and properly execute your estate plan documents.",
   },

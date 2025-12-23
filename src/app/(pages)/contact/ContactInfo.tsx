@@ -1,8 +1,8 @@
 "use client"
 
-import { MapPin, Phone, Mail } from "lucide-react"
+import { MapPin, Phone, Mail, Check } from "lucide-react"
 import { AddressDisplay, AnimatedCard, CopyButton } from "@/app/components/ui"
-import { icons, whatToExpect, officeHours, contactInfo } from "@/app/data"
+import { whatToExpect, officeHours, contactInfo } from "@/app/data"
 import { formatPhoneNumber, formatAddressMultiLine } from "@/utils"
 
 export default function ContactInfo() {
@@ -84,7 +84,9 @@ export default function ContactInfo() {
         <ul className="space-y-3 text-body">
           {whatToExpect.map((item, index) => (
             <li key={index} className="flex items-start gap-3">
-              <span className="mt-0.5">{icons.checkmarkSmall}</span>
+              <span className="mt-0.5">
+                <Check className="w-5 h-5 text-primary-hover flex-shrink-0" />
+              </span>
               <span>{item}</span>
             </li>
           ))}

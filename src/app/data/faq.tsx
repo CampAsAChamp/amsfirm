@@ -1,4 +1,4 @@
-import { icons } from "./icons"
+import { Scroll, FileSignature, Scale, Route, Play } from "lucide-react"
 
 export interface FAQ {
   id: string
@@ -15,7 +15,7 @@ export interface FAQCategory {
 export const faqCategories: FAQCategory[] = [
   {
     title: "Living Trusts",
-    icon: icons.faqTrust,
+    icon: <Scroll className="w-6 h-6 text-primary" />,
     faqs: [
       {
         id: "1",
@@ -51,7 +51,7 @@ export const faqCategories: FAQCategory[] = [
   },
   {
     title: "Wills",
-    icon: icons.faqWill,
+    icon: <FileSignature className="w-6 h-6 text-primary" />,
     faqs: [
       {
         id: "4",
@@ -69,7 +69,7 @@ export const faqCategories: FAQCategory[] = [
   },
   {
     title: "Wills vs. Trusts",
-    icon: icons.faqCompare,
+    icon: <Scale className="w-6 h-6 text-primary" />,
     faqs: [
       {
         id: "6",
@@ -93,7 +93,7 @@ export const faqCategories: FAQCategory[] = [
   },
   {
     title: "The Estate Planning Process",
-    icon: icons.faqProcess,
+    icon: <Route className="w-6 h-6 text-primary" />,
     faqs: [
       {
         id: "8",
@@ -117,7 +117,7 @@ export const faqCategories: FAQCategory[] = [
   },
   {
     title: "Getting Started",
-    icon: icons.faqStart,
+    icon: <Play className="w-6 h-6 text-primary" />,
     faqs: [
       {
         id: "13",
