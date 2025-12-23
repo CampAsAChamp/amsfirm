@@ -1,17 +1,7 @@
-echo "🔍 Running checks before push..."
+echo "🔍 Running tests before push..."
 echo ""
 
-echo "📝 Step 1/2: Running linter..."
-yarn lint
-
-if [ $? -ne 0 ]; then
-  echo "❌ Lint failed! Fix errors before pushing."
-  exit 1
-fi
-echo "✅ Lint passed!"
-echo ""
-
-echo "🧪 Step 2/2: Running unit tests..."
+echo "🧪 Running unit tests..."
 yarn test
 
 if [ $? -ne 0 ]; then

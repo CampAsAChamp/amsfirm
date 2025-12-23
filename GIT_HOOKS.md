@@ -16,10 +16,10 @@ Automatically runs on every `git commit`:
 
 Automatically runs on every `git push`:
 
-- **ESLint**: Runs full linter check on entire codebase
 - **Unit Tests**: Runs full test suite (`yarn test`)
-- Prevents push if linting errors or test failures are found
+- Prevents push if test failures are found
 - **Note**: E2E tests are NOT run on push (too slow - run those manually before merging)
+- **Note**: ESLint is NOT run on push (already runs on every commit via pre-commit hook)
 
 ## How It Works
 
@@ -74,15 +74,17 @@ When you run `git commit`:
 ### Why This Approach?
 
 - **Pre-commit** (fast ~1-5s): Lint & format only staged files
-- **Pre-push** (moderate ~10-30s): Full lint + unit tests
+- **Pre-push** (moderate ~5-30s): Unit tests only
 - **CI/CD or Manual**: E2E tests (slower, run before merging PRs)
 
 This provides:
 
 - ✅ Quick commits during development
 - ✅ Verified code before it reaches remote
-- ✅ No frustrating delays
+- ✅ No frustrating delays or redundant checks
 - ✅ Prevents broken code in repository
+
+**Why no linting on push?** Every commit already passed ESLint via the pre-commit hook, so running it again would be redundant.
 
 ### Running Tests Manually
 
@@ -108,7 +110,7 @@ In rare cases where you need to skip hooks:
 # Skip pre-commit hook (skip lint/format)
 git commit --no-verify
 
-# Skip pre-push hook (skip lint/tests)
+# Skip pre-push hook (skip tests)
 git push --no-verify
 ```
 
