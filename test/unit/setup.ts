@@ -17,6 +17,16 @@ Object.defineProperty(window, "matchMedia", {
   })),
 })
 
+// Mock clipboard API
+const mockWriteText = vi.fn().mockResolvedValue(undefined)
+Object.defineProperty(navigator, "clipboard", {
+  value: {
+    writeText: mockWriteText,
+  },
+  writable: true,
+  configurable: true,
+})
+
 // Cleanup after each test
 afterEach(() => {
   cleanup()
