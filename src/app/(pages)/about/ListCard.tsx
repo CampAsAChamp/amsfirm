@@ -2,17 +2,13 @@
 
 import { motion } from "framer-motion"
 
-interface EducationItem {
-  degree: string
-  institution: string
-}
-
-interface EducationCardProps {
-  items: EducationItem[]
+interface ListCardProps {
+  title: string
+  items: string[]
   delay?: number
 }
 
-export default function EducationCard({ items, delay = 0 }: EducationCardProps) {
+export default function ListCard({ title, items, delay = 0 }: ListCardProps) {
   return (
     <motion.div
       className="card-info"
@@ -25,12 +21,10 @@ export default function EducationCard({ items, delay = 0 }: EducationCardProps) 
         ease: [0.25, 0.4, 0.25, 1],
       }}
     >
-      <h3 className="text-xl font-semibold text-heading mb-4">Education</h3>
+      <h3 className="text-xl font-semibold text-heading mb-4">{title}</h3>
       <ul className="space-y-2 text-body">
         {items.map((item, index) => (
-          <li key={index}>
-            • {item.degree} - {item.institution}
-          </li>
+          <li key={index}>• {item}</li>
         ))}
       </ul>
     </motion.div>

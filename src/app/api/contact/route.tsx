@@ -2,7 +2,7 @@ import { Resend } from "resend"
 import { NextResponse } from "next/server"
 import { FormData } from "@/types"
 import { render } from "@react-email/components"
-import { ContactEmailTemplate } from "@/app/components/contact/ContactEmailTemplate"
+import { ContactEmailTemplate } from "@/app/components/contact/email/ContactEmailTemplate"
 
 export async function POST(request: Request) {
   try {

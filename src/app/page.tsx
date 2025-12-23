@@ -1,10 +1,9 @@
 import { services, whyChooseUsFeatures } from "./data"
 
 import CallToAction from "@/app/components/sections/CallToAction"
-import FeatureCard from "@/app/components/cards/FeatureCard"
+import { InfoCard } from "@/app/components/common/cards"
 import HeroSection from "@/app/components/hero/HeroSection"
 import SectionHeader from "@/app/components/sections/SectionHeader"
-import ServiceCard from "@/app/components/home_page/ServiceCard"
 
 export default function Home() {
   return (
@@ -31,7 +30,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <ServiceCard
+              <InfoCard
                 key={index}
                 icon={service.icon}
                 title={service.title}
@@ -55,7 +54,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUsFeatures.map((feature, index) => (
-              <FeatureCard
+              <InfoCard
                 key={index}
                 icon={feature.icon}
                 title={feature.title}

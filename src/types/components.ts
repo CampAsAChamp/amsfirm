@@ -1,17 +1,10 @@
 // Component prop types for all shared components
 
-export interface ServiceCardProps {
+export interface InfoCardProps {
   icon: React.ReactNode
   title: string
   description: string
-  features: string[]
-  delay?: number
-}
-
-export interface FeatureCardProps {
-  icon: React.ReactNode
-  title: string
-  description: string
+  features?: string[]
   delay?: number
 }
 

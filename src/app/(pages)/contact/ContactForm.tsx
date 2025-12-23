@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Send } from "lucide-react"
 import { ContactFormProps, FormData } from "@/types"
 import toast, { Toaster } from "react-hot-toast"
-import { AnimatedCard } from "@/app/components/common"
+import { AnimatedContainer } from "@/app/components/common"
 import FormField from "@/app/components/contact/forms/FormField"
 
 export default function ContactForm({ onSubmit }: ContactFormProps) {
@@ -105,7 +105,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
           },
         }}
       />
-      <AnimatedCard delay={0.1} animateOnMount={true}>
+      <AnimatedContainer delay={0.1} animateOnMount={true}>
         <h2 className="text-2xl font-bold text-heading mb-6">Contact</h2>
 
         {submitStatus === "success" && (
@@ -212,7 +212,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
-      </AnimatedCard>
+      </AnimatedContainer>
     </>
   )
 }

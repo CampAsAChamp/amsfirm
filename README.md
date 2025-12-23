@@ -100,7 +100,7 @@ src/
 │   ├── about/           # About page and components
 │   ├── api/             # API routes
 │   │   └── contact/     # Contact form email endpoint
-│   │       ├── email-components/  # Reusable email components
+│   │       ├── email/  # Reusable email components
 │   │       └── route.ts           # API handler
 │   ├── components/      # Reusable UI components
 │   │   ├── cards/       # Card components

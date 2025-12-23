@@ -3,12 +3,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import EducationCard from "@/app/(pages)/about/EducationCard"
-import CredentialsCard from "@/app/(pages)/about/CredentialsCard"
+import ListCard from "@/app/(pages)/about/ListCard"
 
 const educationData = [
-  { degree: "Juris Doctor", institution: "Whittier Law School" },
-  { degree: "Bachelor of Science", institution: "California State University of Long Beach" },
+  "Juris Doctor - Whittier Law School",
+  "Bachelor of Science - California State University of Long Beach",
 ]
 
 const credentialsData = [
@@ -66,8 +65,8 @@ export default function AttorneyProfile() {
             </motion.div>
 
             <div className="space-y-6">
-              <EducationCard items={educationData} delay={0.2} />
-              <CredentialsCard items={credentialsData} delay={0.3} />
+              <ListCard title="Education" items={educationData} delay={0.2} />
+              <ListCard title="Credentials" items={credentialsData} delay={0.3} />
             </div>
           </div>
 

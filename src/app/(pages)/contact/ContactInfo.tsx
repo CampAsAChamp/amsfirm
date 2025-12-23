@@ -1,8 +1,8 @@
 "use client"
 
 import { MapPin, Phone, Mail, Check } from "lucide-react"
-import { AnimatedCard, CopyButton } from "@/app/components/common"
-import AddressDisplay from "@/app/components/contact/AddressDisplay"
+import { AnimatedContainer, CopyButton } from "@/app/components/common"
+import AddressDisplay from "@/app/components/common/AddressDisplay"
 import { whatToExpect, officeHours, contactInfo } from "@/app/data"
 import { formatPhoneNumber, formatAddressMultiLine } from "@/utils"
 
@@ -11,7 +11,7 @@ export default function ContactInfo() {
 
   return (
     <div className="space-y-8">
-      <AnimatedCard delay={0.2} animateOnMount={true}>
+      <AnimatedContainer delay={0.2} animateOnMount={true}>
         <h3 className="text-xl font-bold text-heading mb-6">Office Information</h3>
         <div className="space-y-4">
           <div className="flex items-start">
@@ -66,9 +66,9 @@ export default function ContactInfo() {
             </div>
           </div>
         </div>
-      </AnimatedCard>
+      </AnimatedContainer>
 
-      <AnimatedCard delay={0.3} animateOnMount={true}>
+      <AnimatedContainer delay={0.3} animateOnMount={true}>
         <h3 className="text-xl font-bold text-heading mb-6">Office Hours</h3>
         <div className="space-y-2 text-body">
           {officeHours.map((schedule, index) => (
@@ -78,9 +78,9 @@ export default function ContactInfo() {
             </div>
           ))}
         </div>
-      </AnimatedCard>
+      </AnimatedContainer>
 
-      <AnimatedCard delay={0.4} animateOnMount={true}>
+      <AnimatedContainer delay={0.4} animateOnMount={true}>
         <h3 className="text-xl font-bold text-heading mb-6">What to Expect</h3>
         <ul className="space-y-3 text-body">
           {whatToExpect.map((item, index) => (
@@ -92,7 +92,7 @@ export default function ContactInfo() {
             </li>
           ))}
         </ul>
-      </AnimatedCard>
+      </AnimatedContainer>
     </div>
   )
 }

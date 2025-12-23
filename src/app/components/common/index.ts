@@ -1,3 +1,4 @@
 // Barrel export for common reusable components
-export { default as AnimatedCard } from "./AnimatedCard"
+export { default as AddressDisplay } from "./AddressDisplay"
+export { default as AnimatedContainer } from "./AnimatedContainer"
 export { default as CopyButton } from "./CopyButton"

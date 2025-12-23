@@ -3,23 +3,23 @@
 import { motion } from "framer-motion"
 import { ReactNode } from "react"
 
-interface AnimatedCardProps {
+interface AnimatedContainerProps {
   children: ReactNode
   className?: string
   delay?: number
   /**
    * If true, uses 'animate' instead of 'whileInView' for immediate animation
-   * Used for cards that should animate on mount rather than on scroll
+   * Used for content that should animate on mount rather than on scroll
    */
   animateOnMount?: boolean
 }
 
-export default function AnimatedCard({
+export default function AnimatedContainer({
   children,
   className = "card",
   delay = 0,
   animateOnMount = false,
-}: AnimatedCardProps) {
+}: AnimatedContainerProps) {
   const cardVariants = {
     initial: {
       scaleX: 0.05,
