@@ -74,15 +74,18 @@ import { InfoCardProps } from "@/types"
 export default function InfoCard({ icon, title, description, features, delay = 0 }: InfoCardProps) {
   const hasFeatures = features && features.length > 0
 
+  // Compute all styles and props upfront for cleaner JSX
+  const containerClass = hasFeatures ? "card-base" : "text-center"
+  const iconClass = hasFeatures ? "text-primary-hover mb-4" : "icon-circle"
+  const titleClass = hasFeatures ? "text-xl mb-4" : "text-lg mb-2"
+  const descriptionClass = hasFeatures ? "mb-6" : ""
+  const shouldAnimateOnMount = !hasFeatures
+
   return (
-    <AnimatedContainer
-      className={hasFeatures ? "card-base" : "text-center"}
-      delay={delay}
-      animateOnMount={!hasFeatures}
-    >
-      <div className={hasFeatures ? "text-primary-hover mb-4" : "icon-circle"}>{icon}</div>
-      <h3 className={`font-semibold text-heading ${hasFeatures ? "text-xl mb-4" : "text-lg mb-2"}`}>{title}</h3>
-      <p className={`text-body ${hasFeatures ? "mb-6" : ""}`}>{description}</p>
+    <AnimatedContainer className={containerClass} delay={delay} animateOnMount={shouldAnimateOnMount}>
+      <div className={iconClass}>{icon}</div>
+      <h3 className={`font-semibold text-heading ${titleClass}`}>{title}</h3>
+      <p className={`text-body ${descriptionClass}`}>{description}</p>
       {hasFeatures && (
         <ul className="text-sm text-body space-y-2">
           {features.map((feature, index) => (
