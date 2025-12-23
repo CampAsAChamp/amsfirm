@@ -7,21 +7,26 @@ This project includes comprehensive testing for critical functionality using Vit
 ```
 amslaw/
 ├── src/
-│   ├── app/
-│   │   ├── components/ui/
-│   │   │   ├── FormField.tsx
-│   │   │   └── FormField.test.tsx        # Unit tests for FormField
-│   │   ├── contact/
-│   │   │   ├── ContactForm.tsx
-│   │   │   └── ContactForm.test.tsx      # Integration tests for ContactForm
-│   │   └── api/contact/
-│   │       ├── route.ts
-│   │       └── route.test.ts             # API route tests
-│   └── test/
-│       ├── setup.ts                       # Global test configuration
-│       └── mocks.ts                       # Mock utilities and fixtures
-├── e2e/
-│   └── contact-form.spec.ts              # End-to-end tests
+│   └── app/                              # Application source code
+│       ├── components/ui/
+│       │   └── FormField.tsx
+│       ├── (pages)/contact/
+│       │   └── ContactForm.tsx
+│       └── api/contact/
+│           └── route.ts
+├── test/
+│   ├── unit/                             # Unit and integration tests
+│   │   ├── setup.ts                      # Global test configuration
+│   │   ├── mocks.ts                      # Mock utilities and fixtures
+│   │   └── app/                          # Mirrors src/app structure
+│   │       ├── components/ui/
+│   │       │   └── FormField.test.tsx
+│   │       ├── (pages)/contact/
+│   │       │   └── ContactForm.test.tsx
+│   │       └── api/contact/
+│   │           └── route.test.ts
+│   └── e2e/                              # End-to-end tests
+│       └── contact-form.spec.ts
 ├── vitest.config.ts                      # Vitest configuration
 └── playwright.config.ts                  # Playwright configuration
 ```
@@ -167,11 +172,11 @@ test("user can complete action", async ({ page }) => {
 
 ### Framer Motion
 
-Automatically mocked in `src/test/setup.ts` to avoid animation issues.
+Automatically mocked in `test/unit/setup.ts` to avoid animation issues.
 
 ### Next.js Navigation
 
-Mocked in `src/test/setup.ts` with basic router functions.
+Mocked in `test/unit/setup.ts` with basic router functions.
 
 ### Resend Email Service
 
@@ -179,10 +184,10 @@ Mocked in API route tests to prevent real emails.
 
 ### Fetch API
 
-Use `mockFetch()` helper from `src/test/mocks.ts`:
+Use `mockFetch()` helper from `test/unit/mocks.ts`:
 
 ```typescript
-import { mockFetch, mockSuccessResponse } from "@/test/mocks"
+import { mockFetch, mockSuccessResponse } from "@test/unit/mocks"
 
 mockFetch(mockSuccessResponse())
 ```
@@ -204,7 +209,7 @@ Tests can be run in CI/CD pipelines:
 
 ### Tests fail with "matchMedia is not a function"
 
-This is already handled in `src/test/setup.ts`. If you see this error, ensure the setup file is being loaded.
+This is already handled in `test/unit/setup.ts`. If you see this error, ensure the setup file is being loaded.
 
 ### E2E tests can't find elements
 

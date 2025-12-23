@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"
-import { POST } from "./route"
+import { POST } from "@/app/api/contact/route"
 
 // Mock Resend
 const mockSendEmail = vi.fn().mockResolvedValue({ data: { id: "mock-email-id" }, error: null })
@@ -13,7 +13,7 @@ vi.mock("resend", () => ({
 }))
 
 // Mock the email template
-vi.mock("./emailTemplate", () => ({
+vi.mock("@/app/api/contact/emailTemplate", () => ({
   generateContactEmailHTML: vi.fn().mockResolvedValue("<html>Mock Email</html>"),
 }))
 

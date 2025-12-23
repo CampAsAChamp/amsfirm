@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import ContactForm from "./ContactForm"
-import { mockFetch, mockSuccessResponse, mockErrorResponse } from "@/test/mocks"
+import ContactForm from "@/app/(pages)/contact/ContactForm"
+import { mockFetch, mockSuccessResponse, mockErrorResponse } from "@test/unit/mocks"
 
 describe("ContactForm", () => {
   beforeEach(() => {
