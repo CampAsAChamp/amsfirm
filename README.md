@@ -17,12 +17,14 @@ This is the official website for Anna M. Schneider Law, a law firm specializing 
 - **Framework**: [Next.js](https://nextjs.org/) 15.3 with React 19
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS v4 with custom CSS variables for theming
+- **Animation**: Framer Motion for smooth transitions
+- **Icons**: Lucide React for consistent iconography
 - **Email**: [Resend](https://resend.com) with React Email components
 - **Notifications**: react-hot-toast for user feedback
 - **Deployment**: Cloudflare Workers via [OpenNext](https://opennext.js.org/) with automatic deployment
 - **Runtime**: Node.js 22
 - **Package Manager**: Yarn 4 (Berry) for fast, reliable dependency management
-- **Quality**: Husky for git hooks and pre-commit checks
+- **Code Quality**: Prettier for code formatting, lint-staged for pre-commit checks, Husky for git hooks
 
 ## Site Structure
 
@@ -49,10 +51,13 @@ This project requires:
 - **Custom Design System** - CSS variables for consistent theming and easy customization
 - **Performance Optimized** - Static generation and edge deployment for fast load times
 - **SEO Friendly** - Proper meta tags and semantic HTML structure
+- **Smooth Animations** - Framer Motion for enhanced user experience
+- **Modern Icons** - Lucide React icon library
 - **Contact Form** - Integrated contact form with Resend email delivery and React Email templates
 - **User Notifications** - Toast notifications for form submissions and user feedback
 - **Interactive Maps** - Office location map integration
 - **FAQ Section** - Comprehensive answers to common estate planning questions
+- **Code Quality Tools** - Pre-commit hooks with ESLint, Prettier, and automated testing
 - **Automatic Deployment** - Cloudflare Workers automatically builds and deploys on every push
 
 ## Development
@@ -85,38 +90,44 @@ All scripts are defined in `package.json` and run with Yarn:
 - `yarn build` - Build production-ready application
 - `yarn start` - Start production server locally
 - `yarn lint` - Run ESLint for code quality checks
+- `yarn lint:fix` - Run ESLint with auto-fix
+- `yarn format` - Format all files with Prettier
+- `yarn format:check` - Check formatting without changes
 - `yarn check` - Run full type checking and build validation
 - `yarn preview` - Preview OpenNext build locally
 - `yarn deploy` - Deploy to Cloudflare Workers
 - `yarn test` - Run Vitest unit tests
+- `yarn test:watch` - Run tests in watch mode
+- `yarn test:ui` - Run tests with interactive UI
+- `yarn test:coverage` - Generate coverage report
 - `yarn test:e2e` - Run Playwright end-to-end tests
+- `yarn test:e2e:ui` - Run E2E tests with UI
+- `yarn test:e2e:debug` - Debug E2E tests
 - `yarn test:all` - Run all tests (unit + e2e)
+- `yarn prepare` - Setup Husky git hooks
 
 ### Project Structure
 
 ```
 src/
 ├── app/
-│   ├── about/           # About page and components
+│   ├── (pages)/         # Route pages
+│   │   ├── about/       # About page and components
+│   │   ├── contact/     # Contact page and form
+│   │   ├── faq/         # FAQ page and components
+│   │   └── services/    # Services page and components
 │   ├── api/             # API routes
 │   │   └── contact/     # Contact form email endpoint
-│   │       ├── email/  # Reusable email components
-│   │       └── route.ts           # API handler
 │   ├── components/      # Reusable UI components
-│   │   ├── cards/       # Card components
+│   │   ├── common/      # Common utilities (AddressDisplay, CopyButton, cards)
+│   │   ├── contact/     # Contact-related (email templates, forms)
 │   │   ├── hero/        # Hero section
 │   │   ├── layout/      # Navigation, Footer, Banners
-│   │   ├── sections/    # Section components
-│   │   └── ui/          # UI utilities (buttons, copy, etc.)
-│   ├── constants/       # Site data and configuration
-│   ├── contact/         # Contact page and form
-│   ├── faq/             # FAQ page and components
-│   ├── services/        # Services page and components
+│   │   └── sections/    # Section components (CallToAction, SectionHeader)
+│   ├── data/            # Site data and configuration (exported via barrel)
 │   └── globals.css      # Global styles and CSS variables
 ├── types/               # TypeScript type definitions
-├── utils/               # Utility functions
-└── reference/           # Documentation
-    └── docs/            # Legal service documentation
+└── utils/               # Utility functions
 ```
 
 ### Email Setup (Contact Form)
@@ -275,9 +286,16 @@ This project uses a custom design system with CSS variables defined in `src/app/
 
 See `.cursorrules` for complete coding standards and conventions.
 
-### Reference Documentation
+## Documentation
 
-The `reference/docs/` directory contains detailed markdown documentation about legal services:
+Additional documentation is available in the `docs/` directory:
+
+- **[Git Hooks Setup](docs/GIT_HOOKS.md)** - Pre-commit and pre-push hooks for code quality
+- **[Testing Guide](docs/TESTING.md)** - Comprehensive testing documentation for unit and E2E tests
+
+### Legal Service Reference
+
+The `docs/reference/` directory contains detailed markdown documentation about legal services:
 
 - `living_trust.md` - Information about living trusts
 - `wills.md` - Information about wills and estate planning
