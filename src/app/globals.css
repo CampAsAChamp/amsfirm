@@ -378,71 +378,49 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* Navigation button with animated gradient background wipe */
+/* Navigation button with standard hover effect */
 .btn-nav-animated {
+  background-color: var(--primary-blue);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius-lg);
   font-size: 0.875rem;
   font-weight: 600;
+  transition: var(--transition-button);
   box-shadow: var(--shadow-md);
-  background: linear-gradient(
-    to right,
-    var(--primary-blue-hover) 0%,
-    var(--primary-blue-hover) 50%,
-    var(--primary-blue) 50%,
-    var(--primary-blue) 100%
-  );
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  transition:
-    background-position 0.5s ease,
-    transform 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out;
 }
 
 .btn-nav-animated:hover {
-  background-position: 0 0;
+  background-color: var(--primary-blue-hover);
   transform: scale(1.05);
   box-shadow: var(--shadow-lg);
 }
 
 .btn-nav-animated-active {
-  background-position: 0 0;
+  background-color: var(--primary-blue-hover);
   box-shadow: var(--shadow-lg);
 }
 
 .btn-nav-mobile-animated {
+  background-color: var(--primary-blue);
   color: white;
   display: block;
   padding: 0.5rem 0.75rem;
   border-radius: var(--border-radius-lg);
   font-size: 1rem;
   font-weight: 600;
+  transition: var(--transition-button);
   box-shadow: var(--shadow-md);
-  background: linear-gradient(
-    to right,
-    var(--primary-blue-hover) 0%,
-    var(--primary-blue-hover) 50%,
-    var(--primary-blue) 50%,
-    var(--primary-blue) 100%
-  );
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  transition:
-    background-position 0.5s ease,
-    transform 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out;
 }
 
 .btn-nav-mobile-animated:hover {
-  background-position: 0 0;
+  background-color: var(--primary-blue-hover);
   transform: scale(1.05);
   box-shadow: var(--shadow-lg);
 }
 
 .btn-nav-mobile-animated-active {
-  background-position: 0 0;
+  background-color: var(--primary-blue-hover);
   box-shadow: var(--shadow-lg);
 }
 
