@@ -8,7 +8,6 @@ import SectionHeader from "@/app/components/sections/SectionHeader"
 export default function Home() {
   return (
     <div className="bg-page">
-      {/* Hero Section */}
       <HeroSection
         title="Protect Your Family's Future"
         subtitle="Expert legal services for wills, trusts, and estate planning. Secure your legacy with professional guidance you can trust."
