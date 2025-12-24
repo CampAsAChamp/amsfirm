@@ -1,9 +1,10 @@
-import CallToAction from "@/app/components/sections/CallToAction"
-import HeroSection from "@/app/components/hero/HeroSection"
 import ProcessStep from "@/app/(pages)/services/ProcessStep"
+import HeroSection from "@/app/components/hero/HeroSection"
+import CallToAction from "@/app/components/sections/CallToAction"
 import SectionHeader from "@/app/components/sections/SectionHeader"
-import ServiceDetail from "./ServiceDetail"
 import { processSteps } from "@/app/data"
+
+import ServiceDetail from "./ServiceDetail"
 import { servicesData } from "./servicesData"
 
 export default function Services() {

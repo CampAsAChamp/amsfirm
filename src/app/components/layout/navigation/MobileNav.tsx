@@ -1,9 +1,11 @@
 "use client"
 
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
+
 import { NavLink as NavLinkType } from "@/types"
+
+import { getMobileMenuItemAnimation, mobileMenuContainerAnimation, mobileMenuContentAnimation } from "./animationConfig"
 import NavLink from "./NavLink"
-import { mobileMenuContainerAnimation, mobileMenuContentAnimation, getMobileMenuItemAnimation } from "./animationConfig"
 
 /**
  * Props for the MobileNav component

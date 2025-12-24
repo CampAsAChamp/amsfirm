@@ -1,5 +1,5 @@
-import { contactInfo } from "@/app/data"
 import { formatAddressSingleLine } from "@/utils"
+import { contactInfo } from "@/app/data"
 
 export default function MapSection() {
   return (

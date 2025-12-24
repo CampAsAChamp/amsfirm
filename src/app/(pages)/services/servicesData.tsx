@@ -1,4 +1,4 @@
-import { FileSignature, Scroll, HeartPulse, ClipboardCheck, Gavel, ShieldCheck } from "lucide-react"
+import { ClipboardCheck, FileSignature, Gavel, HeartPulse, Scroll, ShieldCheck } from "lucide-react"
 
 export const servicesData = [
   {

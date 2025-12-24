@@ -1,4 +1,5 @@
-import { Text, Hr } from "@react-email/components"
+import { Hr, Text } from "@react-email/components"
+
 import { emailStyles } from "./styles"
 
 interface EmailFooterProps {

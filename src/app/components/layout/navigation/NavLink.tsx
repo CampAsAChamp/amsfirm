@@ -2,8 +2,10 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
+
 import { NavLink as NavLinkType } from "@/types"
-import { tabIndicatorTransition, navLinkLayoutTransition } from "./animationConfig"
+
+import { navLinkLayoutTransition, tabIndicatorTransition } from "./animationConfig"
 
 interface NavLinkProps {
   link: NavLinkType

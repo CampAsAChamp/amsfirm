@@ -1,4 +1,5 @@
-import { Section, Heading } from "@react-email/components"
+import { Heading, Section } from "@react-email/components"
+
 import { emailStyles } from "./styles"
 
 interface EmailHeaderProps {

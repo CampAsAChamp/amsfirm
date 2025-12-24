@@ -1,9 +1,9 @@
-import { services, whyChooseUsFeatures } from "./data"
-
-import CallToAction from "@/app/components/sections/CallToAction"
 import { InfoCard } from "@/app/components/common/cards"
 import HeroSection from "@/app/components/hero/HeroSection"
+import CallToAction from "@/app/components/sections/CallToAction"
 import SectionHeader from "@/app/components/sections/SectionHeader"
+
+import { services, whyChooseUsFeatures } from "./data"
 
 export default function Home() {
   return (

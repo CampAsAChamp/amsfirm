@@ -1,6 +1,7 @@
 "use client"
 
 import { NavLink } from "@/types"
+
 import { DesktopNavLink } from "./NavLink"
 
 /**

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+
 import FAQItem from "@/app/(pages)/faq/FAQItem"
 import { faqCategories } from "@/app/data"
 

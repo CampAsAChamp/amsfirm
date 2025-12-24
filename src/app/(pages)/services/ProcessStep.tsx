@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+
 import { ProcessStepProps } from "@/types"
 
 export default function ProcessStep({ stepNumber, icon, title, description, showArrow = false }: ProcessStepProps) {

@@ -1,7 +1,8 @@
-import { describe, it, expect, vi } from "vitest"
 import { render, screen } from "@testing-library/react"
-import ServiceDetail from "@/app/(pages)/services/ServiceDetail"
 import { FileText } from "lucide-react"
+import { describe, expect, it, vi } from "vitest"
+
+import ServiceDetail from "@/app/(pages)/services/ServiceDetail"
 
 // Mock AnimatedContainer
 vi.mock("@/app/components/common", () => ({

@@ -1,8 +1,9 @@
 "use client"
 
-import { StatsCardProps } from "@/types"
 import { useEffect, useRef } from "react"
-import { useMotionValue, useTransform, animate, motion, useInView } from "framer-motion"
+import { animate, motion, useInView, useMotionValue, useTransform } from "framer-motion"
+
+import { StatsCardProps } from "@/types"
 
 export default function StatsCard({ number, label }: StatsCardProps) {
   // Parse the number and any suffix (like "+")

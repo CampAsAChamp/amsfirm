@@ -1,4 +1,4 @@
-import { FileSignature, Scroll, Gavel } from "lucide-react"
+import { FileSignature, Gavel, Scroll } from "lucide-react"
 
 // Service data for estate planning services
 export const services = [

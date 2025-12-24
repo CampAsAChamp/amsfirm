@@ -1,7 +1,8 @@
-import { describe, it, expect, vi } from "vitest"
 import { render, screen } from "@testing-library/react"
-import InfoCard from "@/app/components/common/cards/InfoCard"
 import { CheckCircle } from "lucide-react"
+import { describe, expect, it, vi } from "vitest"
+
+import InfoCard from "@/app/components/common/cards/InfoCard"
 
 // Mock AnimatedContainer to simplify testing
 vi.mock("@/app/components/common", () => ({

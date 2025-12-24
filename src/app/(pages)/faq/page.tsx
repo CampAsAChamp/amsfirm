@@ -1,6 +1,6 @@
-import CallToAction from "@/app/components/sections/CallToAction"
-import HeroSection from "@/app/components/hero/HeroSection"
 import FAQSection from "@/app/(pages)/faq/FAQSection"
+import HeroSection from "@/app/components/hero/HeroSection"
+import CallToAction from "@/app/components/sections/CallToAction"
 
 export default function FAQ() {
   return (

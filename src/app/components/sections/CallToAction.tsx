@@ -1,4 +1,5 @@
 import Link from "next/link"
+
 import { CallToActionProps } from "@/types"
 
 export default function CallToAction({

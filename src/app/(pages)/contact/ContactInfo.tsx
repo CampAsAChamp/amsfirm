@@ -1,10 +1,11 @@
 "use client"
 
-import { MapPin, Phone, Mail, Check } from "lucide-react"
+import { Check, Mail, MapPin, Phone } from "lucide-react"
+
+import { formatAddressMultiLine, formatPhoneNumber } from "@/utils"
 import { AnimatedContainer, CopyButton } from "@/app/components/common"
 import AddressDisplay from "@/app/components/common/AddressDisplay"
-import { whatToExpect, officeHours, contactInfo } from "@/app/data"
-import { formatPhoneNumber, formatAddressMultiLine } from "@/utils"
+import { contactInfo, officeHours, whatToExpect } from "@/app/data"
 
 export default function ContactInfo() {
   const addressLines = formatAddressMultiLine(contactInfo.address)

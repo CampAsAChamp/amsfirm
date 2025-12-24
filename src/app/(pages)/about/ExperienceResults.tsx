@@ -1,10 +1,11 @@
 "use client"
 
-import { stats, testimonials } from "@/app/data"
+import { motion } from "framer-motion"
+
 import StatsCard from "@/app/(pages)/about/StatsCard"
 import TestimonialCard from "@/app/(pages)/about/TestimonialCard"
 import SectionHeader from "@/app/components/sections/SectionHeader"
-import { motion } from "framer-motion"
+import { stats, testimonials } from "@/app/data"
 
 export default function ExperienceResults() {
   return (

@@ -2,8 +2,9 @@
 
 import { useState } from "react"
 import { Send } from "lucide-react"
-import { ContactFormProps, FormData } from "@/types"
 import toast, { Toaster } from "react-hot-toast"
+
+import { ContactFormProps, FormData } from "@/types"
 import { AnimatedContainer } from "@/app/components/common"
 import FormField from "@/app/components/contact/forms/FormField"
 

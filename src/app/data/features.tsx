@@ -1,14 +1,14 @@
 import {
-  GraduationCap,
-  UserCheck,
-  Lock,
   Clock,
-  Heart,
-  MessageCircle,
-  Handshake,
+  FileCheck,
   FileEdit,
   FileSearch,
-  FileCheck,
+  GraduationCap,
+  Handshake,
+  Heart,
+  Lock,
+  MessageCircle,
+  UserCheck,
 } from "lucide-react"
 
 // Why choose us features

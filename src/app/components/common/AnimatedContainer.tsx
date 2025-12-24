@@ -1,7 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { ReactNode } from "react"
+import { motion } from "framer-motion"
 
 interface AnimatedContainerProps {
   children: ReactNode

@@ -1,8 +1,8 @@
 "use client"
 
-import { philosophyFeatures } from "@/app/data"
 import { InfoCard } from "@/app/components/common/cards"
 import SectionHeader from "@/app/components/sections/SectionHeader"
+import { philosophyFeatures } from "@/app/data"
 
 export default function PhilosophySection() {
   return (

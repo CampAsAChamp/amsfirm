@@ -1,8 +1,9 @@
 import Link from "next/link"
+
+import { formatAddressMultiLine, formatPhoneNumber } from "@/utils"
 import { CopyButton } from "@/app/components/common"
 import AddressDisplay from "@/app/components/common/AddressDisplay"
-import { navigationLinks, officeHours, contactInfo } from "@/app/data"
-import { formatPhoneNumber, formatAddressMultiLine } from "@/utils"
+import { contactInfo, navigationLinks, officeHours } from "@/app/data"
 
 export default function Footer() {
   const addressLines = formatAddressMultiLine(contactInfo.address)

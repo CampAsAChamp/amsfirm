@@ -1,8 +1,10 @@
-import { Html, Head, Body, Container, Section } from "@react-email/components"
+import { Body, Container, Head, Html, Section } from "@react-email/components"
+
 import { FormData } from "@/types"
-import { EmailHeader } from "./EmailHeader"
+
 import { EmailField } from "./EmailField"
 import { EmailFooter } from "./EmailFooter"
+import { EmailHeader } from "./EmailHeader"
 import { emailStyles } from "./styles"
 
 export function ContactEmailTemplate({ name, email, phone, subject, message, preferredContact }: FormData) {

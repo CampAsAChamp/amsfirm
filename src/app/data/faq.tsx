@@ -1,4 +1,4 @@
-import { Scroll, FileSignature, Scale, Route, Play } from "lucide-react"
+import { FileSignature, Play, Route, Scale, Scroll } from "lucide-react"
 
 export interface FAQ {
   id: string

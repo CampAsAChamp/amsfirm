@@ -1,7 +1,7 @@
 "use client"
 
-import { AnimatedContainer } from "@/app/components/common"
 import { InfoCardProps } from "@/types"
+import { AnimatedContainer } from "@/app/components/common"
 
 /**
  * InfoCard - A flexible card component for displaying information with an icon, title, and description.

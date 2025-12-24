@@ -1,14 +1,16 @@
 "use client"
 
-import Link from "next/link"
-import Image from "next/image"
 import { useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
+
 import { navigationLinks } from "@/app/data"
-import { useActiveLink } from "./navigation/useActiveLink"
+
 import DesktopNav from "./navigation/DesktopNav"
-import MobileNav from "./navigation/MobileNav"
 import MobileMenuButton from "./navigation/MobileMenuButton"
+import MobileNav from "./navigation/MobileNav"
+import { useActiveLink } from "./navigation/useActiveLink"
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

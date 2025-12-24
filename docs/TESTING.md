@@ -149,7 +149,7 @@ describe('MyComponent', () => {
 ### E2E Test Example
 
 ```typescript
-import { test, expect } from "@playwright/test"
+import { expect, test } from "@playwright/test"
 
 test("user can complete action", async ({ page }) => {
   // Mock API if needed

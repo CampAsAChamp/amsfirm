@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+
 import { SectionHeaderProps } from "@/types"
 
 export default function SectionHeader({ title, subtitle, className = "", delay = 0 }: SectionHeaderProps) {

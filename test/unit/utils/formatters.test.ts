@@ -1,6 +1,7 @@
-import { describe, it, expect } from "vitest"
-import { formatPhoneNumber, formatAddressSingleLine, formatAddressMultiLine } from "@/utils/formatters"
+import { describe, expect, it } from "vitest"
+
 import { Address } from "@/types"
+import { formatAddressMultiLine, formatAddressSingleLine, formatPhoneNumber } from "@/utils/formatters"
 
 describe("formatPhoneNumber", () => {
   it("formats a 10-digit phone number correctly", () => {

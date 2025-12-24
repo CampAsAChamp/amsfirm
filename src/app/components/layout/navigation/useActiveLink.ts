@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 
 /**
  * Custom hook to manage active link state with optimistic UI updates

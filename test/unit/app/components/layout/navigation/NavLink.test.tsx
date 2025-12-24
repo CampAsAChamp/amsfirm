@@ -1,8 +1,9 @@
-import { describe, it, expect, vi } from "vitest"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import NavLink, { DesktopNavLink } from "@/app/components/layout/navigation/NavLink"
+import { describe, expect, it, vi } from "vitest"
+
 import { NavLink as NavLinkType } from "@/types"
+import NavLink, { DesktopNavLink } from "@/app/components/layout/navigation/NavLink"
 
 // Mock framer-motion
 vi.mock("framer-motion", () => ({
