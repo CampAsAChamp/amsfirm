@@ -21,11 +21,6 @@ export interface StatsCardProps {
   label: string
 }
 
-export interface TestimonialCardProps {
-  quote: string
-  author: string
-}
-
 export interface HeroSectionProps {
   title: string
   subtitle: string

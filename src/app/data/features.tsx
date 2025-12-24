@@ -90,17 +90,3 @@ export const stats = [
   { number: "1000+", label: "Estate Plans Created" },
   { number: "30+", label: "Years Experience" },
 ]
-
-// Testimonials
-export const testimonials = [
-  {
-    quote:
-      "Anna made the estate planning process so much easier than I expected. She explained everything clearly and helped us create a plan that truly protects our family.",
-    author: "Sarah M.",
-  },
-  {
-    quote:
-      "Professional, knowledgeable, and compassionate. Anna took the time to understand our unique situation and created a comprehensive plan that gavs us peace of mind.",
-    author: "Robert & Linda K.",
-  },
-]
