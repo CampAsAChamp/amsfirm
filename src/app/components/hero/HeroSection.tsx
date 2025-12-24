@@ -2,9 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 
 import { HeroSectionProps } from "@/types"
+import { useActiveLink } from "@/app/components/layout/navigation/useActiveLink"
 
 export default function HeroSection({
   title,
@@ -16,6 +18,9 @@ export default function HeroSection({
   backgroundClass = "bg-gradient-to-r from-primary-hover to-primary-dark",
   showLogo = false,
 }: HeroSectionProps) {
+  const pathname = usePathname()
+  const { setClickedLink, getIsActive } = useActiveLink(pathname)
+
   const logoVariants = {
     initial: {
       opacity: 0,
@@ -114,10 +119,26 @@ export default function HeroSection({
                 damping: 20,
                 delay: showLogo ? 0.7 : 0.3,
               }}
+              className="relative"
             >
-              <Link href={primaryButtonLink} className="btn-hero-secondary">
+              <Link
+                href={primaryButtonLink}
+                onClick={() => setClickedLink(primaryButtonLink)}
+                className="btn-hero-secondary"
+              >
                 {primaryButtonText}
               </Link>
+              {getIsActive(primaryButtonLink) && (
+                <motion.div
+                  layoutId="heroButtonIndicator"
+                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-on-primary"
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30,
+                  }}
+                />
+              )}
             </motion.div>
             {secondaryButtonText && secondaryButtonLink && (
               <motion.div
@@ -131,10 +152,26 @@ export default function HeroSection({
                   damping: 20,
                   delay: showLogo ? 0.85 : 0.45,
                 }}
+                className="relative"
               >
-                <Link href={secondaryButtonLink} className="btn-hero-primary">
+                <Link
+                  href={secondaryButtonLink}
+                  onClick={() => setClickedLink(secondaryButtonLink)}
+                  className="btn-hero-primary"
+                >
                   {secondaryButtonText}
                 </Link>
+                {getIsActive(secondaryButtonLink) && (
+                  <motion.div
+                    layoutId="heroButtonIndicator"
+                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-primary"
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                    }}
+                  />
+                )}
               </motion.div>
             )}
           </div>
