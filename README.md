@@ -290,6 +290,8 @@ See `.cursorrules` for complete coding standards and conventions.
 
 Additional documentation is available in the `docs/` directory:
 
+### Development Documentation
+
 - **[Git Hooks Setup](docs/GIT_HOOKS.md)** - Pre-commit and pre-push hooks for code quality
 - **[Testing Guide](docs/TESTING.md)** - Comprehensive testing documentation for unit and E2E tests
 
@@ -297,8 +299,8 @@ Additional documentation is available in the `docs/` directory:
 
 The `docs/reference/` directory contains detailed markdown documentation about legal services:
 
-- `living_trust.md` - Information about living trusts
-- `wills.md` - Information about wills and estate planning
+- **[Living Trusts](docs/reference/living_trust.md)** - Comprehensive information about living trusts
+- **[Wills](docs/reference/wills.md)** - Information about wills and estate planning
 
 These documents serve as content reference for the website and can be used for FAQ content or service descriptions.
 
