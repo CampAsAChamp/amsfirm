@@ -1,5 +1,5 @@
-// Utility functions for the application
-// Add helper functions here as needed (formatting, validation, etc.)
+// Formatting utility functions
+// Functions for formatting phone numbers, addresses, and other display values
 
 import { Address } from "@/types"
 
@@ -15,16 +15,6 @@ export function formatPhoneNumber(phone: string): string {
     return `(${match[1]}) ${match[2]}-${match[3]}`
   }
   return phone
-}
-
-/**
- * Validate an email address
- * @param email - The email to validate
- * @returns True if valid, false otherwise
- */
-export function isValidEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(email)
 }
 
 /**
