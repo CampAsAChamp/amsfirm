@@ -87,6 +87,15 @@ The ONLY place hex colors should appear is in `src/app/globals.css` where CSS va
 - Use functional components with hooks
 - Keep components focused and single-responsibility
 - Extract reusable logic into custom hooks
+- Add "use client" directive at the top of files that use client-side features (hooks, event handlers, browser APIs)
+- Include JSDoc comments for complex functions and components
+  - Document parameters with `@param`
+  - Document return values with `@returns`
+  - Explain what the function/component does, not just how
+  - Include usage examples for non-obvious APIs
+- Export helper functions and utilities before the main component
+- Extract animation configurations into separate files (e.g., `animationConfig.ts`)
+- Use descriptive prop interfaces with clear naming
 
 ### Styling
 - Use Tailwind CSS utility classes for layout and spacing
@@ -96,24 +105,82 @@ The ONLY place hex colors should appear is in `src/app/globals.css` where CSS va
 
 ### File Organization
 - Components go in `src/app/components/`
-- Pages go in their respective route folders (`src/app/[route]/`)
-- Shared constants and data go in `src/app/constants/`
+  - Organize by domain: `common/`, `contact/`, `hero/`, `layout/`, `sections/`
+  - Use barrel exports (`index.ts`) in folders to re-export components
+- Pages go in their respective route folders (`src/app/(pages)/[route]/`)
+- Shared data go in `src/app/data/`
+  - Create barrel exports in `index.ts` for easy imports
+  - Data files can contain JSX (e.g., icons from lucide-react)
+- Type definitions go in `src/types/`
+  - Use barrel exports to consolidate type exports
+- Utility functions go in `src/utils/`
+  - Use barrel exports to consolidate utility exports
 - All styling goes in `src/app/globals.css`
+- Tests mirror the `src/` structure in `test/` folder
+  - `test/e2e/` for end-to-end tests
+  - `test/unit/` mirrors the `src/` folder structure
 
 ### Imports
 - **ALWAYS use absolute imports** with the `@/` alias for all local files
 - Examples:
   - ✅ `import { Button } from "@/app/components/ui/Button"`
-  - ✅ `import { features } from "@/app/constants/features"`
-  - ✅ `import AttorneyProfile from "@/app/about/AttorneyProfile"`
+  - ✅ `import { services } from "@/app/data"`
+  - ✅ `import AttorneyProfile from "@/app/(pages)/about/AttorneyProfile"`
+  - ✅ `import { NavLink } from "@/types"`
+  - ✅ `import { formatPhoneNumber } from "@/utils"`
   - ❌ `import { Button } from "../components/ui/Button"`
-  - ❌ `import { features } from "../../constants/features"`
+  - ❌ `import { services } from "../../data/services"`
   - ❌ `import AttorneyProfile from "./AttorneyProfile"`
 - Exception: Next.js core imports (e.g., `next/link`, `next/image`) use package imports as normal
+- Prefer importing from barrel exports (`index.ts`) when available:
+  - ✅ `import { services, features } from "@/app/data"`
+  - ✅ `import { NavLink, ServiceType } from "@/types"`
+  - ❌ `import { services } from "@/app/data/services"`
+  - ❌ `import { NavLink } from "@/types/components"`
 
 ### Naming Conventions
 - Components: PascalCase (e.g., `HeroSection.tsx`)
 - Utility functions: camelCase (e.g., `formatDate`)
 - CSS classes: kebab-case for custom classes, Tailwind utilities as-is
 - Constants: camelCase for objects, SCREAMING_SNAKE_CASE for true constants
+- Barrel export files: Always named `index.ts`
+- Type files: Match the domain they represent (e.g., `components.ts`, `data.ts`)
+
+---
+
+## Testing
+
+### Test Organization
+- Unit tests go in `test/unit/` and mirror the `src/` folder structure
+- E2E tests go in `test/e2e/`
+- Name test files with `.test.tsx` or `.test.ts` extension
+- Name E2E test files with `.spec.ts` extension
+
+### Testing Best Practices
+- Test user-facing behavior, not implementation details
+- Use testing-library's queries (getByRole, getByLabelText) for accessibility
+- Mock external dependencies (APIs, third-party libraries)
+- Keep tests focused and independent
+
+---
+
+## Maintaining This File
+
+**IMPORTANT: Keep this `.cursorrules` file up to date!**
+
+When adding new patterns, conventions, or architectural decisions to the codebase:
+
+1. **Update this file** to document the new pattern
+2. **Be specific**: Include code examples where helpful
+3. **Explain the why**: Document the reasoning behind the rule
+4. **Update related sections**: If a new pattern affects multiple areas, update all relevant sections
+
+Examples of when to update:
+- Adding a new CSS utility class pattern → Update Color/Styling sections
+- Creating a new folder structure → Update File Organization
+- Establishing a new naming convention → Update Naming Conventions
+- Adding animation patterns → Update Components section
+- Creating new reusable patterns → Document them here
+
+This file is the source of truth for code standards. Keeping it current ensures consistency across the entire codebase and helps onboard new developers efficiently.
 
