@@ -35,7 +35,7 @@ function getLinkClassName(variant: "desktop" | "mobile", isButton: boolean, isAc
       return `btn-nav-animated ${isActive ? "btn-nav-animated-active" : ""} relative`
     }
     // Desktop regular link: Text link with subtle hover animation
-    return "nav-link-wipe px-3 py-2 text-sm font-semibold relative"
+    return `nav-link-wipe ${isActive ? "nav-link-wipe-active" : ""} px-3 py-2 text-sm font-semibold relative`
   }
 
   // Mobile variant

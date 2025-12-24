@@ -468,6 +468,10 @@ body {
   background-position: 0 0;
 }
 
+.nav-link-wipe-active {
+  background-position: 0 0;
+}
+
 /* Select dropdown placeholder styling */
 select option[value=""] {
   color: var(--text-placeholder);
