@@ -59,7 +59,7 @@
     "check": "yarn build && tsc",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "dev": "next dev",
-    "lint": "eslint . && tsc --noEmit",
+    "lint": "node scripts/lint-with-progress.mjs",
     "lint:fix": "eslint . --fix && tsc --noEmit",
     "lint:eslint": "eslint .",
     "lint:types": "tsc --noEmit",
