@@ -19,7 +19,7 @@ export default function HeroSection({
   showLogo = false,
 }: HeroSectionProps) {
   const pathname = usePathname()
-  const { setClickedLink, getIsActive } = useActiveLink(pathname)
+  const { setClickedLink } = useActiveLink(pathname)
 
   const logoVariants = {
     initial: {
@@ -119,7 +119,6 @@ export default function HeroSection({
                 damping: 20,
                 delay: showLogo ? 0.7 : 0.3,
               }}
-              className="relative"
             >
               <Link
                 href={primaryButtonLink}
@@ -128,17 +127,6 @@ export default function HeroSection({
               >
                 {primaryButtonText}
               </Link>
-              {getIsActive(primaryButtonLink) && (
-                <motion.div
-                  layoutId="heroButtonIndicator"
-                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-on-primary"
-                  transition={{
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 30,
-                  }}
-                />
-              )}
             </motion.div>
             {secondaryButtonText && secondaryButtonLink && (
               <motion.div
@@ -152,7 +140,6 @@ export default function HeroSection({
                   damping: 20,
                   delay: showLogo ? 0.85 : 0.45,
                 }}
-                className="relative"
               >
                 <Link
                   href={secondaryButtonLink}
@@ -161,17 +148,6 @@ export default function HeroSection({
                 >
                   {secondaryButtonText}
                 </Link>
-                {getIsActive(secondaryButtonLink) && (
-                  <motion.div
-                    layoutId="heroButtonIndicator"
-                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-primary"
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 30,
-                    }}
-                  />
-                )}
               </motion.div>
             )}
           </div>

@@ -8,7 +8,7 @@ export default function FAQ() {
       <HeroSection
         title="Frequently Asked Questions"
         subtitle="Find answers to common questions about estate planning, living trusts, and wills."
-        primaryButtonText="Contact Us"
+        primaryButtonText="Contact"
         primaryButtonLink="/contact"
       />
 

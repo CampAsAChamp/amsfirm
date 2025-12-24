@@ -1,13 +1,17 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 import { formatAddressMultiLine, formatPhoneNumber } from "@/utils"
 import { CopyButton } from "@/app/components/common"
 import AddressDisplay from "@/app/components/common/AddressDisplay"
+import { useActiveLink } from "@/app/components/layout/navigation/useActiveLink"
 import { contactInfo, navigationLinks, officeHours } from "@/app/data"
 
 export default function Footer() {
+  const pathname = usePathname()
+  const { setClickedLink } = useActiveLink(pathname)
   const addressLines = formatAddressMultiLine(contactInfo.address)
   const currentYear = new Date().getFullYear()
 
@@ -43,7 +47,11 @@ export default function Footer() {
             <ul className="space-y-2">
               {navigationLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-footer-muted hover:text-on-primary transition-colors">
+                  <Link
+                    href={link.href}
+                    onClick={() => setClickedLink(link.href)}
+                    className="text-footer-muted hover:text-on-primary transition-colors"
+                  >
                     {link.label}
                   </Link>
                 </li>

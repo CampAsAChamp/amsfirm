@@ -2,9 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 
 import ListCard from "@/app/(pages)/about/ListCard"
+import { useActiveLink } from "@/app/components/layout/navigation/useActiveLink"
 
 const educationData = [
   "Juris Doctor - Whittier Law School",
@@ -19,6 +21,9 @@ const credentialsData = [
 ]
 
 export default function AttorneyProfile() {
+  const pathname = usePathname()
+  const { setClickedLink } = useActiveLink(pathname)
+
   return (
     <section className="py-20 bg-surface-secondary">
       <div className="container-page">
@@ -97,7 +102,7 @@ export default function AttorneyProfile() {
               <p className="text-body mb-6">
                 Focus on Estate Planning, Wills, Trusts, Trust Administration, and Probate matters.
               </p>
-              <Link href="/contact" className="btn-cta">
+              <Link href="/contact" onClick={() => setClickedLink("/contact")} className="btn-cta">
                 Contact
               </Link>
             </div>
