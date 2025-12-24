@@ -16,8 +16,9 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 text-on-primary">Anna M. Schneider Law</h3>
             <p className="text-footer mb-4">
-              Professional legal services specializing in estate planning, wills, trusts, and probate. Protecting your
-              family&apos;s future with expert legal guidance.
+              As a solo practitioner in Torrance, I focus on providing personalized estate planning services to protect
+              what matters most to you. From simple wills to complex trusts, I guide families through every step with
+              clear communication and compassionate care.
             </p>
             <div className="text-footer">
               <p className="mb-2">
