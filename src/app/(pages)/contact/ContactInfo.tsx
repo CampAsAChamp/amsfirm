@@ -16,7 +16,7 @@ export default function ContactInfo() {
         <h3 className="text-xl font-bold text-heading mb-6">Office Information</h3>
         <div className="space-y-4">
           <div className="flex items-start">
-            <MapPin className="w-6 h-6 text-primary-hover mt-1 mr-3" />
+            <MapPin className="w-6 h-6 text-primary-hover mt-1 mr-6" />
             <div>
               <div className="font-semibold text-heading">Address</div>
               <AddressDisplay
@@ -28,7 +28,7 @@ export default function ContactInfo() {
           </div>
 
           <div className="flex items-start">
-            <Phone className="w-6 h-6 text-primary-hover mt-1 mr-3" />
+            <Phone className="w-6 h-6 text-primary-hover mt-1 mr-6" />
             <div>
               <div className="font-semibold text-heading">Phone</div>
               <div className="text-body flex items-center gap-2">
@@ -48,7 +48,7 @@ export default function ContactInfo() {
           </div>
 
           <div className="flex items-start">
-            <Mail className="w-6 h-6 text-primary-hover mt-1 mr-3" />
+            <Mail className="w-6 h-6 text-primary-hover mt-1 mr-6" />
             <div>
               <div className="font-semibold text-heading">Email</div>
               <div className="text-body flex items-center gap-2">
