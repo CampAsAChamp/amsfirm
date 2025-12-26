@@ -1,11 +1,16 @@
 // Component prop types for all shared components
 
-export interface FeatureItemProps {
+export interface FeatureCardProps {
   icon: React.ReactNode
   title: string
   description: string
   features?: string[]
+  sections?: {
+    heading?: string
+    items: (string | React.ReactNode)[]
+  }[]
   delay?: number
+  animateOnMount?: boolean
 }
 
 export interface ProcessStepProps {

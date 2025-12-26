@@ -1,10 +1,10 @@
 import ProcessStep from "@/app/(pages)/services/ProcessStep"
+import { FeatureCard } from "@/app/components/common"
 import HeroSection from "@/app/components/hero/HeroSection"
 import CallToAction from "@/app/components/sections/CallToAction"
 import SectionHeader from "@/app/components/sections/SectionHeader"
 import { processSteps } from "@/app/data"
 
-import ServiceDetail from "./ServiceDetail"
 import { servicesData } from "./servicesData"
 
 export default function Services() {
@@ -23,7 +23,7 @@ export default function Services() {
         <div className="container-page">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {servicesData.map((service, index) => (
-              <ServiceDetail
+              <FeatureCard
                 key={index}
                 icon={service.icon}
                 title={service.title}
