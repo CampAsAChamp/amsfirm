@@ -16,7 +16,7 @@ export default function ProcessStep({ stepNumber, icon, title, description, show
         className="text-center flex-1"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true }}
         transition={{
           duration: 0.5,
           delay: animationDelay,
@@ -42,7 +42,7 @@ export default function ProcessStep({ stepNumber, icon, title, description, show
             className="md:hidden flex-shrink-0 mt-2 mb-6"
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true }}
             transition={{
               duration: 0.4,
               delay: animationDelay + 0.3,
@@ -59,7 +59,7 @@ export default function ProcessStep({ stepNumber, icon, title, description, show
             className="hidden md:block flex-shrink-0"
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true }}
             transition={{
               duration: 0.4,
               delay: animationDelay + 0.3,

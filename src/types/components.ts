@@ -1,6 +1,6 @@
 // Component prop types for all shared components
 
-export interface InfoCardProps {
+export interface FeatureItemProps {
   icon: React.ReactNode
   title: string
   description: string

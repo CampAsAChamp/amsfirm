@@ -1,6 +1,6 @@
 "use client"
 
-import { InfoCard } from "@/app/components/common/cards"
+import { FeatureItem } from "@/app/components/common"
 import SectionHeader from "@/app/components/sections/SectionHeader"
 import { philosophyFeatures } from "@/app/data"
 
@@ -16,12 +16,12 @@ export default function PhilosophySection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {philosophyFeatures.map((feature, index) => (
-            <InfoCard
+            <FeatureItem
               key={index}
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
-              delay={0.35 + index * 0.15}
+              delay={0.35 + index * 0.2}
             />
           ))}
         </div>

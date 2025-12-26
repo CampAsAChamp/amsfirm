@@ -30,6 +30,7 @@ export default function Services() {
                 description={service.description}
                 sections={service.sections}
                 delay={0.1 + index * 0.15}
+                animateOnMount={index < 2}
               />
             ))}
           </div>

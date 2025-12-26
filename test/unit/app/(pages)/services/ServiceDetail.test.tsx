@@ -52,11 +52,28 @@ describe("ServiceDetail", () => {
       expect(container.querySelector('[data-testid="animated-container"]')).toBeInTheDocument()
     })
 
-    it("passes animateOnMount as true", () => {
+    it("passes animateOnMount as false by default", () => {
       const mockSections = [{ items: ["Item 1"] }]
 
       const { container } = render(
         <ServiceDetail icon={mockIcon} title={mockTitle} description={mockDescription} sections={mockSections} />
+      )
+
+      const animatedContainer = container.querySelector('[data-testid="animated-container"]')
+      expect(animatedContainer).toHaveAttribute("data-animate-on-mount", "false")
+    })
+
+    it("passes animateOnMount as true when explicitly set", () => {
+      const mockSections = [{ items: ["Item 1"] }]
+
+      const { container } = render(
+        <ServiceDetail
+          icon={mockIcon}
+          title={mockTitle}
+          description={mockDescription}
+          sections={mockSections}
+          animateOnMount={true}
+        />
       )
 
       const animatedContainer = container.querySelector('[data-testid="animated-container"]')

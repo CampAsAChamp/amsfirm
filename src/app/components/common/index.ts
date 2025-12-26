@@ -2,3 +2,4 @@
 export { default as AddressDisplay } from "./AddressDisplay"
 export { default as AnimatedContainer } from "./AnimatedContainer"
 export { default as CopyButton } from "./CopyButton"
+export { default as FeatureItem } from "./FeatureItem"

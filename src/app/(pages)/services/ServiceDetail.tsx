@@ -11,11 +11,19 @@ interface ServiceDetailProps {
     items: (string | React.ReactNode)[]
   }[]
   delay?: number
+  animateOnMount?: boolean
 }
 
-export default function ServiceDetail({ icon, title, description, sections, delay = 0 }: ServiceDetailProps) {
+export default function ServiceDetail({
+  icon,
+  title,
+  description,
+  sections,
+  delay = 0,
+  animateOnMount = false,
+}: ServiceDetailProps) {
   return (
-    <AnimatedContainer delay={delay} animateOnMount={true}>
+    <AnimatedContainer delay={delay} animateOnMount={animateOnMount}>
       <div className="text-primary-hover mb-6">{icon}</div>
       <h2 className="text-2xl font-bold text-heading mb-4">{title}</h2>
       <p className="text-body mb-6">{description}</p>

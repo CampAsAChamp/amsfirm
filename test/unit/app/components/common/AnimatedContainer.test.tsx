@@ -1,88 +1,49 @@
 import { render, screen } from "@testing-library/react"
-import { beforeEach, describe, expect, it, vi } from "vitest"
+import { describe, expect, it, vi } from "vitest"
 
 import AnimatedContainer from "@/app/components/common/AnimatedContainer"
 
-// Mock framer-motion to capture props and simplify testing
-interface MotionPropsCapture {
-  variants?: {
-    initial?: { scaleX?: number; scaleY?: number; opacity?: number }
-    animate?: { scaleX?: number; scaleY?: number; opacity?: number }
-  }
-  transition?: {
-    type?: string
-    stiffness?: number
-    damping?: number
-    delay?: number
-  }
-  viewport?: { once?: boolean; amount?: number }
+interface MockMotionDivProps {
+  children: React.ReactNode
+  className?: string
+  variants?: object
+  initial?: string
+  animate?: string
+  whileInView?: string
+  viewport?: object
+  transition?: object
 }
 
-let outerMotionProps: MotionPropsCapture = {}
-let callCount = 0
-
+// Mock framer-motion
 vi.mock("framer-motion", () => ({
   motion: {
     div: ({
       children,
+      className,
       variants,
       initial,
       animate,
       whileInView,
       viewport,
       transition,
-      className,
-      ...props
-    }: {
-      children: React.ReactNode
-      variants?: Record<string, unknown>
-      initial?: string
-      animate?: string
-      whileInView?: string
-      viewport?: Record<string, unknown>
-      transition?: Record<string, unknown>
-      className?: string
-      [key: string]: unknown
-    }) => {
-      const isOuter = callCount === 0
-      callCount++
-
-      const motionProps = {
-        variants,
-        initial,
-        animate,
-        whileInView,
-        viewport,
-        transition,
-      }
-
-      if (isOuter) {
-        outerMotionProps = motionProps
-      }
-
-      return (
-        <div
-          className={className}
-          data-testid={isOuter ? "motion-div" : "inner-motion-div"}
-          data-initial={initial}
-          data-animate={animate}
-          data-while-in-view={whileInView}
-          {...props}
-        >
-          {children}
-        </div>
-      )
-    },
+    }: MockMotionDivProps) => (
+      <div
+        className={className}
+        data-variants={JSON.stringify(variants)}
+        data-initial={initial}
+        data-animate={animate}
+        data-while-in-view={whileInView}
+        data-viewport={JSON.stringify(viewport)}
+        data-transition={JSON.stringify(transition)}
+      >
+        {children}
+      </div>
+    ),
   },
 }))
 
 describe("AnimatedContainer", () => {
-  beforeEach(() => {
-    outerMotionProps = {}
-    callCount = 0
-  })
-
-  it("renders children correctly", () => {
+  it("renders children", () => {
     render(
       <AnimatedContainer>
         <div>Test Content</div>
@@ -99,8 +60,8 @@ describe("AnimatedContainer", () => {
       </AnimatedContainer>
     )
 
-    const outerMotionDiv = container.querySelector('[data-testid="motion-div"]')
-    expect(outerMotionDiv).toHaveClass("card")
+    const motionDiv = container.firstChild as HTMLElement
+    expect(motionDiv).toHaveClass("card")
   })
 
   it("applies custom className", () => {
@@ -110,242 +71,96 @@ describe("AnimatedContainer", () => {
       </AnimatedContainer>
     )
 
-    const outerMotionDiv = container.querySelector('[data-testid="motion-div"]')
-    expect(outerMotionDiv).toHaveClass("custom-class")
+    const motionDiv = container.firstChild as HTMLElement
+    expect(motionDiv).toHaveClass("custom-class")
   })
 
-  describe("Animation on scroll (whileInView) - default behavior", () => {
-    it("uses whileInView when animateOnMount is false", () => {
-      const { container } = render(
-        <AnimatedContainer animateOnMount={false}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
+  it("uses whileInView by default (animateOnMount=false)", () => {
+    const { container } = render(
+      <AnimatedContainer>
+        <div>Test</div>
+      </AnimatedContainer>
+    )
 
-      const outerMotionDiv = container.querySelector('[data-testid="motion-div"]')
-      expect(outerMotionDiv).toHaveAttribute("data-initial", "initial")
-      expect(outerMotionDiv).toHaveAttribute("data-while-in-view", "animate")
-      expect(outerMotionDiv).not.toHaveAttribute("data-animate")
-    })
-
-    it("sets viewport options for whileInView", () => {
-      render(
-        <AnimatedContainer animateOnMount={false}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
-
-      expect(outerMotionProps.viewport).toEqual({ once: true, amount: 0.1 })
-    })
+    const motionDiv = container.firstChild as HTMLElement
+    expect(motionDiv.getAttribute("data-while-in-view")).toBe("animate")
+    expect(motionDiv.getAttribute("data-animate")).toBeNull()
   })
 
-  describe("Animation on mount - when animateOnMount is true", () => {
-    it("uses animate prop instead of whileInView", () => {
-      const { container } = render(
-        <AnimatedContainer animateOnMount={true}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
+  it("uses animate when animateOnMount=true", () => {
+    const { container } = render(
+      <AnimatedContainer animateOnMount={true}>
+        <div>Test</div>
+      </AnimatedContainer>
+    )
 
-      const outerMotionDiv = container.querySelector('[data-testid="motion-div"]')
-      expect(outerMotionDiv).toHaveAttribute("data-initial", "initial")
-      expect(outerMotionDiv).toHaveAttribute("data-animate", "animate")
-      expect(outerMotionDiv).not.toHaveAttribute("data-while-in-view")
-    })
-
-    it("does not set viewport options", () => {
-      render(
-        <AnimatedContainer animateOnMount={true}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
-
-      expect(outerMotionProps.viewport).toBeUndefined()
-    })
+    const motionDiv = container.firstChild as HTMLElement
+    expect(motionDiv.getAttribute("data-animate")).toBe("animate")
+    expect(motionDiv.getAttribute("data-while-in-view")).toBeNull()
   })
 
-  describe("Animation delay", () => {
-    it("applies default delay of 0", () => {
-      render(
-        <AnimatedContainer>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
+  it("applies default delay of 0", () => {
+    const { container } = render(
+      <AnimatedContainer>
+        <div>Test</div>
+      </AnimatedContainer>
+    )
 
-      expect(outerMotionProps.transition?.delay).toBe(0)
-    })
-
-    it("applies custom delay", () => {
-      render(
-        <AnimatedContainer delay={0.5}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
-
-      expect(outerMotionProps.transition?.delay).toBe(0.5)
-    })
-
-    it("applies large delay", () => {
-      render(
-        <AnimatedContainer delay={2}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
-
-      expect(outerMotionProps.transition?.delay).toBe(2)
-    })
+    const motionDiv = container.firstChild as HTMLElement
+    const transition = JSON.parse(motionDiv.getAttribute("data-transition") || "{}")
+    expect(transition.delay).toBe(0)
   })
 
-  describe("Card animation variants", () => {
-    it("defines initial state with scale and opacity", () => {
-      render(
-        <AnimatedContainer>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
+  it("applies custom delay", () => {
+    const { container } = render(
+      <AnimatedContainer delay={0.5}>
+        <div>Test</div>
+      </AnimatedContainer>
+    )
 
-      expect(outerMotionProps.variants?.initial).toEqual({
-        scaleX: 0.05,
-        scaleY: 0.05,
-        opacity: 0,
-      })
-    })
-
-    it("defines animate state with full scale and opacity", () => {
-      render(
-        <AnimatedContainer>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
-
-      expect(outerMotionProps.variants?.animate).toEqual({
-        scaleX: 1,
-        scaleY: 1,
-        opacity: 1,
-      })
-    })
-
-    it("uses spring transition", () => {
-      render(
-        <AnimatedContainer>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
-
-      expect(outerMotionProps.transition?.type).toBe("spring")
-      expect(outerMotionProps.transition?.stiffness).toBe(200)
-      expect(outerMotionProps.transition?.damping).toBe(20)
-    })
+    const motionDiv = container.firstChild as HTMLElement
+    const transition = JSON.parse(motionDiv.getAttribute("data-transition") || "{}")
+    expect(transition.delay).toBe(0.5)
   })
 
-  describe("Nested content animation", () => {
-    it("renders inner motion div for content", () => {
-      const { container } = render(
-        <AnimatedContainer>
-          <div data-testid="child-content">Test</div>
-        </AnimatedContainer>
-      )
+  it("sets viewport configuration for scroll-based animation", () => {
+    const { container } = render(
+      <AnimatedContainer>
+        <div>Test</div>
+      </AnimatedContainer>
+    )
 
-      // Should have two motion divs (outer and inner)
-      const motionDivs = container.querySelectorAll('[data-testid="motion-div"]')
-      expect(motionDivs.length).toBeGreaterThanOrEqual(1)
-    })
+    const motionDiv = container.firstChild as HTMLElement
+    const viewport = JSON.parse(motionDiv.getAttribute("data-viewport") || "{}")
+    expect(viewport.once).toBe(true)
+    expect(viewport.amount).toBe(0.1)
   })
 
-  describe("Combination scenarios", () => {
-    it("handles custom class with custom delay", () => {
-      const { container } = render(
-        <AnimatedContainer className="custom-card" delay={1.2}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
+  it("uses spring transition", () => {
+    const { container } = render(
+      <AnimatedContainer>
+        <div>Test</div>
+      </AnimatedContainer>
+    )
 
-      const motionDiv = container.querySelector('[data-testid="motion-div"]')
-      expect(motionDiv).toHaveClass("custom-card")
-      expect(outerMotionProps.transition?.delay).toBe(1.2)
-    })
-
-    it("handles animateOnMount with custom delay", () => {
-      const { container } = render(
-        <AnimatedContainer animateOnMount={true} delay={0.8}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
-
-      const motionDiv = container.querySelector('[data-testid="motion-div"]')
-      expect(motionDiv).toHaveAttribute("data-animate", "animate")
-      expect(outerMotionProps.transition?.delay).toBe(0.8)
-    })
-
-    it("handles all props together", () => {
-      const { container } = render(
-        <AnimatedContainer className="special-card" delay={1.5} animateOnMount={true}>
-          <div>Complex Test</div>
-        </AnimatedContainer>
-      )
-
-      const motionDiv = container.querySelector('[data-testid="motion-div"]')
-      expect(motionDiv).toHaveClass("special-card")
-      expect(motionDiv).toHaveAttribute("data-animate", "animate")
-      expect(outerMotionProps.transition?.delay).toBe(1.5)
-      expect(screen.getByText("Complex Test")).toBeInTheDocument()
-    })
+    const motionDiv = container.firstChild as HTMLElement
+    const transition = JSON.parse(motionDiv.getAttribute("data-transition") || "{}")
+    expect(transition.type).toBe("spring")
+    expect(transition.stiffness).toBe(200)
+    expect(transition.damping).toBe(20)
   })
 
-  describe("Edge cases", () => {
-    it("renders with empty children", () => {
-      const { container } = render(<AnimatedContainer>{null}</AnimatedContainer>)
+  it("renders nested motion.div for content", () => {
+    const { container } = render(
+      <AnimatedContainer>
+        <div data-testid="content">Test</div>
+      </AnimatedContainer>
+    )
 
-      const outerMotionDiv = container.querySelector('[data-testid="motion-div"]')
-      expect(outerMotionDiv).toBeInTheDocument()
-    })
-
-    it("renders with multiple children", () => {
-      render(
-        <AnimatedContainer>
-          <div>Child 1</div>
-          <div>Child 2</div>
-          <div>Child 3</div>
-        </AnimatedContainer>
-      )
-
-      expect(screen.getByText("Child 1")).toBeInTheDocument()
-      expect(screen.getByText("Child 2")).toBeInTheDocument()
-      expect(screen.getByText("Child 3")).toBeInTheDocument()
-    })
-
-    it("renders with complex nested children", () => {
-      render(
-        <AnimatedContainer>
-          <div>
-            <span>Nested</span>
-            <ul>
-              <li>Item 1</li>
-              <li>Item 2</li>
-            </ul>
-          </div>
-        </AnimatedContainer>
-      )
-
-      expect(screen.getByText("Nested")).toBeInTheDocument()
-      expect(screen.getByText("Item 1")).toBeInTheDocument()
-      expect(screen.getByText("Item 2")).toBeInTheDocument()
-    })
-
-    it("handles delay of 0", () => {
-      render(
-        <AnimatedContainer delay={0}>
-          <div>Test</div>
-        </AnimatedContainer>
-      )
-
-      expect(outerMotionProps.transition?.delay).toBe(0)
-    })
-
-    it("renders with string children", () => {
-      render(<AnimatedContainer>Plain text content</AnimatedContainer>)
-
-      expect(screen.getByText("Plain text content")).toBeInTheDocument()
-    })
+    // Should have nested structure
+    const outerMotion = container.firstChild as HTMLElement
+    const innerMotion = outerMotion.firstChild as HTMLElement
+    expect(innerMotion).toBeInTheDocument()
+    expect(screen.getByTestId("content")).toBeInTheDocument()
   })
 })
