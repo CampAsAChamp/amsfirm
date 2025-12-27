@@ -1,9 +1,17 @@
+import type { Metadata } from "next"
+
 import AttorneyProfile from "@/app/(pages)/about/AttorneyProfile"
 import ExperienceResults from "@/app/(pages)/about/ExperienceResults"
 import PhilosophySection from "@/app/(pages)/about/PhilosophySection"
 import HeroSection from "@/app/components/hero/HeroSection"
 import CallToAction from "@/app/components/sections/CallToAction"
 import { yelpReviews } from "@/app/data"
+
+export const metadata: Metadata = {
+  title: "About Anna Schneider - Estate Planning Attorney in Torrance, CA",
+  description:
+    "Meet Anna M. Schneider, an experienced estate planning attorney in Torrance, California. Dedicated to protecting families with personalized wills, trusts, and probate services.",
+}
 
 export default function About() {
   return (

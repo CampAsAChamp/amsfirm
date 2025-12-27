@@ -1,6 +1,14 @@
+import type { Metadata } from "next"
+
 import FAQSection from "@/app/(pages)/faq/FAQSection"
 import HeroSection from "@/app/components/hero/HeroSection"
 import CallToAction from "@/app/components/sections/CallToAction"
+
+export const metadata: Metadata = {
+  title: "Estate Planning FAQ - Common Questions About Wills & Trusts | AMS Law",
+  description:
+    "Find answers to frequently asked questions about estate planning, living trusts, wills, and probate. Expert guidance from Anna M. Schneider Law in Torrance, CA.",
+}
 
 export default function FAQ() {
   return (

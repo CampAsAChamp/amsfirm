@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+
 import { FeatureCard, IconCard } from "@/app/components/common"
 import HeroSection from "@/app/components/hero/HeroSection"
 import CallToAction from "@/app/components/sections/CallToAction"
@@ -5,6 +7,12 @@ import SectionHeader from "@/app/components/sections/SectionHeader"
 import { processSteps } from "@/app/data"
 
 import { servicesData } from "./servicesData"
+
+export const metadata: Metadata = {
+  title: "Estate Planning Services - Wills, Trusts & Probate | Anna M. Schneider Law",
+  description:
+    "Comprehensive estate planning services in Torrance, CA. Expert legal guidance for living trusts, wills, probate, and trust administration. Protect your family's future today.",
+}
 
 export default function Services() {
   return (

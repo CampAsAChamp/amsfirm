@@ -1,8 +1,16 @@
+import type { Metadata } from "next"
+
 import ContactForm from "@/app/(pages)/contact/ContactForm"
 import HeroSection from "@/app/components/hero/HeroSection"
 
 import ContactInfo from "./ContactInfo"
 import MapSection from "./MapSection"
+
+export const metadata: Metadata = {
+  title: "Contact Anna M. Schneider Law - Estate Planning Attorney in Torrance",
+  description:
+    "Schedule a consultation with Anna M. Schneider Law for estate planning services in Torrance, CA. Call (310) 792-7454 or fill out our contact form to get started.",
+}
 
 export default function Contact() {
   return (
