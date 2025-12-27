@@ -16,7 +16,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary-dark text-on-primary">
+    <footer className="bg-primary-dark text-on-primary" role="contentinfo">
       <div className="container-page py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -44,19 +44,21 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-on-primary">Quick Links</h4>
-            <ul className="space-y-2">
-              {navigationLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setClickedLink(link.href)}
-                    className="text-footer-muted hover:text-on-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Footer navigation">
+              <ul className="space-y-2">
+                {navigationLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setClickedLink(link.href)}
+                      className="text-footer-muted hover:text-on-primary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           {/* Contact Info */}
