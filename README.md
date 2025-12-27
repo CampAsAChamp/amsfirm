@@ -49,8 +49,10 @@ This project requires:
 - **Component-Based Architecture** - Reusable React components for maintainability
 - **Type Safety** - Full TypeScript implementation
 - **Custom Design System** - CSS variables for consistent theming and easy customization
+- **Dark Mode** - Full dark mode support with theme persistence and system preference detection
 - **Performance Optimized** - Static generation and edge deployment for fast load times
-- **SEO Friendly** - Proper meta tags and semantic HTML structure
+- **SEO Optimized** - Page-specific metadata, Open Graph images, sitemap, robots.txt, and Schema.org structured data
+- **Accessibility** - WCAG AA compliant with skip links, keyboard navigation, ARIA labels, and focus indicators
 - **Smooth Animations** - Framer Motion for enhanced user experience
 - **Modern Icons** - Lucide React icon library
 - **Contact Form** - Integrated contact form with Resend email delivery and React Email templates
@@ -58,7 +60,9 @@ This project requires:
 - **Yelp Reviews Integration** - Automatically displays latest client reviews from Yelp
 - **Interactive Maps** - Office location map integration
 - **FAQ Section** - Comprehensive answers to common estate planning questions
+- **Error Handling** - Custom 404 page, error boundaries, and loading states
 - **Code Quality Tools** - Pre-commit hooks with ESLint, Prettier, and automated testing
+- **Comprehensive Testing** - Unit tests with Vitest and E2E tests with Playwright
 - **Automatic Deployment** - Cloudflare Workers automatically builds and deploys on every push
 
 ## Development
@@ -326,18 +330,43 @@ For Cloudflare deployment, just run `yarn deploy` - it handles everything in one
 
 Environment variables are configured in `wrangler.jsonc`:
 
-- **Non-sensitive variables** (like `CONTACT_EMAIL`): Set in the `vars` section of `wrangler.jsonc`
+- **Non-sensitive variables** (like `CONTACT_EMAIL`, `NEXT_PUBLIC_SITE_URL`): Set in the `vars` section of `wrangler.jsonc`
 - **Secrets** (like `RESEND_API_KEY`): Set using `yarn wrangler secret put VARIABLE_NAME`
 
 Secrets set via Wrangler CLI are encrypted and stored securely in Cloudflare, persisting across all deployments.
+
+**Note:** The `NEXT_PUBLIC_SITE_URL` variable is used for SEO features (sitemap, Open Graph images, structured data). Set it to your production domain (e.g., `https://annamschneiderlaw.com`).
 
 ## Design System
 
 This project uses a custom design system with CSS variables defined in `src/app/globals.css`:
 
 - **Color Variables** - Consistent color palette using CSS custom properties
+- **Dark Mode Support** - Automatic theme switching with CSS variables for light and dark modes
 - **Utility Classes** - Pre-defined button styles, text colors, and backgrounds
 - **Responsive Breakpoints** - Tailwind CSS breakpoints for responsive design
+- **Focus Indicators** - WCAG-compliant focus styles for keyboard navigation
+
+### Dark Mode
+
+The site includes full dark mode support:
+
+- **Theme Toggle** - Sun/moon icon button in navigation to switch themes
+- **Persistence** - Theme preference saved in localStorage
+- **System Preference** - Respects user's OS dark mode setting on first visit
+- **No Flash** - Theme applied before page render to prevent flash of wrong theme
+- **Consistent Colors** - Primary blue brand color maintained across both themes
+
+To use dark mode in your components:
+
+```typescript
+import { useTheme } from "@/app/components/common"
+
+function MyComponent() {
+  const { theme, toggleTheme } = useTheme()
+  // theme is "light" or "dark"
+}
+```
 
 ### Key Guidelines
 
@@ -345,6 +374,8 @@ This project uses a custom design system with CSS variables defined in `src/app/
 - Use absolute imports with `@/` alias for all local files
 - Follow TypeScript strict mode for type safety
 - Keep components focused and single-responsibility
+- Ensure all interactive elements are keyboard accessible
+- Add proper ARIA labels for screen readers
 
 See `.cursorrules` for complete coding standards and conventions.
 

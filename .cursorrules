@@ -67,11 +67,32 @@ All colors are defined in `/src/app/globals.css`:
 --bg-page: #ffffff;            /* Page background */
 ```
 
+### Dark Mode Support
+
+The site includes full dark mode support using CSS variables:
+
+- Light and dark themes defined in `globals.css` using `:root` and `.dark` selectors
+- Theme managed by `ThemeProvider` context in `src/app/components/common/ThemeProvider.tsx`
+- Theme toggle button in navigation using `ThemeToggle` component
+- Theme preference persisted in localStorage
+- System preference respected on first visit
+- No flash of unstyled content with inline script in layout
+
+**Using themes in components:**
+```typescript
+import { useTheme } from "@/app/components/common"
+
+function MyComponent() {
+  const { theme, toggleTheme } = useTheme()
+  // theme is "light" or "dark"
+}
+```
+
 ### Why This Rule Exists
 
 1. **Maintainability**: Change colors site-wide by editing one file (globals.css)
 2. **Consistency**: All colors follow the design system
-3. **Theming**: Easy to implement dark mode or rebrand in the future
+3. **Theming**: Dark mode works automatically with CSS variables
 4. **Accessibility**: Color variables can be adjusted for contrast requirements
 
 ### Exception
@@ -96,6 +117,7 @@ The ONLY place hex colors should appear is in `src/app/globals.css` where CSS va
 - Export helper functions and utilities before the main component
 - Extract animation configurations into separate files (e.g., `animationConfig.ts`)
 - Use descriptive prop interfaces with clear naming
+- Use `forwardRef` when components need to expose refs (e.g., for focus management)
 
 ### Styling
 - Use Tailwind CSS utility classes for layout and spacing
@@ -161,6 +183,86 @@ The ONLY place hex colors should appear is in `src/app/globals.css` where CSS va
 - Use testing-library's queries (getByRole, getByLabelText) for accessibility
 - Mock external dependencies (APIs, third-party libraries)
 - Keep tests focused and independent
+- Mock `next/navigation` hooks in tests (usePathname, useRouter, etc.)
+- Mock context providers (ThemeProvider) when testing components that use them
+- Test keyboard navigation and focus management in E2E tests
+- Include accessibility tests for ARIA labels, roles, and keyboard navigation
+
+---
+
+## Accessibility
+
+**All components must be accessible and follow WCAG AA guidelines.**
+
+### Keyboard Navigation
+- All interactive elements must be keyboard accessible
+- Use proper focus management (trap focus in modals, restore focus on close)
+- Implement skip links for main content
+- Use `:focus-visible` for keyboard-only focus indicators
+- Handle Escape key to close modals/menus
+
+### ARIA and Semantic HTML
+- Use semantic HTML elements (`<nav>`, `<main>`, `<footer>`, `<button>`, etc.)
+- Add ARIA labels to icon-only buttons: `aria-label="Close menu"`
+- Add ARIA roles where needed: `role="navigation"`, `role="dialog"`, `role="contentinfo"`
+- Use `aria-expanded` for expandable elements (mobile menus, accordions)
+- Use `aria-live="polite"` for dynamic content updates (toast notifications, copy confirmations)
+- Add `aria-hidden="true"` to decorative icons
+
+### Focus Management
+- Trap focus within modals and mobile menus
+- Focus first interactive element when opening modals/menus
+- Restore focus to trigger element when closing
+- Use `useRef` and `forwardRef` for focus management
+- Handle Tab and Shift+Tab for focus cycling
+
+### Example: Accessible Modal/Menu
+```typescript
+useEffect(() => {
+  if (isOpen && firstElementRef.current) {
+    firstElementRef.current.focus()
+  }
+}, [isOpen])
+
+useEffect(() => {
+  const handleEscape = (e: KeyboardEvent) => {
+    if (e.key === "Escape" && isOpen) {
+      onClose()
+    }
+  }
+  document.addEventListener("keydown", handleEscape)
+  return () => document.removeEventListener("keydown", handleEscape)
+}, [isOpen, onClose])
+```
+
+### Screen Reader Support
+- Add descriptive text for screen readers using `sr-only` class
+- Ensure all form inputs have associated labels
+- Use meaningful link text (not "click here")
+- Provide alternative text for images
+
+---
+
+## SEO Best Practices
+
+### Page Metadata
+- Export `metadata` object from all page components
+- Include descriptive title and description for each page
+- Use template titles for consistency: `%s | Anna M Schneider Law`
+
+### Structured Data
+- Use Schema.org JSON-LD for structured data
+- Include LocalBusiness, Attorney, and Review schemas
+- Add structured data via `StructuredData` component in layout
+
+### Files to Include
+- `robots.ts` - Control search engine crawling
+- `sitemap.ts` - Dynamic sitemap generation
+- `opengraph-image.tsx` - Social media preview images
+- Page-specific metadata in each route
+
+### Environment Variables
+- Set `NEXT_PUBLIC_SITE_URL` for production domain (used in sitemap, OG images, structured data)
 
 ---
 
