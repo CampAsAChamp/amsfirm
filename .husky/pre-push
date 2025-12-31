@@ -1,14 +1,14 @@
-echo "🔍 Running tests before push..."
+echo "🔍 Running all tests before push..."
 echo ""
 
-echo "🧪 Running unit tests..."
-yarn test
+echo "🧪 Running unit tests and E2E tests..."
+yarn test:all
 
 if [ $? -ne 0 ]; then
   echo "❌ Tests failed! Fix failing tests before pushing."
   exit 1
 fi
-echo "✅ Tests passed!"
+echo "✅ All tests passed!"
 echo ""
 
 echo "🚀 All checks passed! Proceeding with push..."
