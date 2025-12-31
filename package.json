@@ -14,8 +14,10 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "dev": "next dev",
     "lint": "node scripts/lint-with-progress.mjs",
-    "lint:fix": "eslint . --fix && tsc --noEmit",
+    "lint:fix": "eslint . --fix && stylelint \"**/*.css\" --fix && tsc --noEmit",
     "lint:eslint": "eslint .",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix",
     "lint:types": "tsc --noEmit",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
@@ -36,7 +38,11 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{json,css,scss,md}": [
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{json,scss,md}": [
       "prettier --write"
     ]
   },
@@ -82,6 +88,10 @@
     "jsdom": "^27.3.0",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-tailwindcss": "^1.0.0",
+    "stylelint-order": "^7.0.1",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite": "^6.0.0",

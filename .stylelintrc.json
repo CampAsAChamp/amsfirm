@@ -1,0 +1,57 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-tailwindcss"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "order/properties-alphabetical-order": true,
+    "color-hex-length": "long",
+    "color-named": [
+      "never",
+      {
+        "ignore": ["inside-function"]
+      }
+    ],
+    "declaration-no-important": null,
+    "property-no-vendor-prefix": null,
+    "property-no-deprecated": [
+      true,
+      {
+        "ignoreProperties": ["clip"]
+      }
+    ],
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "selector-id-pattern": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply", "layer", "config", "variants", "responsive", "screen", "theme"]
+      }
+    ],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["theme"]
+      }
+    ],
+    "no-descending-specificity": null,
+    "value-keyword-case": [
+      "lower",
+      {
+        "camelCaseSvgKeywords": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.css"],
+      "customSyntax": "postcss"
+    },
+    {
+      "files": ["**/globals.css"],
+      "rules": {
+        "color-named": null
+      }
+    }
+  ],
+  "ignoreFiles": ["node_modules/**", ".next/**", "build/**", "dist/**", "coverage/**"]
+}

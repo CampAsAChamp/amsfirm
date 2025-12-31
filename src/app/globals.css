@@ -3,7 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #374151;
+
   /* gray-700 - softer than black */
+
   /* Cyan/Blue color palette - Single source of truth */
   --cyan-50: #f0f9ff;
   --cyan-200: #bae6fd;
@@ -19,26 +21,36 @@
 
   /* Semantic text colors */
   --text-heading: #111827;
+
   /* gray-900 for headings */
   --text-body: #374151;
+
   /* gray-700 for body text - darker for better legibility */
   --text-muted: #6b7280;
+
   /* gray-500 for muted text */
   --text-placeholder: #9ca3af;
+
   /* gray-400 for placeholder text in inputs and selects */
   --text-nav: #374151;
+
   /* gray-700 for navigation */
   --text-on-primary: #ffffff;
+
   /* white text on colored backgrounds */
 
   /* Semantic background colors */
   --bg-surface: #ffffff;
+
   /* Main surface/card background */
   --bg-surface-secondary: #f9fafb;
+
   /* gray-50 - alternate sections */
   --bg-surface-tertiary: #e5e7eb;
+
   /* gray-200 - subtle backgrounds */
   --bg-page: #ffffff;
+
   /* Page background */
 
   /* Common spacing */
@@ -52,10 +64,10 @@
   --border-radius-lg: 0.75rem;
 
   /* Common shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
 
   /* Common transitions */
   --transition-colors: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
@@ -66,35 +78,48 @@
 /* Dark mode color overrides */
 .dark {
   --background: #0f172a;
+
   /* slate-900 */
   --foreground: #e2e8f0;
+
   /* slate-200 */
 
   /* Keep primary blue consistent for brand identity */
+
   /* --cyan-500, --cyan-700, --cyan-900, --cyan-200, --cyan-50 remain the same */
 
   /* Dark mode text colors */
   --text-heading: #f1f5f9;
+
   /* slate-100 - lighter for dark backgrounds */
   --text-body: #cbd5e1;
+
   /* slate-300 - readable on dark */
   --text-muted: #94a3b8;
+
   /* slate-400 - muted but visible */
   --text-placeholder: #64748b;
+
   /* slate-500 - placeholder text */
   --text-nav: #e2e8f0;
+
   /* slate-200 - navigation text */
   --text-on-primary: #ffffff;
+
   /* white text stays white on colored backgrounds */
 
   /* Dark mode background colors */
   --bg-surface: #1e293b;
+
   /* slate-800 - card/surface backgrounds */
   --bg-surface-secondary: #334155;
+
   /* slate-700 - alternate sections */
   --bg-surface-tertiary: #475569;
+
   /* slate-600 - subtle backgrounds */
   --bg-page: #0f172a;
+
   /* slate-900 - page background */
 
   /* Adjust light backgrounds for dark mode */
@@ -107,12 +132,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
   /* Map Tailwind cyan color classes to our CSS variables */
   --color-cyan-50: var(--cyan-50);
   --color-cyan-200: var(--cyan-200);
   --color-cyan-500: var(--cyan-500);
   --color-cyan-700: var(--cyan-700);
   --color-cyan-900: var(--cyan-900);
+
   /* Semantic color mappings for easy theming */
   --color-primary: var(--cyan-500);
   --color-primary-hover: var(--cyan-700);
@@ -165,6 +192,7 @@ body {
 }
 
 /* Theme transition animation */
+
 /* Apply transitions to html root and all elements during theme change */
 html.theme-transitioning,
 html.theme-transitioning *,
@@ -203,6 +231,7 @@ html.theme-transitioning body {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0.8;
   }
@@ -212,6 +241,7 @@ html.theme-transitioning body {
   from {
     opacity: 0.8;
   }
+
   to {
     opacity: 1;
   }
@@ -219,24 +249,24 @@ html.theme-transitioning body {
 
 /* Utility classes for common patterns */
 .section-container {
-  max-width: 80rem;
   /* max-w-7xl */
   margin-left: auto;
   margin-right: auto;
+  max-width: 80rem;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }
 
 .section-padding {
-  padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
+  padding-top: var(--section-padding);
 }
 
 .card-base {
   background-color: var(--bg-surface);
-  padding: var(--card-padding);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
+  padding: var(--card-padding);
   transition: var(--transition-shadow);
 }
 
@@ -246,109 +276,109 @@ html.theme-transitioning body {
 
 .btn-primary {
   background-color: var(--primary-blue);
-  color: white;
-  padding: 1rem 2rem;
   border-radius: var(--border-radius-lg);
-  font-weight: 600;
-  transition: var(--transition-button);
-  display: inline-block;
-  text-decoration: none;
   box-shadow: var(--shadow-md);
+  color: white;
+  display: inline-block;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transition: var(--transition-button);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-blue-hover);
-  transform: scale(1.05);
   box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
 }
 
 .btn-secondary {
   background-color: white;
-  color: var(--primary-blue);
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius-lg);
-  font-weight: 600;
-  transition: var(--transition-button);
-  display: inline-block;
-  text-decoration: none;
   border: 2px solid white;
+  border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
+  color: var(--primary-blue);
+  display: inline-block;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transition: var(--transition-button);
 }
 
 .btn-secondary:hover {
   background-color: white;
+  box-shadow: var(--shadow-lg);
   color: var(--primary-blue);
   transform: scale(1.05);
-  box-shadow: var(--shadow-lg);
 }
 
 .icon-circle {
+  align-items: center;
   background-color: var(--medium-bg);
-  width: 4rem;
-  height: 4rem;
   border-radius: 50%;
   display: flex;
-  align-items: center;
+  height: 4rem;
   justify-content: center;
+  margin-bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1rem;
+  width: 4rem;
 }
 
 .icon-circle svg {
-  width: 2rem;
-  height: 2rem;
   color: var(--primary-blue);
+  height: 2rem;
+  width: 2rem;
 }
 
 /* Enhanced container utilities */
 .container-page {
-  max-width: 80rem;
   /* max-w-7xl */
   margin-left: auto;
   margin-right: auto;
+  max-width: 80rem;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }
 
 .container-content {
-  max-width: 48rem;
   /* max-w-3xl */
   margin-left: auto;
   margin-right: auto;
+  max-width: 48rem;
 }
 
 /* Enhanced card utilities */
 .card {
   background-color: var(--bg-surface);
-  padding: var(--card-padding);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
+  padding: var(--card-padding);
 }
 
 .card-sm {
   background-color: var(--bg-surface);
-  padding: 1rem;
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-md);
+  padding: 1rem;
 }
 
 .card-info {
   background-color: var(--bg-surface);
-  padding: 1.5rem;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
 }
 
 /* Section utilities */
 .section {
-  padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
+  padding-top: var(--section-padding);
 }
 
 .section-sm {
-  padding-top: 3rem;
   padding-bottom: 3rem;
+  padding-top: 3rem;
 }
 
 /* Text color utilities for colored backgrounds */
@@ -357,75 +387,76 @@ html.theme-transitioning body {
 }
 
 .text-hero-body {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
 }
 
 .text-footer {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
 }
 
 .text-footer-muted {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
 }
 
 /* Button utilities - consistent button styles across the site */
+
 /* Hero section button styles */
 .btn-hero-primary {
   background-color: var(--primary-blue);
-  color: white;
-  padding: 1rem 2rem;
   border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  color: white;
+  display: inline-block;
   font-size: 1.125rem;
   font-weight: 600;
-  transition: var(--transition-button);
-  display: inline-block;
+  padding: 1rem 2rem;
   text-decoration: none;
-  box-shadow: var(--shadow-md);
+  transition: var(--transition-button);
 }
 
 .btn-hero-primary:hover {
   background-color: var(--primary-blue-hover);
-  transform: scale(1.05);
   box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
 }
 
 .btn-hero-secondary {
   background-color: white;
-  color: var(--primary-blue);
-  padding: 1rem 2rem;
   border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  color: var(--primary-blue);
+  display: inline-block;
   font-size: 1.125rem;
   font-weight: 600;
-  transition: var(--transition-button);
-  display: inline-block;
+  padding: 1rem 2rem;
   text-decoration: none;
-  box-shadow: var(--shadow-md);
+  transition: var(--transition-button);
 }
 
 .btn-hero-secondary:hover {
   background-color: white;
+  box-shadow: var(--shadow-lg);
   color: var(--primary-blue);
   transform: scale(1.05);
-  box-shadow: var(--shadow-lg);
 }
 
 /* CTA button styles - used in service cards and other content */
 .btn-cta {
   background-color: var(--primary-blue);
-  color: white;
-  padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius-lg);
-  font-weight: 600;
-  transition: var(--transition-button);
-  display: inline-block;
-  text-decoration: none;
   box-shadow: var(--shadow-md);
+  color: white;
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  transition: var(--transition-button);
 }
 
 .btn-cta:hover {
   background-color: var(--primary-blue-hover);
-  transform: scale(1.05);
   box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
 }
 
 /* Background utilities */
@@ -440,55 +471,55 @@ html.theme-transitioning body {
 /* Navigation button styles */
 .btn-nav {
   background-color: var(--primary-blue);
-  color: white;
-  padding: 0.5rem 1rem;
   border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  color: white;
   font-size: 0.875rem;
   font-weight: 600;
+  padding: 0.5rem 1rem;
   transition: var(--transition-button);
-  box-shadow: var(--shadow-md);
 }
 
 .btn-nav:hover {
   background-color: var(--primary-blue-hover);
-  transform: scale(1.05);
   box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
 }
 
 .btn-nav-mobile {
   background-color: var(--primary-blue);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
   color: white;
   display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--border-radius-lg);
   font-size: 1rem;
   font-weight: 600;
+  padding: 0.5rem 0.75rem;
   transition: var(--transition-button);
-  box-shadow: var(--shadow-md);
 }
 
 .btn-nav-mobile:hover {
   background-color: var(--primary-blue-hover);
-  transform: scale(1.05);
   box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
 }
 
 /* Navigation button with standard hover effect */
 .btn-nav-animated {
   background-color: var(--primary-blue);
-  color: white;
-  padding: 0.625rem 1rem;
   border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  color: white;
   font-size: 0.875rem;
   font-weight: 600;
+  padding: 0.625rem 1rem;
   transition: var(--transition-button);
-  box-shadow: var(--shadow-md);
 }
 
 .btn-nav-animated:hover {
   background-color: var(--primary-blue-hover);
-  transform: scale(1.05);
   box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
 }
 
 .btn-nav-animated-active {
@@ -498,20 +529,20 @@ html.theme-transitioning body {
 
 .btn-nav-mobile-animated {
   background-color: var(--primary-blue);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
   color: white;
   display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--border-radius-lg);
   font-size: 1rem;
   font-weight: 600;
+  padding: 0.5rem 0.75rem;
   transition: var(--transition-button);
-  box-shadow: var(--shadow-md);
 }
 
 .btn-nav-mobile-animated:hover {
   background-color: var(--primary-blue-hover);
-  transform: scale(1.05);
   box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
 }
 
 .btn-nav-mobile-animated-active {
@@ -521,7 +552,6 @@ html.theme-transitioning body {
 
 /* Navigation link wipe animation */
 .nav-link-wipe {
-  color: var(--text-nav);
   background: linear-gradient(
     to right,
     var(--cyan-500) 0%,
@@ -529,10 +559,10 @@ html.theme-transitioning body {
     var(--text-nav) 50%,
     var(--text-nav) 100%
   );
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  -webkit-background-clip: text;
   background-clip: text;
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  color: var(--text-nav);
   -webkit-text-fill-color: transparent;
   transition: background-position 0.5s ease;
 }
@@ -564,11 +594,12 @@ select option:not([value=""]) {
 }
 
 /* Focus indicators for accessibility */
+
 /* Only show focus ring when using keyboard navigation, not mouse clicks */
 *:focus-visible {
+  border-radius: var(--border-radius-sm);
   outline: 2px solid var(--primary-blue);
   outline-offset: 2px;
-  border-radius: var(--border-radius-sm);
 }
 
 /* Enhanced focus for buttons */
@@ -582,9 +613,9 @@ a:focus-visible {
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
+  border-color: var(--primary-blue);
   outline: 2px solid var(--primary-blue);
   outline-offset: 0;
-  border-color: var(--primary-blue);
 }
 
 /* Remove default focus outline */
@@ -594,25 +625,25 @@ select:focus-visible {
 
 /* Screen reader only utility */
 .sr-only {
-  position: absolute;
-  width: 1px;
+  border-width: 0;
+  clip: rect(0, 0, 0, 0);
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  padding: 0;
+  position: absolute;
   white-space: nowrap;
-  border-width: 0;
+  width: 1px;
 }
 
 /* Screen reader only - visible on focus (for skip links) */
 .sr-only.focus\:not-sr-only:focus {
-  position: static;
-  width: auto;
+  clip: auto;
   height: auto;
-  padding: inherit;
   margin: inherit;
   overflow: visible;
-  clip: auto;
+  padding: inherit;
+  position: static;
   white-space: normal;
+  width: auto;
 }

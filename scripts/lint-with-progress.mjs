@@ -104,6 +104,14 @@ async function main() {
     process.exit(eslintCode);
   }
 
+  // Run Stylelint with color output
+  const stylelintCode = await runWithProgress('npx', ['stylelint', '**/*.css', '--color'], 'Checking CSS styles...');
+
+  if (stylelintCode !== 0) {
+    console.log('\n❌ Stylelint failed. Please fix the errors above.\n');
+    process.exit(stylelintCode);
+  }
+
   // Run TypeScript
   const tscCode = await runWithProgress('npx', ['tsc', '--noEmit', '--pretty'], 'Checking TypeScript types...');
 
