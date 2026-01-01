@@ -1,10 +1,10 @@
 import { renderHook } from "@testing-library/react"
-import { beforeEach, describe, expect, it, vi } from "vitest"
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 
 import { useInitialInView } from "@/utils/useInitialInView"
 
 describe("useInitialInView", () => {
-  let mockGetBoundingClientRect: ReturnType<typeof vi.fn>
+  let mockGetBoundingClientRect: ReturnType<typeof vi.fn<() => DOMRect>>
   let originalInnerHeight: number
 
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe("useInitialInView", () => {
     originalInnerHeight = window.innerHeight
 
     // Reset mocks
-    mockGetBoundingClientRect = vi.fn()
+    mockGetBoundingClientRect = vi.fn<() => DOMRect>()
   })
 
   afterEach(() => {
@@ -78,7 +78,6 @@ describe("useInitialInView", () => {
         // Create a mock element and attach it
         const mockElement = document.createElement("div")
         mockElement.getBoundingClientRect = mockGetBoundingClientRect
-        // @ts-expect-error - Assigning mock element to ref
         result.current.ref.current = mockElement
       }
 
@@ -99,7 +98,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -119,7 +117,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -141,7 +138,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -161,7 +157,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -184,7 +179,6 @@ describe("useInitialInView", () => {
       mockElementPosition(300, 400)
       const mockElement1 = document.createElement("div")
       mockElement1.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement1
 
       const config1 = result.current.getViewportConfig()
@@ -194,7 +188,6 @@ describe("useInitialInView", () => {
       mockElementPosition(800, 900)
       const mockElement2 = document.createElement("div")
       mockElement2.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement2
 
       const config2 = result.current.getViewportConfig()
@@ -210,7 +203,6 @@ describe("useInitialInView", () => {
       mockElementPosition(500, 700)
       const mockElement1 = document.createElement("div")
       mockElement1.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement1
 
       const config1 = result.current.getViewportConfig()
@@ -220,7 +212,6 @@ describe("useInitialInView", () => {
       mockElementPosition(1200, 1400)
       const mockElement2 = document.createElement("div")
       mockElement2.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement2
 
       const config2 = result.current.getViewportConfig()
@@ -236,7 +227,6 @@ describe("useInitialInView", () => {
       mockElementPosition(800, 1000)
       const mockElement1 = document.createElement("div")
       mockElement1.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement1
 
       const config1 = result.current.getViewportConfig()
@@ -246,7 +236,6 @@ describe("useInitialInView", () => {
       mockElementPosition(1500, 1700)
       const mockElement2 = document.createElement("div")
       mockElement2.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement2
 
       const config2 = result.current.getViewportConfig()
@@ -275,7 +264,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -292,7 +280,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -309,7 +296,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -326,7 +312,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -345,7 +330,6 @@ describe("useInitialInView", () => {
 
       const mockElement = document.createElement("div")
       mockElement.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement
 
       const config = result.current.getViewportConfig()
@@ -362,7 +346,6 @@ describe("useInitialInView", () => {
       mockElementPosition(100, 300)
       const mockElement1 = document.createElement("div")
       mockElement1.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement1
 
       const config1 = result.current.getViewportConfig()
@@ -372,7 +355,6 @@ describe("useInitialInView", () => {
       mockElementPosition(1200, 1400)
       const mockElement2 = document.createElement("div")
       mockElement2.getBoundingClientRect = mockGetBoundingClientRect
-      // @ts-expect-error - Assigning mock element to ref
       result.current.ref.current = mockElement2
 
       const config2 = result.current.getViewportConfig()
