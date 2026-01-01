@@ -211,7 +211,7 @@ describe("FeatureCard", () => {
 
     it("supports animateOnMount prop", () => {
       const { container } = render(
-        <FeatureCard icon={mockIcon} title={mockTitle} description={mockDescription} sections={mockSections} animateOnMount={true} />
+        <FeatureCard icon={mockIcon} title={mockTitle} description={mockDescription} sections={mockSections} animateOnMount={true} />,
       )
 
       const motionDiv = container.firstChild as HTMLElement
@@ -224,7 +224,7 @@ describe("FeatureCard", () => {
       const mockFeatures = ["Feature 1", "Feature 2"]
 
       render(
-        <FeatureCard icon={mockIcon} title={mockTitle} description={mockDescription} features={mockFeatures} sections={mockSections} />
+        <FeatureCard icon={mockIcon} title={mockTitle} description={mockDescription} features={mockFeatures} sections={mockSections} />,
       )
 
       // Should render sections (h2 title)
@@ -249,7 +249,7 @@ describe("FeatureCard", () => {
     it("applies custom delay when provided", () => {
       const mockFeatures = ["Feature 1"]
       const { container } = render(
-        <FeatureCard icon={mockIcon} title={mockTitle} description={mockDescription} features={mockFeatures} delay={0.5} />
+        <FeatureCard icon={mockIcon} title={mockTitle} description={mockDescription} features={mockFeatures} delay={0.5} />,
       )
 
       const motionDiv = container.firstChild as HTMLElement

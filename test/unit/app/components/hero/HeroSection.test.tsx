@@ -34,7 +34,7 @@ describe("HeroSection", () => {
         primaryButtonLink="/contact"
         secondaryButtonText="Learn More"
         secondaryButtonLink="/about"
-      />
+      />,
     )
 
     const button = screen.getByRole("link", { name: /Learn More/i })
@@ -46,7 +46,7 @@ describe("HeroSection", () => {
     render(
       <TestWrapper>
         <HeroSection title="Test" subtitle="Test" primaryButtonText="Contact" primaryButtonLink="/contact" showLogo={true} />
-      </TestWrapper>
+      </TestWrapper>,
     )
 
     const logo = screen.getByRole("img", { name: /Schneider Law/i })

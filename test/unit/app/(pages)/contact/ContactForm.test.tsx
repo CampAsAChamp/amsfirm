@@ -54,7 +54,7 @@ describe("ContactForm", () => {
         expect.objectContaining({
           method: "POST",
           headers: { "Content-Type": "application/json" },
-        })
+        }),
       )
     })
   })
@@ -166,7 +166,7 @@ describe("ContactForm", () => {
           subject: "estate-planning",
           preferredContact: "email",
           message: "Test message",
-        })
+        }),
       )
     })
   })

@@ -165,7 +165,7 @@ export const createUserEvent = async () => {
 export const fillContactFormFields = async (
   user: ReturnType<typeof import("@testing-library/user-event").default.setup>,
   screen: typeof import("@testing-library/react").screen,
-  data: Partial<FormData> = mockFormData
+  data: Partial<FormData> = mockFormData,
 ) => {
   const formData = { ...mockFormData, ...data }
 

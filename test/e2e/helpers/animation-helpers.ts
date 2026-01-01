@@ -11,7 +11,7 @@ export async function waitForAnimation(
   page: Page,
   selector: string | Locator,
   duration: number = 1000,
-  bufferTime: number = 500
+  bufferTime: number = 500,
 ): Promise<void> {
   const locator = typeof selector === "string" ? page.locator(selector) : selector
 
@@ -170,7 +170,7 @@ export async function waitForStableState(page: Page): Promise<void> {
           img.addEventListener("load", () => resolve())
           img.addEventListener("error", () => resolve()) // Resolve even on error
         })
-      })
+      }),
     )
   })
 

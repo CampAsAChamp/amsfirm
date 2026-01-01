@@ -13,7 +13,7 @@ describe("AnimatedContainer", () => {
     render(
       <AnimatedContainer>
         <div>Test Content</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     expect(screen.getByText("Test Content")).toBeInTheDocument()
@@ -23,7 +23,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer>
         <div>Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     const motionDiv = container.firstChild as HTMLElement
@@ -34,7 +34,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer className="custom-class">
         <div>Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     const motionDiv = container.firstChild as HTMLElement
@@ -45,7 +45,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer>
         <div>Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     const motionDiv = container.firstChild as HTMLElement
@@ -58,7 +58,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer animateOnMount={true}>
         <div>Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     const motionDiv = container.firstChild as HTMLElement
@@ -71,7 +71,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer>
         <div>Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     const motionDiv = container.firstChild as HTMLElement
@@ -83,7 +83,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer delay={0.5}>
         <div>Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     const motionDiv = container.firstChild as HTMLElement
@@ -95,7 +95,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer>
         <div>Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     const motionDiv = container.firstChild as HTMLElement
@@ -108,7 +108,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer>
         <div>Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     const motionDiv = container.firstChild as HTMLElement
@@ -122,7 +122,7 @@ describe("AnimatedContainer", () => {
     const { container } = render(
       <AnimatedContainer>
         <div data-testid="content">Test</div>
-      </AnimatedContainer>
+      </AnimatedContainer>,
     )
 
     // Should have nested structure

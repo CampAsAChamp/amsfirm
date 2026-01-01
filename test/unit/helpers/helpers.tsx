@@ -56,7 +56,7 @@ export function expectMotionAnimation(
     whileInView?: string | object
     viewport?: object
     transition?: object
-  }
+  },
 ) {
   const props = getMotionProps(element)
 

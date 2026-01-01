@@ -100,7 +100,7 @@ export async function fillContactForm(
     subject: string
     message: string
     preferredContact: string
-  }
+  },
 ): Promise<void> {
   await page.getByLabel("Full Name").fill(data.name)
   await page.getByRole("textbox", { name: /Email Address/i }).fill(data.email)

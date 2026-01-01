@@ -94,7 +94,7 @@ describe("IconCard", () => {
 
     it("renders with numbered badge when stepNumber provided", () => {
       const { container } = render(
-        <IconCard icon={processIcon} title="Initial Contact" description="I discuss your goals" stepNumber={1} />
+        <IconCard icon={processIcon} title="Initial Contact" description="I discuss your goals" stepNumber={1} />,
       )
 
       // Should have the badge with step number
@@ -108,7 +108,7 @@ describe("IconCard", () => {
 
     it("renders with icon in circle background for process steps", () => {
       const { container } = render(
-        <IconCard icon={processIcon} title="Initial Contact" description="I discuss your goals" stepNumber={1} />
+        <IconCard icon={processIcon} title="Initial Contact" description="I discuss your goals" stepNumber={1} />,
       )
 
       const iconCircle = container.querySelector(".bg-surface-tertiary.rounded-full")
@@ -175,7 +175,7 @@ describe("IconCard", () => {
 
     it("arrows animate with delay offset", () => {
       const { container } = render(
-        <IconCard icon={mockIcon} title={mockTitle} description={mockDescription} stepNumber={1} showArrow={true} />
+        <IconCard icon={mockIcon} title={mockTitle} description={mockDescription} stepNumber={1} showArrow={true} />,
       )
 
       const motionDivs = container.querySelectorAll('[data-testid="motion-div"]')

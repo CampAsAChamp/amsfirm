@@ -87,7 +87,7 @@ vi.mock("framer-motion", async () => {
             obj[key] = props[key]
             return obj
           },
-          {} as Record<string, unknown>
+          {} as Record<string, unknown>,
         )
 
       return React.createElement(element, { ...domProps, ref })

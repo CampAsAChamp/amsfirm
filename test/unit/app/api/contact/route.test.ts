@@ -86,7 +86,7 @@ describe("Contact API Route", () => {
     expect(mockSendEmail).toHaveBeenCalledWith(
       expect.objectContaining({
         subject: expect.stringContaining("[TEST]"),
-      })
+      }),
     )
 
     // Restore original value
