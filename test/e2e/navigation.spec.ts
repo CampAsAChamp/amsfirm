@@ -5,14 +5,26 @@ test.describe("Navigation Flow", () => {
     await page.goto("/")
   })
 
-  test("displays navigation bar with all links", async ({ page }) => {
+  test("displays navigation bar with all links", async ({ page }, testInfo) => {
+    // On mobile, links are in the mobile menu - open it first
+    const isMobile = testInfo.project.name === "mobile" || testInfo.project.name === "mobile-android"
+
+    if (isMobile) {
+      // Open mobile menu
+      const menuButton = page.getByRole("button", { name: /menu/i })
+      await menuButton.click()
+
+      // Wait for menu to open
+      await page.waitForTimeout(500)
+    }
+
     // Check that all main navigation links are visible (scope to main nav element to avoid footer links)
     const nav = page.getByRole("navigation", { name: "Main navigation" })
     await expect(nav.getByRole("link", { name: "Home" }).first()).toBeVisible()
-    await expect(nav.getByRole("link", { name: "About" })).toBeVisible()
-    await expect(nav.getByRole("link", { name: "Services" })).toBeVisible()
-    await expect(nav.getByRole("link", { name: "FAQ" })).toBeVisible()
-    await expect(nav.getByRole("link", { name: "Contact" })).toBeVisible()
+    await expect(nav.getByRole("link", { name: "About" }).first()).toBeVisible()
+    await expect(nav.getByRole("link", { name: "Services" }).first()).toBeVisible()
+    await expect(nav.getByRole("link", { name: "FAQ" }).first()).toBeVisible()
+    await expect(nav.getByRole("link", { name: "Contact" }).first()).toBeVisible()
   })
 
   test("logo is visible and links to home", async ({ page }) => {

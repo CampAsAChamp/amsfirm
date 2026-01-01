@@ -27,11 +27,21 @@ test.describe("FAQ Page", () => {
   })
 
   test("expands FAQ item when clicked", async ({ page }) => {
+    // Wait for page to be fully interactive
+    await page.waitForLoadState("networkidle")
+
     // Find the first FAQ button
     const firstButton = page.locator("button[aria-expanded]").first()
 
+    // Wait for the button to be visible and stable
+    await firstButton.waitFor({ state: "visible" })
+    await page.waitForTimeout(300) // Wait for any animations to settle
+
     // Click to expand
     await firstButton.click()
+
+    // Wait a moment for state to update
+    await page.waitForTimeout(100)
 
     // Should now be expanded
     await expect(firstButton).toHaveAttribute("aria-expanded", "true")

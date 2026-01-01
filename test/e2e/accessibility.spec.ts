@@ -1,7 +1,13 @@
 import { expect, test } from "@playwright/test"
 
 test.describe("Accessibility", () => {
-  test("skip to main content link works", async ({ page }) => {
+  test("skip to main content link works", async ({ page }, testInfo) => {
+    // Skip on mobile - keyboard navigation behaves differently
+    if (testInfo.project.name === "mobile" || testInfo.project.name === "mobile-android") {
+      test.skip()
+      return
+    }
+
     await page.goto("/")
 
     // Tab to focus skip link
