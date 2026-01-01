@@ -5,7 +5,13 @@ import { motion } from "framer-motion"
 import { SectionHeaderProps } from "@/types"
 import { useInitialInView } from "@/utils"
 
-export default function SectionHeader({ title, subtitle, className = "", delay = 0 }: SectionHeaderProps) {
+export default function SectionHeader({
+  title,
+  subtitle,
+  className = "",
+  delay = 0,
+  subtitleDelay,
+}: SectionHeaderProps) {
   const { ref, getViewportConfig } = useInitialInView()
 
   const textVariants = {
@@ -18,6 +24,9 @@ export default function SectionHeader({ title, subtitle, className = "", delay =
       y: 0,
     },
   }
+
+  // If subtitleDelay is not provided, use delay + 0.15 for backward compatibility
+  const actualSubtitleDelay = subtitleDelay !== undefined ? subtitleDelay : delay + 0.15
 
   return (
     <div ref={ref} className={`text-center mb-16 ${className}`}>
@@ -45,7 +54,7 @@ export default function SectionHeader({ title, subtitle, className = "", delay =
           transition={{
             duration: 0.6,
             ease: "easeOut",
-            delay: delay + 0.15,
+            delay: actualSubtitleDelay,
           }}
         >
           {subtitle}

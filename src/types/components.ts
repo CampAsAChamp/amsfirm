@@ -51,6 +51,7 @@ export interface SectionHeaderProps {
   subtitle?: string
   className?: string
   delay?: number
+  subtitleDelay?: number
 }
 
 export interface ContactFormProps {

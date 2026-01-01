@@ -24,7 +24,8 @@ export default function Home() {
           <SectionHeader
             title="Comprehensive Estate Planning Services"
             subtitle="I provide expert legal guidance to help you create a comprehensive estate plan that protects your assets and ensures your wishes are carried out."
-            delay={0}
+            delay={1}
+            subtitleDelay={0.2}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
