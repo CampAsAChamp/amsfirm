@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.0 (2026-01-01)
+
+* test: fix faq test ([63d7a94](https://github.com/CampAsAChamp/amslaw/commit/63d7a94))
+* test: update playwright test worker number from 8 to 10 ([f4a2044](https://github.com/CampAsAChamp/amslaw/commit/f4a2044))
+* feat: add FAQ link animations with CSS variables ([6a4de8f](https://github.com/CampAsAChamp/amslaw/commit/6a4de8f))
+* chore: enhance CI/CD workflows with new test job and update release conditions ([93a71b1](https://github.com/CampAsAChamp/amslaw/commit/93a71b1))
+
 ## 1.0.0 (2026-01-01)
 
 * ci: update dependencies ([6a090c2](https://github.com/CampAsAChamp/amslaw/commit/6a090c2))
