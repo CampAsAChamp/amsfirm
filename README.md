@@ -149,6 +149,9 @@ All scripts are defined in `package.json` and run with Yarn:
 - `yarn test:e2e` - Run Playwright end-to-end tests
 - `yarn test:e2e:ui` - Run E2E tests with UI
 - `yarn test:e2e:debug` - Debug E2E tests
+- `yarn test:e2e:animations` - Run animation-specific E2E tests
+- `yarn test:e2e:visual` - Run visual regression tests with screenshots
+- `yarn test:e2e:visual:update` - Update visual regression baseline snapshots
 - `yarn test:all` - Run all tests (unit + e2e)
 - `yarn prepare` - Setup Husky git hooks
 
