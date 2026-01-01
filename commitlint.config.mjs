@@ -3,7 +3,7 @@
  * Enforces Conventional Commits specification
  * @see https://www.conventionalcommits.org/
  */
-export default {
+const config = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     // Type enum - allowed commit types
@@ -32,4 +32,6 @@ export default {
     "footer-max-line-length": [0],
   },
 }
+
+export default config
 
