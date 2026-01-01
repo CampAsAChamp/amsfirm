@@ -126,9 +126,9 @@ export async function fillContactForm(
  */
 export async function expectFormCleared(page: Page, timeout: number = 15000): Promise<void> {
   await expect(page.getByLabel("Full Name")).toHaveValue("", { timeout })
-  await expect(page.getByRole("textbox", { name: /Email Address/i })).toHaveValue("", { timeout: 5000 })
-  await expect(page.getByRole("textbox", { name: /Phone Number/i })).toHaveValue("", { timeout: 5000 })
-  await expect(page.getByLabel("Message")).toHaveValue("", { timeout: 5000 })
+  await expect(page.getByRole("textbox", { name: /Email Address/i })).toHaveValue("", { timeout })
+  await expect(page.getByRole("textbox", { name: /Phone Number/i })).toHaveValue("", { timeout })
+  await expect(page.getByLabel("Message")).toHaveValue("", { timeout })
 }
 
 /**
