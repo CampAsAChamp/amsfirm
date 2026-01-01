@@ -1,12 +1,71 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# Dependabot configuration for automated dependency updates
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
 updates:
-  - package-ecosystem: "" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  # Maintain npm/yarn dependencies for the portfolio
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/Los_Angeles'
+    # Allow up to 5 open pull requests for npm dependencies
+    open-pull-requests-limit: 5
+    # Automatically rebase PRs when they become out of date
+    rebase-strategy: 'auto'
+    # Group related updates
+    groups:
+      # Group React and related packages together
+      react:
+        patterns:
+          - 'react*'
+          - '@types/react*'
+      # Group testing libraries together
+      testing:
+        patterns:
+          - '@testing-library/*'
+          - 'vitest'
+          - '@vitest/*'
+          - '@playwright/test'
+      # Group TypeScript and ESLint together
+      linting:
+        patterns:
+          - 'eslint*'
+          - '@typescript-eslint/*'
+          - 'typescript'
+          - 'prettier*'
+          - 'stylelint*'
+      # Group build tools together
+      build-tools:
+        patterns:
+          - 'vite*'
+          - '@vitejs/*'
+          - 'rollup*'
+      # Group other dev dependencies
+      dev-dependencies:
+        dependency-type: 'development'
+    # Add labels to PRs
+    labels:
+      - 'dependencies'
+      - 'automated'
+    # Commit message prefix
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
+
+  # Maintain GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/Los_Angeles'
+    open-pull-requests-limit: 3
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+    commit-message:
+      prefix: 'ci'
