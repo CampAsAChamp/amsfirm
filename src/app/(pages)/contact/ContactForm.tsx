@@ -9,6 +9,7 @@ import { AnimatedContainer } from "@/app/components/common"
 import FormField from "@/app/components/contact/forms/FormField"
 
 export default function ContactForm({ onSubmit }: ContactFormProps) {
+  const [formKey, setFormKey] = useState(0)
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -51,15 +52,21 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         }
       }
       setSubmitStatus("success")
-      toast.success("Email sent successfully!")
-      setFormData({
+
+      // Clear form and force re-render by changing key
+      const clearedFormData = {
         name: "",
         email: "",
         phone: "",
         subject: "",
         message: "",
         preferredContact: "",
-      })
+      }
+      setFormData(clearedFormData)
+      setFormKey((prev) => prev + 1) // Force form to re-render
+
+      // Show success toast after form is cleared
+      toast.success("Email sent successfully!")
     } catch {
       setSubmitStatus("error")
       toast.error("Failed to send message. Please try again or call us directly.")
@@ -93,6 +100,10 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
               primary: "white",
               secondary: "#10b981",
             },
+            ariaProps: {
+              role: "status",
+              "aria-live": "polite",
+            },
           },
           error: {
             style: {
@@ -102,6 +113,10 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             iconTheme: {
               primary: "white",
               secondary: "#ef4444",
+            },
+            ariaProps: {
+              role: "status",
+              "aria-live": "polite",
             },
           },
         }}
@@ -121,7 +136,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form key={formKey} onSubmit={handleSubmit} className="space-y-6">
           <FormField
             id="name"
             name="name"

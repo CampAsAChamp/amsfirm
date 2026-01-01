@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 
 import { IconCardProps } from "@/types"
+import { useInitialInView } from "@/utils"
 
 /**
  * Simple icon with circle background
@@ -113,6 +114,8 @@ function ProcessArrows({ animationDelay }: { animationDelay: number }) {
  * - If showArrow is true, displays arrows between steps (responsive: down on mobile, right on desktop)
  */
 export default function IconCard({ icon, title, description, stepNumber, showArrow = false, delay }: IconCardProps) {
+  const { ref, getViewportConfig } = useInitialInView()
+
   // Determine if this is a process step (has step number)
   const hasStepNumber = stepNumber !== undefined
 
@@ -131,10 +134,11 @@ export default function IconCard({ icon, title, description, stepNumber, showArr
   return (
     <div className="flex flex-col md:flex-row items-center gap-4">
       <motion.div
+        ref={ref}
         className="text-center flex-1"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={getViewportConfig()}
         transition={{
           duration: 0.5,
           delay: animationDelay,

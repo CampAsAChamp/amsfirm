@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 
 import { FeatureCardProps } from "@/types"
+import { useInitialInView } from "@/utils"
 
 /**
  * FeatureCard - A reusable card component for displaying services with features lists or detailed sections.
@@ -66,17 +67,28 @@ export default function FeatureCard({
   delay = 0,
   animateOnMount = false,
 }: FeatureCardProps) {
+  const { ref, getViewportConfig } = useInitialInView()
   const hasSections = sections && sections.length > 0
+
+  // If animateOnMount is true, use animate prop instead of whileInView
+  const animationProps = animateOnMount
+    ? {
+        initial: { opacity: 0, y: 30 },
+        animate: { opacity: 1, y: 0 },
+      }
+    : {
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: getViewportConfig(),
+      }
 
   // Sections rendering (detailed services page)
   if (hasSections) {
     return (
       <motion.div
+        ref={ref}
         className="card-base"
-        initial={{ opacity: 0, y: 30 }}
-        animate={animateOnMount ? { opacity: 1, y: 0 } : undefined}
-        whileInView={!animateOnMount ? { opacity: 1, y: 0 } : undefined}
-        viewport={{ once: true }}
+        {...animationProps}
         transition={{
           duration: 0.5,
           delay,
@@ -108,11 +120,9 @@ export default function FeatureCard({
   // Features rendering (services overview on homepage)
   return (
     <motion.div
+      ref={ref}
       className="card-base"
-      initial={{ opacity: 0, y: 30 }}
-      animate={animateOnMount ? { opacity: 1, y: 0 } : undefined}
-      whileInView={!animateOnMount ? { opacity: 1, y: 0 } : undefined}
-      viewport={{ once: true }}
+      {...animationProps}
       transition={{
         duration: 0.5,
         delay,

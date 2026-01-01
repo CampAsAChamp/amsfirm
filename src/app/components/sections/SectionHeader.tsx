@@ -3,8 +3,11 @@
 import { motion } from "framer-motion"
 
 import { SectionHeaderProps } from "@/types"
+import { useInitialInView } from "@/utils"
 
 export default function SectionHeader({ title, subtitle, className = "", delay = 0 }: SectionHeaderProps) {
+  const { ref, getViewportConfig } = useInitialInView()
+
   const textVariants = {
     initial: {
       opacity: 0,
@@ -17,13 +20,13 @@ export default function SectionHeader({ title, subtitle, className = "", delay =
   }
 
   return (
-    <div className={`text-center mb-16 ${className}`}>
+    <div ref={ref} className={`text-center mb-16 ${className}`}>
       <motion.h2
         className="text-3xl md:text-4xl font-bold text-heading mb-4"
         variants={textVariants}
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={getViewportConfig()}
         transition={{
           duration: 0.6,
           ease: "easeOut",
@@ -38,7 +41,7 @@ export default function SectionHeader({ title, subtitle, className = "", delay =
           variants={textVariants}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={getViewportConfig()}
           transition={{
             duration: 0.6,
             ease: "easeOut",
