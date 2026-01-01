@@ -103,10 +103,12 @@ describe("ContactForm", () => {
     // Submit form
     await user.click(screen.getByRole("button", { name: /send message/i }))
 
-    // Wait for form to reset
+    // Wait for form to reset - re-query elements since form key changed
     await waitFor(() => {
-      expect(nameInput.value).toBe("")
-      expect(emailInput.value).toBe("")
+      const freshNameInput = screen.getByLabelText(/full name/i) as HTMLInputElement
+      const freshEmailInput = screen.getByLabelText(/email address/i) as HTMLInputElement
+      expect(freshNameInput.value).toBe("")
+      expect(freshEmailInput.value).toBe("")
     })
   })
 
@@ -144,9 +146,10 @@ describe("ContactForm", () => {
     // Resolve the promise
     resolvePromise!(mockSuccessResponse())
 
-    // Wait for button to be enabled again
+    // Wait for button to be enabled again - re-query since form key changed
     await waitFor(() => {
-      expect(submitButton).not.toBeDisabled()
+      const freshSubmitButton = screen.getByRole("button", { name: /send message/i })
+      expect(freshSubmitButton).not.toBeDisabled()
     })
   })
 
