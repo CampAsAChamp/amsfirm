@@ -101,6 +101,67 @@ Dependabot groups related packages together to reduce PR noise:
 
 This ensures the project stays secure and up-to-date with minimal manual intervention.
 
+## Automated Releases and Versioning
+
+This project uses **semantic-release** to automatically manage versioning, generate changelogs, and create GitHub releases based on commit messages.
+
+### How It Works
+
+When code is merged to the `main` branch, semantic-release:
+
+1. **Analyzes commits** - Reviews commit messages since the last release
+2. **Determines version** - Calculates the next version based on commit types
+3. **Updates files** - Bumps version in `package.json` and updates `docs/CHANGELOG.md`
+4. **Creates release** - Generates GitHub release with release notes
+5. **Commits changes** - Pushes version updates back to the repository
+
+### Version Bump Rules
+
+The version bump is determined by your commit message type:
+
+| Commit Type                                                        | Version Bump          | Example                         |
+| ------------------------------------------------------------------ | --------------------- | ------------------------------- |
+| `feat:`                                                            | Minor (0.1.0 → 0.2.0) | `feat: add user authentication` |
+| `fix:`                                                             | Patch (0.1.0 → 0.1.1) | `fix: resolve mobile menu bug`  |
+| `perf:`                                                            | Patch (0.1.0 → 0.1.1) | `perf: optimize image loading`  |
+| `feat!:` or `BREAKING CHANGE:`                                     | Major (0.1.0 → 1.0.0) | `feat!: redesign API`           |
+| `docs:`, `style:`, `refactor:`, `test:`, `build:`, `ci:`, `chore:` | No release            | Documentation and other changes |
+
+### Viewing Releases
+
+- **GitHub Releases**: [https://github.com/your-username/amslaw/releases](https://github.com/your-username/amslaw/releases)
+- **Changelog**: [`docs/CHANGELOG.md`](docs/CHANGELOG.md) - Automatically generated and maintained
+
+### Writing Commit Messages
+
+Use [Conventional Commits](https://www.conventionalcommits.org/) format to ensure proper versioning:
+
+```bash
+# Creates a minor release (0.1.0 → 0.2.0)
+git commit -m "feat: add dark mode toggle"
+
+# Creates a patch release (0.1.0 → 0.1.1)
+git commit -m "fix: resolve navigation focus trap"
+
+# No release created
+git commit -m "docs: update README with new examples"
+
+# Creates a major release (0.1.0 → 1.0.0)
+git commit -m "feat!: redesign navigation API
+
+BREAKING CHANGE: Navigation component now requires theme prop."
+```
+
+See the [Commit Message Guide](docs/COMMIT_MESSAGE_GUIDE.md) for detailed information and examples.
+
+### Configuration
+
+- **Workflow**: `.github/workflows/release.yml` - Runs on push to main
+- **Configuration**: `.releaserc.js` - Semantic release settings
+- **Changelog**: `docs/CHANGELOG.md` - Automatically generated
+
+**No secrets required** - The GitHub Actions workflow uses the automatically provided `GITHUB_TOKEN`.
+
 ## Development
 
 ### Getting Started

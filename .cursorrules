@@ -309,6 +309,69 @@ Every Cursor plan that implements new features MUST include:
 - Include troubleshooting for common issues
 - Keep documentation in sync with code changes
 
+### Releases and Versioning
+
+This project uses **semantic-release** for automated versioning and releases. Understanding how this works is critical:
+
+#### How Commits Affect Releases
+
+Your commit message type determines if and how the version is bumped:
+
+- `feat:` → Minor version bump (0.1.0 → 0.2.0)
+- `fix:` → Patch version bump (0.1.0 → 0.1.1)
+- `perf:` → Patch version bump (0.1.0 → 0.1.1)
+- `feat!:` or `BREAKING CHANGE:` → Major version bump (0.1.0 → 1.0.0)
+- `docs:`, `style:`, `refactor:`, `test:`, `build:`, `ci:`, `chore:` → No release
+
+#### Writing Commit Messages for Releases
+
+When writing commits, consider the versioning impact:
+
+**Good examples:**
+```bash
+# New feature = minor release
+git commit -m "feat: add user authentication"
+
+# Bug fix = patch release
+git commit -m "fix: resolve mobile menu not closing"
+
+# Breaking change = major release
+git commit -m "feat!: redesign navigation API
+
+BREAKING CHANGE: Navigation component now requires theme prop."
+
+# No release for documentation
+git commit -m "docs: update API documentation"
+```
+
+**Important:**
+- Use `feat:` for new features that add functionality
+- Use `fix:` for bug fixes
+- Add `!` after the type (e.g., `feat!:`) or include `BREAKING CHANGE:` in the commit body for breaking changes
+- Use other types (`docs:`, `chore:`, etc.) for changes that don't require a release
+
+#### Changelog Maintenance
+
+The changelog is **automatically generated** and maintained:
+
+- Located at `docs/CHANGELOG.md`
+- Never manually edit this file
+- Generated from commit messages on each release
+- Groups changes by type (Features, Bug Fixes, etc.)
+
+#### Release Process
+
+Releases happen automatically:
+
+1. Merge PR to `main` branch
+2. GitHub Actions workflow runs semantic-release
+3. Version is calculated from commits
+4. `package.json` and `docs/CHANGELOG.md` are updated
+5. GitHub release is created with notes
+6. Changes are committed back to repository
+
+**No manual intervention needed** - the entire process is automated.
+
 ---
 
 ## Maintaining This File
