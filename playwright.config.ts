@@ -63,9 +63,6 @@ export default defineConfig({
       
       /* Animation handling */
       animations: 'disabled',
-      
-      /* Allow time for screenshot comparison retries */
-      timeout: 10 * 1000,
     },
   },
 
