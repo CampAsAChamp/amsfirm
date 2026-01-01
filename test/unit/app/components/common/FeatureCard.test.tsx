@@ -344,7 +344,7 @@ describe("FeatureCard", () => {
 
       expect(initial).toEqual({ opacity: 0, y: 30 })
       expect(whileInView).toEqual({ opacity: 1, y: 0 })
-      expect(viewport).toEqual({ once: true })
+      expect(viewport).toEqual({ once: true, amount: 0.3 })
       expect(transition.duration).toBe(0.5)
       expect(transition.ease).toEqual([0.25, 0.4, 0.25, 1])
     })
