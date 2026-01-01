@@ -25,6 +25,7 @@ This is the official website for Anna M. Schneider Law, a law firm specializing 
 - **Runtime**: Node.js 22
 - **Package Manager**: Yarn 4 (Berry) for fast, reliable dependency management
 - **Code Quality**: Prettier for code formatting, lint-staged for pre-commit checks, Husky for git hooks
+- **Commit Standards**: Commitlint for enforcing [Conventional Commits](https://www.conventionalcommits.org/) specification
 
 ## Site Structure
 
@@ -62,6 +63,7 @@ This project requires:
 - **FAQ Section** - Comprehensive answers to common estate planning questions
 - **Error Handling** - Custom 404 page, error boundaries, and loading states
 - **Code Quality Tools** - Pre-commit hooks with ESLint, Prettier, and automated testing
+- **Conventional Commits** - Enforced commit message format for better version control and changelogs
 - **Comprehensive Testing** - Unit tests with Vitest and E2E tests with Playwright
 - **Automatic Deployment** - Cloudflare Workers automatically builds and deploys on every push
 
@@ -376,8 +378,29 @@ function MyComponent() {
 - Keep components focused and single-responsibility
 - Ensure all interactive elements are keyboard accessible
 - Add proper ARIA labels for screen readers
+- Use [Conventional Commits](https://www.conventionalcommits.org/) for all commit messages
 
 See `.cursorrules` for complete coding standards and conventions.
+
+### Commit Messages
+
+All commits must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. This is enforced automatically via git hooks.
+
+**Format:**
+
+```
+<type>[optional scope]: <description>
+```
+
+**Example:**
+
+```bash
+feat: add contact form validation
+fix(nav): resolve mobile menu focus trap
+docs: update deployment instructions
+```
+
+See the [Commit Message Guide](docs/COMMIT_MESSAGE_GUIDE.md) for detailed information and examples.
 
 ## Documentation
 
@@ -386,6 +409,7 @@ Additional documentation is available in the `docs/` directory:
 ### Development Documentation
 
 - **[Git Hooks Setup](docs/GIT_HOOKS.md)** - Pre-commit and pre-push hooks for code quality
+- **[Commit Message Guide](docs/COMMIT_MESSAGE_GUIDE.md)** - Quick reference for writing conventional commits
 - **[Testing Guide](docs/TESTING.md)** - Comprehensive testing documentation for unit and E2E tests
 
 ### Legal Service Reference

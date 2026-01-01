@@ -224,4 +224,27 @@ The configuration includes `eslint-config-prettier` to prevent conflicts between
 # Make hook files executable
 chmod +x .husky/pre-commit
 chmod +x .husky/pre-push
+chmod +x .husky/commit-msg
 ```
+
+### Commit message validation fails
+
+If your commit is blocked due to message format:
+
+```bash
+# ❌ Bad - will be rejected
+git commit -m "updated files"
+
+# ✅ Good - follows Conventional Commits
+git commit -m "chore: update configuration files"
+```
+
+See the [Commit Message Guide](./COMMIT_MESSAGE_GUIDE.md) for detailed examples.
+
+## Resources
+
+- [Conventional Commits](https://www.conventionalcommits.org/) - Commit message specification
+- [Commitlint](https://commitlint.js.org/) - Commit message linter
+- [Husky](https://typicode.github.io/husky/) - Git hooks manager
+- [lint-staged](https://github.com/okonet/lint-staged) - Run linters on staged files
+- [Commit Message Guide](./COMMIT_MESSAGE_GUIDE.md) - Quick reference with examples
