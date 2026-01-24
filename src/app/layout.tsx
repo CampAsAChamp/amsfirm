@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://annamschneiderlaw.com"
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://amsfirm.com"
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

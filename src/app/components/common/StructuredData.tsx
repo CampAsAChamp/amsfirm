@@ -6,7 +6,7 @@ import { contactInfo, officeHours, yelpReviews } from "@/app/data"
  * This helps search engines understand the business and display rich results
  */
 export default function StructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://annamschneiderlaw.com"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://amsfirm.com"
 
   // Calculate average rating from Yelp reviews
   const totalReviews = yelpReviews.length

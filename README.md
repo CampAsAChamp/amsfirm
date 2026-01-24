@@ -4,7 +4,7 @@ Professional law firm website specializing in estate planning, built with Next.j
 
 ## Live Site
 
-🌐 **[annamschneiderlaw.com](https://annamschneiderlaw.com)**
+🌐 **[amsfirm.com](https://amsfirm.com)**
 
 The site is deployed on Cloudflare Workers with automatic build and deployment on every push.
 
@@ -641,7 +641,7 @@ The site is deployed to Cloudflare Workers with automatic build and deployment c
 
 - Builds the Next.js application
 - Generates the Cloudflare Workers bundle using OpenNext
-- Deploys to production at [annamschneiderlaw.com](https://annamschneiderlaw.com)
+- Deploys to production at [amsfirm.com](https://amsfirm.com)
 
 ### Manual Deployment
 
@@ -725,7 +725,7 @@ Environment variables are configured in `wrangler.jsonc`:
 
 Secrets set via Wrangler CLI are encrypted and stored securely in Cloudflare, persisting across all deployments.
 
-**Note:** The `NEXT_PUBLIC_SITE_URL` variable is used for SEO features (sitemap, Open Graph images, structured data). Set it to your production domain (e.g., `https://annamschneiderlaw.com`).
+**Note:** The `NEXT_PUBLIC_SITE_URL` variable is used for SEO features (sitemap, Open Graph images, structured data). Set it to your production domain (e.g., `https://amsfirm.com`).
 
 ## Design System
 
