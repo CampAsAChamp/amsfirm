@@ -48,7 +48,7 @@ function checkNodeVersion(currentVersion, requiredVersion) {
     console.error("  - jsdom 27.3.0 (requires Node 22+)")
     console.error("  - Vitest 4.x and other modern dependencies\n")
     console.error("To fix this issue:")
-    console.error("  1. Run: nvm use    (uses version from .nvmrc file)")
+    console.error("  1. Run: nvm use  (uses version from .nvmrc file)")
     console.error("  2. Or: nvm install 22 && nvm use 22\n")
     console.error("⚠️  Note: Running tests with Node 18 causes them to hang indefinitely.\n")
     process.exit(1)
