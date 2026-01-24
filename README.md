@@ -276,7 +276,11 @@ All scripts are defined in `package.json` and run with Yarn:
 - `yarn test:e2e:animations` - Run animation-specific E2E tests
 - `yarn test:e2e:visual` - Run visual regression tests with screenshots
 - `yarn test:e2e:visual:update` - Update visual regression baseline snapshots
-- `yarn test:all` - Run all tests (unit + e2e)
+- `yarn test:lighthouse` - Run Lighthouse performance audits (desktop)
+- `yarn test:lighthouse:desktop` - Run Lighthouse audits for desktop viewport
+- `yarn test:lighthouse:mobile` - Run Lighthouse audits for mobile viewport
+- `yarn test:lighthouse:both` - Run Lighthouse audits for both desktop and mobile
+- `yarn test:all` - Run all tests (unit + lighthouse + e2e)
 - `yarn prepare` - Setup Husky git hooks
 
 ### Project Structure
@@ -302,6 +306,149 @@ src/
 ├── types/               # TypeScript type definitions
 └── utils/               # Utility functions
 ```
+
+## Testing
+
+### Overview
+
+This project includes comprehensive testing with three types of tests:
+
+1. **Unit Tests** - Test individual components and functions with Vitest
+2. **E2E Tests** - Test user interactions and workflows with Playwright
+3. **Lighthouse Audits** - Test performance, accessibility, best practices, and SEO
+
+See the [Testing Guide](docs/TESTING.md) for detailed information on unit and E2E tests.
+
+### Lighthouse Performance Audits
+
+Lighthouse CI tests are configured to ensure the site meets high standards for performance, accessibility, best practices, and SEO.
+
+#### Running Lighthouse Tests Locally
+
+```bash
+# Test desktop viewport only (fastest)
+yarn test:lighthouse:desktop
+
+# Test mobile viewport only
+yarn test:lighthouse:mobile
+
+# Test both desktop and mobile (recommended)
+yarn test:lighthouse:both
+```
+
+The tests will:
+
+1. Build your Next.js site for production
+2. Start a local production server
+3. Run Lighthouse audits
+4. Display detailed scores and diagnostics
+5. Save reports to `test_results/lighthouse/`
+
+#### Optional: Upload Reports During Local Testing
+
+By default, local Lighthouse tests work without any configuration. However, if you want to upload reports to temporary public storage (like in CI), you can set up the LHCI GitHub token.
+
+**Setup (Optional):**
+
+1. Get a Lighthouse CI token from [Lighthouse CI](https://github.com/apps/lighthouse-ci)
+2. Add it to your `.env.local` file (copy from `.env.example` if you haven't already):
+
+```bash
+# Optional: Upload Lighthouse reports to temporary public storage
+LHCI_GITHUB_APP_TOKEN=your_token_here
+```
+
+3. Run tests as normal - the script automatically loads `.env.local` if it exists
+
+**Note:** This is completely optional for local development. Reports are always saved locally to `test_results/lighthouse/` whether or not you have the token configured.
+
+#### What Gets Tested
+
+Lighthouse audits measure four key categories:
+
+- **Performance** (≥85%) - Page load speed, Core Web Vitals (FCP, LCP, TBT, CLS, Speed Index)
+- **Accessibility** (≥90%) - WCAG compliance, ARIA labels, keyboard navigation, color contrast
+- **Best Practices** (≥90%) - Security, modern web standards, console errors
+- **SEO** (≥90%) - Meta tags, structured data, mobile-friendliness, crawlability
+
+#### Understanding the Results
+
+After tests complete, you'll see:
+
+1. **Category Scores** - Overall scores for each category with color-coded indicators:
+   - 🟢 Green (90-100): Excellent
+   - 🟡 Yellow (50-89): Needs improvement
+   - 🔴 Red (0-49): Poor
+
+2. **Core Web Vitals** - Key performance metrics:
+   - First Contentful Paint (FCP) - How quickly content appears
+   - Largest Contentful Paint (LCP) - When main content loads
+   - Total Blocking Time (TBT) - How long the page is unresponsive
+   - Cumulative Layout Shift (CLS) - Visual stability during load
+   - Speed Index - How quickly content is visually displayed
+
+3. **Performance Opportunities** - Specific recommendations to improve scores with estimated time savings
+
+4. **Full Report Link** - Link to detailed HTML report with all audit details
+
+#### CI/CD Integration
+
+Lighthouse tests run automatically in GitHub Actions:
+
+- Triggered on every push and pull request to `main` branch
+- Tests desktop configuration for consistent, fast CI execution
+- Results appear in the Actions tab with detailed scores
+- Reports uploaded to temporary public storage for 7 days
+- Required check - PRs cannot be merged if Lighthouse tests fail
+
+The Lighthouse job runs after unit tests pass, ensuring quality gates are enforced before code is merged.
+
+**Setting Up GitHub Secret (For CI/CD):**
+
+To enable report uploads in CI/CD, set the `LHCI_GITHUB_APP_TOKEN` secret:
+
+1. Go to [Lighthouse CI GitHub App](https://github.com/apps/lighthouse-ci) and install it for your repository
+2. The app will provide you with a token
+3. Add the token as a GitHub secret:
+   - Go to your repository → Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Name: `LHCI_GITHUB_APP_TOKEN`
+   - Value: Your token from step 2
+   - Click "Add secret"
+
+Once configured, Lighthouse reports will be automatically uploaded and linked in CI/CD runs.
+
+#### Test Configuration
+
+Configuration files define test parameters:
+
+- `.lighthouserc.desktop.json` - Desktop viewport with preset configuration
+- `.lighthouserc.mobile.json` - Mobile viewport with 4G throttling simulation
+
+Scripts:
+
+- `scripts/run-lighthouse.sh` - Orchestrates test execution and result collection
+- `scripts/print-lighthouse-scores.mjs` - Parses and displays test results with diagnostics
+
+#### Troubleshooting
+
+**Tests fail with low performance scores:**
+
+- Performance can vary based on your machine's current load
+- Run tests when your computer isn't under heavy load
+- Mobile tests typically score lower than desktop (this is expected)
+- Review performance opportunities for specific improvements
+
+**Server won't start:**
+
+- Ensure no other process is using port 3000
+- Check that `yarn build` completes successfully
+- Verify you have Node.js 22 or higher
+
+**Tests timeout:**
+
+- Increase `startServerReadyTimeout` in `.lighthouserc.*.json` if your machine is slow
+- Default is 10 seconds, which should be sufficient for most cases
 
 ### Configuration Files
 
@@ -340,7 +487,13 @@ The contact form uses [Resend](https://resend.com) for email delivery and React 
 
 **For Local Development:**
 
-Create a file named `.env.local` in the root of your project:
+Copy `.env.example` to `.env.local` and fill in your values:
+
+```bash
+cp .env.example .env.local
+```
+
+Then edit `.env.local`:
 
 ```bash
 # Resend API Configuration
