@@ -33,6 +33,9 @@ node_modules/
 .env.test.local
 .env.production.local
 
+# Allow example env file to be committed
+!.env.example
+
 # Lighthouse CI results
 .lighthouseci/
 
