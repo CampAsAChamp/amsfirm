@@ -60,4 +60,3 @@ const currentNodeVersion = process.versions.node
 const requiredNodeVersion = getRequiredNodeVersion()
 
 checkNodeVersion(currentNodeVersion, requiredNodeVersion)
-
