@@ -96,7 +96,11 @@ async function main() {
   console.log("\n🔍 Running linting checks...\n")
 
   // Run ESLint with color output
-  const eslintCode = await runWithProgress("yarn", ["eslint", ".", "--color"], "Checking ESLint rules...")
+  const eslintCode = await runWithProgress(
+    "yarn",
+    ["eslint", "src/**/*.{js,jsx,ts,tsx}", "test/**/*.{js,jsx,ts,tsx}", "--color"],
+    "Checking ESLint rules...",
+  )
 
   if (eslintCode !== 0) {
     console.log("\n❌ ESLint failed. Please fix the errors above.\n")
@@ -104,7 +108,11 @@ async function main() {
   }
 
   // Run Stylelint with color output
-  const stylelintCode = await runWithProgress("yarn", ["stylelint", "**/*.css", "--color"], "Checking CSS styles...")
+  const stylelintCode = await runWithProgress(
+    "yarn",
+    ["stylelint", "src/**/*.css", "test/**/*.css", "--color"],
+    "Checking CSS styles...",
+  )
 
   if (stylelintCode !== 0) {
     console.log("\n❌ Stylelint failed. Please fix the errors above.\n")
