@@ -129,7 +129,7 @@ The version bump is determined by your commit message type:
 
 ### Viewing Releases
 
-- **GitHub Releases**: [https://github.com/your-username/amslaw/releases](https://github.com/your-username/amslaw/releases)
+- **GitHub Releases**: [https://github.com/CampAsAChamp/amsfirm/releases](https://github.com/CampAsAChamp/amsfirm/releases)
 - **Changelog**: [`docs/CHANGELOG.md`](docs/CHANGELOG.md) - Automatically generated and maintained
 
 ### Writing Commit Messages

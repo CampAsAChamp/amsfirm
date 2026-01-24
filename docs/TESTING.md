@@ -5,7 +5,7 @@ This project includes comprehensive testing for critical functionality using Vit
 ## Test Structure
 
 ```
-amslaw/
+amsfirm/
 ├── src/
 │   └── app/                              # Application source code
 │       ├── components/ui/

@@ -7128,9 +7128,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"amslaw@workspace:.":
+"amsfirm@workspace:.":
   version: 0.0.0-use.local
-  resolution: "amslaw@workspace:."
+  resolution: "amsfirm@workspace:."
   dependencies:
     "@commitlint/cli": "npm:^20.2.0"
     "@commitlint/config-conventional": "npm:^20.2.0"
