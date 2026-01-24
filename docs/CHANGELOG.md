@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.4.0 (2026-01-24)
+
+* style: add & update .prettierignore ([a0ec3d4](https://github.com/CampAsAChamp/amsfirm/commit/a0ec3d4))
+* style: formatting ([1565421](https://github.com/CampAsAChamp/amsfirm/commit/1565421))
+* ci: remove running e2e tests in pre push hook ([b312349](https://github.com/CampAsAChamp/amsfirm/commit/b312349))
+* feat: update to use amsfirm.com ([524362d](https://github.com/CampAsAChamp/amsfirm/commit/524362d))
+
 ## 1.3.0 (2026-01-24)
 
 * docs: add environment variable example file ([81f40a5](https://github.com/CampAsAChamp/amslaw/commit/81f40a5))
