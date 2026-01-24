@@ -39,3 +39,39 @@ jobs:
           echo ""
           echo "Build completed successfully"
 
+  lighthouse:
+    name: Lighthouse Audits
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build production site
+        run: yarn build
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        with:
+          urls: |
+            http://localhost:3000
+          configPath: "./.lighthouserc.desktop.json"
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Print Lighthouse scores summary
+        if: always()
+        run: node scripts/print-lighthouse-scores.mjs
+
