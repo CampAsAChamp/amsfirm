@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.3.0 (2026-01-24)
+
+* docs: add environment variable example file ([81f40a5](https://github.com/CampAsAChamp/amslaw/commit/81f40a5))
+* docs: update README ([b0453aa](https://github.com/CampAsAChamp/amslaw/commit/b0453aa))
+* docs: update README with Lighthouse testing and environment setup ([3369863](https://github.com/CampAsAChamp/amslaw/commit/3369863))
+* chore: add site URL to Cloudflare Wrangler configuration ([f055fbe](https://github.com/CampAsAChamp/amslaw/commit/f055fbe))
+* chore: fix eslint error in commitlint.config.mjs ([d9a3bdd](https://github.com/CampAsAChamp/amslaw/commit/d9a3bdd))
+* chore: update to use yarn instead of npx everywhere ([20c6aa6](https://github.com/CampAsAChamp/amslaw/commit/20c6aa6))
+* chore: update to use yarn instead of npx everywhere ([ffaad44](https://github.com/CampAsAChamp/amslaw/commit/ffaad44))
+* perf: scope lint checks to src and test directories only ([6004e05](https://github.com/CampAsAChamp/amslaw/commit/6004e05))
+* feat: add Lighthouse CI integration for performance testing ([a9f6959](https://github.com/CampAsAChamp/amslaw/commit/a9f6959))
+* feat: add Node.js version checking to prevent hanging tests ([e7042e1](https://github.com/CampAsAChamp/amslaw/commit/e7042e1))
+* style: update prettier config width to 140 ([43d0934](https://github.com/CampAsAChamp/amslaw/commit/43d0934))
+* style: update prettier config width to use all trailing commas ([49ed21d](https://github.com/CampAsAChamp/amslaw/commit/49ed21d))
+* ci: remove separate type check gh actions step ([d99176a](https://github.com/CampAsAChamp/amslaw/commit/d99176a))
+
 ## 1.2.0 (2026-01-01)
 
 - test: skip failing tests ([131162f](https://github.com/CampAsAChamp/amslaw/commit/131162f))
