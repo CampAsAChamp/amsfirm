@@ -1,21 +1,62 @@
+# Dependencies
 node_modules
+
+# Build output
 .next
 .open-next
 out
 build
 dist
 coverage
+
+# Lock files
 *.lock
 yarn.lock
 package-lock.json
 pnpm-lock.yaml
-.husky
-public
+
+# Cloudflare Workers
+.wrangler
+.dev.vars
+
+# Test output
 playwright-report
 test-results
+
+# Lighthouse CI output
+.lighthouseci
+
+# Generated TypeScript files
+next-env.d.ts
+env.d.ts
+*.tsbuildinfo
+
+# Config files (often have specific formatting)
 *.config.js
 *.config.mjs
 *.config.ts
-next-env.d.ts
-env.d.ts
+
+# Auto-generated documentation
+docs/CHANGELOG.md
+
+# Git hooks
+.husky
+
+# Static assets
+public
+
+# Logs
+*.log
+
+# Cache files
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Yarn v4
+.yarn/cache
+.yarn/install-state.gz
+.pnp.*
 
