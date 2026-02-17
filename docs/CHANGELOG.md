@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## <small>1.5.1 (2026-02-17)</small>
+
+* Revert "feat: update CONTACT_EMAIL with actual email" ([d6c5dea](https://github.com/CampAsAChamp/amsfirm/commit/d6c5dea))
+
 ## 1.5.0 (2026-02-17)
 
 * feat: update CONTACT_EMAIL with actual email ([c8b5e4d](https://github.com/CampAsAChamp/amsfirm/commit/c8b5e4d))
