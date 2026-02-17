@@ -16,7 +16,7 @@
   },
   "upload_source_maps": true,
   "vars": {
-    "CONTACT_EMAIL": "nickschneider101@gmail.com",
+    "CONTACT_EMAIL": "anna@amsfirm.com",
     "NEXT_PUBLIC_SITE_URL": "https://amsfirm.com"
   }
   // For RESEND_API_KEY secret, run: yarn wrangler secret put RESEND_API_KEY
