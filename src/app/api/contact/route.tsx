@@ -19,7 +19,8 @@ export async function POST(request: Request) {
     const resend = new Resend(process.env.RESEND_API_KEY)
 
     // Add [TEST] prefix in non-production environments for easy Gmail filtering
-    const subjectLine = process.env.NODE_ENV === "production" ? `New Contact Form: ${subject}` : `[TEST] New Contact Form: ${subject}`
+    const testPrefix = process.env.NODE_ENV === "production" ? "" : "[TEST]"
+    const subjectLine = `${testPrefix} New Contact Form: ${subject}`
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
