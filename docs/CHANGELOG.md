@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.5.0 (2026-02-17)
+
+* feat: update CONTACT_EMAIL with actual email ([c8b5e4d](https://github.com/CampAsAChamp/amsfirm/commit/c8b5e4d))
+* chore: rename repository from amslaw to amsfirm ([2f9c9a6](https://github.com/CampAsAChamp/amsfirm/commit/2f9c9a6))
+* chore: update package.json scripts to include node version checks ([17ec614](https://github.com/CampAsAChamp/amsfirm/commit/17ec614))
+
 ## 1.4.0 (2026-01-24)
 
 * style: add & update .prettierignore ([a0ec3d4](https://github.com/CampAsAChamp/amsfirm/commit/a0ec3d4))
