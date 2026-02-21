@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.6.0 (2026-02-21)
+
+* feat: add phone input component to contact form ([b25c3e3](https://github.com/CampAsAChamp/amsfirm/commit/b25c3e3))
+* feat: refactor contact form options to use centralized data structure ([52769df](https://github.com/CampAsAChamp/amsfirm/commit/52769df))
+* feat: update from email ([3a4128d](https://github.com/CampAsAChamp/amsfirm/commit/3a4128d))
+* Reapply "feat: update CONTACT_EMAIL with actual email" ([e0189c8](https://github.com/CampAsAChamp/amsfirm/commit/e0189c8))
+* refactor: improve readability with subject line variable ([af0e356](https://github.com/CampAsAChamp/amsfirm/commit/af0e356))
+
 ## <small>1.5.1 (2026-02-17)</small>
 
 * Revert "feat: update CONTACT_EMAIL with actual email" ([d6c5dea](https://github.com/CampAsAChamp/amsfirm/commit/d6c5dea))
