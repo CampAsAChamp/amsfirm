@@ -4,6 +4,7 @@ import { Resend } from "resend"
 
 import { FormData } from "@/types"
 import { ContactEmailTemplate } from "@/app/components/contact/email/ContactEmailTemplate"
+import { subjectLabelByValue } from "@/app/data"
 
 export async function POST(request: Request) {
   try {
@@ -20,7 +21,8 @@ export async function POST(request: Request) {
 
     // Add [TEST] prefix in non-production environments for easy Gmail filtering
     const testPrefix = process.env.NODE_ENV === "production" ? "" : "[TEST]"
-    const subjectLine = `${testPrefix} New Contact Form: ${subject}`
+    const subjectLabel = subjectLabelByValue[subject] ?? subject
+    const subjectLine = `${testPrefix} New Contact Form: ${subjectLabel}`
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({

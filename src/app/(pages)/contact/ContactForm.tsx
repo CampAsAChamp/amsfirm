@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast"
 import { ContactFormProps, FormData } from "@/types"
 import { AnimatedContainer } from "@/app/components/common"
 import FormField from "@/app/components/contact/forms/FormField"
+import { preferredContactOptions, subjectOptions } from "@/app/data"
 
 export default function ContactForm({ onSubmit }: ContactFormProps) {
   const [formKey, setFormKey] = useState(0)
@@ -175,18 +176,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             value={formData.subject}
             onChange={handleChange}
             required
-            options={[
-              { value: "", label: "Select a subject" },
-              { value: "wills", label: "Wills & Testaments" },
-              { value: "trusts", label: "Trust Planning" },
-              { value: "probate", label: "Probate & Administration" },
-              {
-                value: "estate-planning",
-                label: "Comprehensive Estate Planning",
-              },
-              { value: "general", label: "General Inquiry" },
-              { value: "other", label: "Other" },
-            ]}
+            options={subjectOptions}
           />
 
           <FormField
@@ -197,12 +187,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             value={formData.preferredContact}
             onChange={handleChange}
             required
-            options={[
-              { value: "", label: "Select a contact method" },
-              { value: "email", label: "Email" },
-              { value: "phone", label: "Phone" },
-              { value: "either", label: "Either Email or Phone" },
-            ]}
+            options={preferredContactOptions}
           />
 
           <FormField

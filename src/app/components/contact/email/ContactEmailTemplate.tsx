@@ -1,6 +1,7 @@
 import { Body, Container, Head, Html, Section } from "@react-email/components"
 
 import { FormData } from "@/types"
+import { preferredContactLabelByValue, subjectLabelByValue } from "@/app/data"
 
 import { EmailField } from "./EmailField"
 import { EmailFooter } from "./EmailFooter"
@@ -8,6 +9,9 @@ import { EmailHeader } from "./EmailHeader"
 import { emailStyles } from "./styles"
 
 export function ContactEmailTemplate({ name, email, phone, subject, message, preferredContact }: FormData) {
+  const subjectLabel = subjectLabelByValue[subject] ?? subject
+  const preferredContactLabel = preferredContactLabelByValue[preferredContact] ?? preferredContact
+
   return (
     <Html>
       <Head />
@@ -22,9 +26,9 @@ export function ContactEmailTemplate({ name, email, phone, subject, message, pre
 
             {phone && <EmailField label="Phone:" value={phone} href={`tel:${phone}`} />}
 
-            <EmailField label="Subject:" value={subject} />
+            <EmailField label="Subject:" value={subjectLabel} />
 
-            <EmailField label="Preferred Contact Method:" value={preferredContact} />
+            <EmailField label="Preferred Contact Method:" value={preferredContactLabel} />
 
             <EmailField label="Message:" value={message} isMessage={true} />
 
