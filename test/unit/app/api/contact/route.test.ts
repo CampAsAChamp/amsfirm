@@ -76,6 +76,7 @@ describe("Contact API Route", () => {
       body: JSON.stringify({
         name: "John Doe",
         email: "john@example.com",
+        phone: "(555) 123-4567",
         subject: "estate-planning",
         message: "Test message",
       }),
@@ -107,6 +108,7 @@ describe("Contact API Route", () => {
       body: JSON.stringify({
         name: "John Doe",
         email: "john@example.com",
+        phone: "(555) 123-4567",
         subject: "estate-planning",
         message: "Test message",
       }),

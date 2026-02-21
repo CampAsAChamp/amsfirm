@@ -9,10 +9,10 @@ import { subjectLabelByValue } from "@/app/data"
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as FormData
-    const { name, email, subject, message } = body
+    const { name, email, phone, subject, message } = body
 
     // Validate required fields
-    if (!name || !email || !subject || !message) {
+    if (!name || !email || !phone || !subject || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 

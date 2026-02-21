@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast"
 
 import { ContactFormProps, FormData } from "@/types"
 import { AnimatedContainer } from "@/app/components/common"
-import FormField from "@/app/components/contact/forms/FormField"
+import { FormField, PhoneInput } from "@/app/components/contact/forms"
 import { preferredContactOptions, subjectOptions } from "@/app/data"
 
 export default function ContactForm({ onSubmit }: ContactFormProps) {
@@ -158,13 +158,13 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             placeholder="your.email@example.com"
           />
 
-          <FormField
+          <PhoneInput
             id="phone"
             name="phone"
             label="Phone Number"
-            type="tel"
             value={formData.phone}
             onChange={handleChange}
+            required
             placeholder="(555) 123-4567"
           />
 

@@ -4,7 +4,7 @@
 import { Address } from "@/types"
 
 /**
- * Format a phone number to a standard format
+ * Format a phone number to a standard format (for display of complete numbers)
  * @param phone - The phone number to format
  * @returns Formatted phone number
  */
@@ -15,6 +15,29 @@ export function formatPhoneNumber(phone: string): string {
     return `(${match[1]}) ${match[2]}-${match[3]}`
   }
   return phone
+}
+
+/**
+ * Format phone input as the user types: (XXX) XXX-XXXX or +1 (XXX) XXX-XXXX.
+ * Closes paren after 3 digits, adds dash after 6 digits. Optional leading 1 becomes +1.
+ * @param value - Current input value (may include digits and existing formatting)
+ * @returns Formatted string for display
+ */
+export function formatPhoneInput(value: string): string {
+  const digits = value.replace(/\D/g, "")
+  const hasCountryCode = digits.length > 0 && digits[0] === "1"
+  const work = hasCountryCode ? digits.slice(1, 11) : digits.slice(0, 10)
+  const prefix = hasCountryCode ? "+1 " : ""
+
+  if (work.length === 0) return prefix
+
+  if (work.length <= 3) {
+    return prefix + "(" + work + (work.length === 3 ? ") " : "")
+  }
+  if (work.length <= 6) {
+    return prefix + "(" + work.slice(0, 3) + ") " + work.slice(3) + (work.length === 6 ? "-" : "")
+  }
+  return prefix + "(" + work.slice(0, 3) + ") " + work.slice(3, 6) + "-" + work.slice(6)
 }
 
 /**
