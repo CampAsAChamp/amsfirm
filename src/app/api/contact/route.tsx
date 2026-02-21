@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: "AMS Law Contact Form <onboarding@resend.dev>", // You'll update this to your domain later
+      from: "AMS Law Contact Form <contact@amsfirm.com>",
       to: process.env.CONTACT_EMAIL || "your-email@example.com", // Your email address
       replyTo: email, // User's email for easy replies
       subject: subjectLine,
