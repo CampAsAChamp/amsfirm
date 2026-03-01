@@ -88,14 +88,14 @@
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.14.4",
-    "@react-email/components": "^1.0.1",
+    "@react-email/components": "^1.0.8",
     "framer-motion": "^12.23.25",
     "lucide-react": "^0.556.0",
     "next": "^15.3.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hot-toast": "^2.6.0",
-    "resend": "^6.5.2"
+    "resend": "^6.9.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.2.0",
