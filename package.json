@@ -87,7 +87,7 @@
     "publish": true
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^1.14.4",
+    "@opennextjs/cloudflare": "^1.17.1",
     "@react-email/components": "^1.0.1",
     "framer-motion": "^12.23.25",
     "lucide-react": "^0.556.0",
