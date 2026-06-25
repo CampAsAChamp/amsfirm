@@ -1,0 +1,44 @@
+---
+description: Strict color and styling rules — CSS variables only, no hardcoded colors
+alwaysApply: true
+---
+
+# Colors and Styling
+
+**NEVER hardcode colors.** Use CSS variables and utility classes from `src/app/globals.css`.
+
+## Text colors
+
+- Colored backgrounds: `text-hero-heading`, `text-hero-body`
+- Footer: `text-footer`, `text-footer-muted`
+- Default: `text-heading`, `text-body`, `text-muted`, `text-nav`
+- On primary bg: `text-on-primary`
+
+## Backgrounds
+
+`bg-page`, `bg-surface`, `bg-surface-secondary`, `bg-surface-tertiary`, `bg-primary`, `bg-primary-hover`, `bg-primary-dark`, `bg-placeholder`
+
+## Buttons
+
+`btn-hero-primary`, `btn-hero-secondary`, `btn-cta`, `btn-nav`, `btn-nav-mobile`, `btn-primary`, `btn-secondary`
+
+## Borders
+
+`border-primary`, `border-primary-hover`, etc.
+
+## Dark mode
+
+Themes live in `globals.css` (`:root` and `.dark`). Use `ThemeProvider` from `@/app/components/common` — never hardcode light/dark colors in components.
+
+## Exception
+
+Hex colors belong **only** in `src/app/globals.css`.
+
+```tsx
+// ❌ BAD
+className="text-white bg-gray-200"
+style={{ color: "#00AEEF" }}
+
+// ✅ GOOD
+className="text-on-primary bg-surface"
+```

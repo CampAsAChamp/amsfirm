@@ -1,0 +1,34 @@
+---
+description: SEO metadata and structured data for pages
+globs: src/app/**/page.tsx,src/app/layout.tsx,src/app/sitemap.ts,src/app/robots.ts
+alwaysApply: false
+---
+
+# SEO
+
+## Page metadata
+
+Export `metadata` from every page:
+
+```tsx
+export const metadata: Metadata = {
+  title: "Page Title | Anna M Schneider Law",
+  description: "Descriptive summary for search engines.",
+}
+```
+
+Title template: `%s | Anna M Schneider Law`
+
+## Structured data
+
+Schema.org JSON-LD via `StructuredData` in layout. Include LocalBusiness, Attorney, and Review schemas where relevant.
+
+## Required files
+
+- `robots.ts` — crawl control
+- `sitemap.ts` — add new routes here
+- `opengraph-image.tsx` — social previews
+
+## Environment
+
+Set `NEXT_PUBLIC_SITE_URL` in production (sitemap, OG images, structured data).

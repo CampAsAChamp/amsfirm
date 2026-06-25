@@ -1,0 +1,58 @@
+---
+description: TypeScript, imports, file organization, and naming conventions
+alwaysApply: true
+---
+
+# Code Style
+
+## Components
+
+- TypeScript functional components with hooks
+- `"use client"` when using hooks, event handlers, or browser APIs
+- Single responsibility; extract reusable logic to custom hooks
+- JSDoc for complex APIs (`@param`, `@returns`, usage examples)
+- Export helpers before the main component
+- Animation configs in co-located `animationConfig.ts`
+- Use `forwardRef` when exposing refs for focus management
+
+## Styling
+
+- Tailwind for layout/spacing; custom utility classes from `globals.css` for colors/buttons
+- Avoid inline styles unless necessary
+
+## File organization
+
+| What | Where |
+|------|-------|
+| Components | `src/app/components/{common,contact,hero,layout,sections}/` |
+| Pages | `src/app/(pages)/[route]/` |
+| Data | `src/app/data/` |
+| Types | `src/types/` |
+| Utils | `src/utils/` |
+| Styles | `src/app/globals.css` |
+| Unit tests | `test/unit/` (mirrors `src/`) |
+| E2E tests | `test/e2e/` |
+
+Use barrel exports (`index.ts`) in every folder.
+
+## Imports
+
+Always use `@/` absolute imports. Prefer barrel exports.
+
+```tsx
+// ✅ GOOD
+import { services } from "@/app/data"
+import { NavLink } from "@/types"
+
+// ❌ BAD
+import { services } from "../../data/services"
+```
+
+Exception: Next.js core imports (`next/link`, `next/image`).
+
+## Naming
+
+- Components: PascalCase (`HeroSection.tsx`)
+- Utilities: camelCase (`formatDate`)
+- CSS classes: kebab-case for custom, Tailwind as-is
+- Barrel files: always `index.ts`

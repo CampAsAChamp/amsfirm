@@ -1,0 +1,42 @@
+---
+description: WCAG AA accessibility requirements for UI components
+globs: src/app/**/*.tsx
+alwaysApply: false
+---
+
+# Accessibility (WCAG AA)
+
+## Semantic HTML
+
+Use `<nav>`, `<main>`, `<footer>`, `<button>`, etc. Meaningful link text — not "click here".
+
+## ARIA
+
+- Icon-only buttons: `aria-label="Close menu"`
+- Expandables: `aria-expanded`
+- Dynamic updates: `aria-live="polite"`
+- Decorative icons: `aria-hidden="true"`
+
+## Keyboard and focus
+
+- All interactive elements keyboard accessible
+- Trap focus in modals/menus; restore focus on close
+- `:focus-visible` for keyboard focus indicators
+- Escape closes modals/menus
+- Skip links for main content
+
+## Forms and media
+
+- All inputs have associated labels
+- Images need meaningful `alt` text
+- Use `sr-only` for screen-reader-only text
+
+```tsx
+useEffect(() => {
+  const handleEscape = (e: KeyboardEvent) => {
+    if (e.key === "Escape" && isOpen) onClose()
+  }
+  document.addEventListener("keydown", handleEscape)
+  return () => document.removeEventListener("keydown", handleEscape)
+}, [isOpen, onClose])
+```

@@ -1,0 +1,23 @@
+---
+description: When and how to update README and project docs
+alwaysApply: true
+---
+
+# Documentation
+
+Update `README.md` when you add features, API routes, env vars, dependencies, deployment changes, or modify project structure.
+
+## README sections to touch
+
+- Features, Tech Stack, Site Structure, Project Structure
+- Setup instructions (local + production) with troubleshooting
+- Environment variables (secret vs public)
+- Available scripts
+
+## Cursor plans
+
+Plans that implement features must include a todo to update README with specific sections and any new setup steps.
+
+## Changelog
+
+**Never manually edit `docs/CHANGELOG.md`** — semantic-release generates it on merge to `main`.

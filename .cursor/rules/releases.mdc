@@ -1,0 +1,22 @@
+---
+description: Conventional commits and semantic-release versioning
+alwaysApply: true
+---
+
+# Commits and Releases
+
+Commitlint enforces Conventional Commits. semantic-release bumps version on merge to `main`.
+
+| Commit type | Version bump |
+|-------------|--------------|
+| `feat:` | minor |
+| `fix:`, `perf:` | patch |
+| `feat!:` or `BREAKING CHANGE:` | major |
+| `docs:`, `style:`, `refactor:`, `test:`, `build:`, `ci:`, `chore:` | none |
+
+```bash
+git commit -m "feat: add user authentication"
+git commit -m "fix: resolve mobile menu not closing"
+```
+
+Use `feat!:` or `BREAKING CHANGE:` in the body for breaking changes.

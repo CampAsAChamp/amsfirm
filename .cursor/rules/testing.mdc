@@ -1,0 +1,21 @@
+---
+description: Unit and E2E testing conventions
+globs: test/**,**/*.test.ts,**/*.test.tsx,**/*.spec.ts
+alwaysApply: false
+---
+
+# Testing
+
+## Organization
+
+- Unit: `test/unit/` mirrors `src/` — `.test.ts` / `.test.tsx`
+- E2E: `test/e2e/` — `.spec.ts`
+
+## Practices
+
+- Test user-facing behavior, not implementation details
+- Use `getByRole`, `getByLabelText` (accessibility-first queries)
+- Mock external APIs and third-party libraries
+- Mock `next/navigation` hooks (`usePathname`, `useRouter`)
+- Mock `ThemeProvider` when components depend on theme
+- E2E: test keyboard navigation, focus management, ARIA labels/roles
