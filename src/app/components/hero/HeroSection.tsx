@@ -71,7 +71,7 @@ export default function HeroSection({
                 ease: "easeOut",
               }}
             >
-              <Logo width={400} height={133} className="h-40 w-auto filter brightness-0 invert" priority />
+              <Logo width={400} height={133} className="h-40 w-auto" variant="dark" priority />
             </motion.div>
           )}
           <motion.h1

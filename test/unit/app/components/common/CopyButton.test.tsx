@@ -68,7 +68,11 @@ describe("CopyButton", () => {
     render(<CopyButton textToCopy="test text" />)
 
     const button = screen.getByRole("button")
-    expect(button).toHaveClass("transition-colors")
+    expect(button).toHaveClass("text-primary-hover")
+    expect(button).toHaveClass("hover:text-primary")
+    expect(button).toHaveClass("transition-all")
+    expect(button).toHaveClass("hover:scale-110")
+    expect(button).toHaveClass("active:scale-95")
     expect(button).toHaveClass("p-1")
     expect(button).toHaveClass("cursor-pointer")
   })
