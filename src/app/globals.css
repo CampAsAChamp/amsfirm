@@ -191,6 +191,24 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Logo and theme-toggle icon variant switching (CSS-only, no JS/theme-state
+   dependency, so the correct variant shows on first paint regardless of
+   image preload timing or React render order) */
+.logo-dark,
+.icon-dark {
+  display: none;
+}
+
+.dark .logo-light,
+.dark .icon-light {
+  display: none;
+}
+
+.dark .logo-dark,
+.dark .icon-dark {
+  display: unset;
+}
+
 /* Theme transition animation */
 
 /* Apply transitions to html root and all elements during theme change */

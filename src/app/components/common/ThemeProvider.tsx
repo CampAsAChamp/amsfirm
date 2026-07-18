@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useLayoutEffect, useState } from "react"
 
 type Theme = "light" | "dark"
 
@@ -23,19 +23,15 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
  * - Animated theme color transitions using CSS transitions
  */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  // Starts "light" to match SSR output; synced from the DOM below before paint.
   const [theme, setTheme] = useState<Theme>("light")
 
-  // Initialize theme from localStorage or system preference
-  useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null
-
-    if (stored) {
-      setTheme(stored)
-      // Theme is already applied by the script in layout.tsx, just sync state
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark")
-      // Theme is already applied by the script in layout.tsx, just sync state
-    }
+  // Sync state from the class already applied by the inline script in layout.tsx.
+  // useLayoutEffect (not useEffect) runs before the browser paints, so
+  // theme-dependent UI (logo, toggle icon) never flashes the wrong variant.
+  useLayoutEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark")
+    setTheme(isDark ? "dark" : "light")
   }, [])
 
   /**

@@ -2,7 +2,6 @@ import "@/app/globals.css"
 
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
-import Script from "next/script"
 
 import { ThemeProvider } from "./components/common"
 import StructuredData from "./components/common/StructuredData"
@@ -96,9 +95,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Prevent flash of unstyled content by applying theme before page renders */}
-        <Script id="theme-script" strategy="beforeInteractive">
-          {`
+        {/* Plain inline script (not next/script) so it runs synchronously in
+            <head>, before first paint — next/script's beforeInteractive
+            strategy injects into <body>, which is too late to avoid a flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             (function() {
               const theme = localStorage.getItem('theme');
               const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -106,8 +108,9 @@ export default function RootLayout({
                 document.documentElement.classList.add('dark');
               }
             })();
-          `}
-        </Script>
+          `,
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>

@@ -49,15 +49,15 @@ describe("HeroSection", () => {
       </TestWrapper>,
     )
 
-    const logo = screen.getByRole("img", { name: /Schneider Law/i })
-    expect(logo).toBeInTheDocument()
+    const logos = screen.getAllByRole("img", { name: /Schneider Law/i })
+    expect(logos.length).toBeGreaterThan(0)
   })
 
   it("does not render logo when showLogo is false", () => {
     render(<HeroSection title="Test" subtitle="Test" primaryButtonText="Contact" primaryButtonLink="/contact" showLogo={false} />)
 
-    const logo = screen.queryByRole("img", { name: /Schneider Law/i })
-    expect(logo).not.toBeInTheDocument()
+    const logos = screen.queryAllByRole("img", { name: /Schneider Law/i })
+    expect(logos).toHaveLength(0)
   })
 
   it("renders with only primary button", () => {

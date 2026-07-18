@@ -23,11 +23,8 @@ export default function ThemeToggle() {
       aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
       title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
     >
-      {theme === "light" ? (
-        <Moon className="w-5 h-5 text-nav" aria-hidden="true" />
-      ) : (
-        <Sun className="w-5 h-5 text-nav" aria-hidden="true" />
-      )}
+      <Moon className="w-5 h-5 text-nav icon-light" aria-hidden="true" />
+      <Sun className="w-5 h-5 text-nav icon-dark" aria-hidden="true" />
     </button>
   )
 }

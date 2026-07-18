@@ -1,8 +1,4 @@
-"use client"
-
 import Image from "next/image"
-
-import { useTheme } from "@/app/components/common/ThemeProvider"
 
 interface LogoProps {
   /**
@@ -30,22 +26,34 @@ interface LogoProps {
 /**
  * Logo component that automatically switches between light and dark mode versions
  *
+ * Renders both variants and lets CSS (`.dark`) pick which is visible, so the
+ * correct logo shows on first paint — a JS/theme-state swap would otherwise
+ * race the browser's preload of the SSR-default (light) variant.
+ *
  * @example
  * ```tsx
  * <Logo width={360} height={120} className="h-8 w-auto" priority />
  * ```
  */
 export default function Logo({ alt = "Schneider Law", width, height, className, priority }: LogoProps) {
-  const { theme } = useTheme()
-
   return (
-    <Image
-      src={theme === "dark" ? "/schneider-law-logo-dark.svg" : "/schneider-law-logo-light.svg"}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-      priority={priority}
-    />
+    <>
+      <Image
+        src="/schneider-law-logo-light.svg"
+        alt={alt}
+        width={width}
+        height={height}
+        className={`${className ?? ""} logo-light`}
+        priority={priority}
+      />
+      <Image
+        src="/schneider-law-logo-dark.svg"
+        alt={alt}
+        width={width}
+        height={height}
+        className={`${className ?? ""} logo-dark`}
+        priority={priority}
+      />
+    </>
   )
 }
