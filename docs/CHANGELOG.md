@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## <small>1.7.1 (2026-07-18)</small>
+
+* chore: add claude launch.json ([35a9dc1](https://github.com/CampAsAChamp/amsfirm/commit/35a9dc1))
+* fix: prevent white theme on load ([07c03f2](https://github.com/CampAsAChamp/amsfirm/commit/07c03f2))
+
 ## 1.7.0 (2026-06-25)
 
 * chore: sort package.json scripts ([90f9320](https://github.com/CampAsAChamp/amsfirm/commit/90f9320))
