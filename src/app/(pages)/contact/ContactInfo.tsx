@@ -35,11 +35,7 @@ export default function ContactInfo() {
                 <a href={`tel:${contactInfo.phone}`} className="hover:text-primary-hover transition-colors hover:underline">
                   {formatPhoneNumber(contactInfo.phone)}
                 </a>
-                <CopyButton
-                  textToCopy={formatPhoneNumber(contactInfo.phone)}
-                  label="Copy phone number"
-                  className="text-primary-hover hover:text-primary"
-                />
+                <CopyButton textToCopy={formatPhoneNumber(contactInfo.phone)} label="Copy phone number" />
               </div>
             </div>
           </div>
@@ -52,7 +48,7 @@ export default function ContactInfo() {
                 <a href={`mailto:${contactInfo.email}`} className="hover:text-primary-hover transition-colors hover:underline">
                   {contactInfo.email}
                 </a>
-                <CopyButton textToCopy={contactInfo.email} label="Copy email address" className="text-primary-hover hover:text-primary" />
+                <CopyButton textToCopy={contactInfo.email} label="Copy email address" />
               </div>
             </div>
           </div>

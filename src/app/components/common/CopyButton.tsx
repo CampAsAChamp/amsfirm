@@ -25,7 +25,7 @@ export default function CopyButton({ textToCopy, label = "Copy", className = "" 
   return (
     <button
       onClick={handleCopy}
-      className={`transition-colors p-1 cursor-pointer ${className}`}
+      className={`p-1 cursor-pointer text-primary-hover hover:text-primary transition-all duration-150 ease-in-out hover:scale-110 active:scale-95 ${className}`}
       title={copied ? "Copied!" : label}
       aria-label={copied ? "Copied!" : label}
       aria-live="polite"

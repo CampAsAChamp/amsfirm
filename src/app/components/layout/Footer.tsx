@@ -74,11 +74,7 @@ export default function Footer() {
                 <a href={`tel:${contactInfo.phone}`} className="text-footer-muted hover:text-on-primary transition-colors hover:underline">
                   {formatPhoneNumber(contactInfo.phone)}
                 </a>
-                <CopyButton
-                  textToCopy={formatPhoneNumber(contactInfo.phone)}
-                  label="Copy phone number"
-                  className="text-footer-muted hover:text-on-primary"
-                />
+                <CopyButton textToCopy={formatPhoneNumber(contactInfo.phone)} label="Copy phone number" />
               </p>
               <p className="flex items-center gap-2">
                 <strong>Email:</strong>{" "}
@@ -88,7 +84,7 @@ export default function Footer() {
                 >
                   {contactInfo.email}
                 </a>
-                <CopyButton textToCopy={contactInfo.email} label="Copy email address" className="text-footer-muted hover:text-on-primary" />
+                <CopyButton textToCopy={contactInfo.email} label="Copy email address" />
               </p>
             </div>
           </div>
