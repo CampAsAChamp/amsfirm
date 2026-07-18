@@ -324,7 +324,7 @@ html.theme-transitioning body {
 }
 
 .btn-secondary:hover {
-  background-color: white;
+  background-color: var(--cyan-200);
   box-shadow: var(--shadow-lg);
   color: var(--primary-blue);
   transform: scale(1.05);
@@ -452,7 +452,7 @@ html.theme-transitioning body {
 }
 
 .btn-hero-secondary:hover {
-  background-color: white;
+  background-color: var(--cyan-200);
   box-shadow: var(--shadow-lg);
   color: var(--primary-blue);
   transform: scale(1.05);
