@@ -11,15 +11,5 @@ fi
 echo "✅ Unit tests passed!"
 echo ""
 
-echo "🏠 Running Lighthouse tests..."
-yarn test:lighthouse
-
-if [ $? -ne 0 ]; then
-  echo "❌ Lighthouse tests failed! Fix performance issues before pushing."
-  exit 1
-fi
-echo "✅ Lighthouse tests passed!"
-echo ""
-
 echo "🚀 All checks passed! Proceeding with push..."
 

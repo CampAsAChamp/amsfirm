@@ -24,9 +24,10 @@ Automatically runs on every `git commit`:
 
 Automatically runs on every `git push`:
 
-- **All Tests**: Runs full test suite including unit and E2E tests (`yarn test:all`)
+- **Unit Tests**: Runs Vitest unit tests (`yarn test`)
 - Prevents push if any test failures are found
 - **Note**: ESLint is NOT run on push (already runs on every commit via pre-commit hook)
+- **Note**: Lighthouse and E2E tests run in GitHub Actions CI, not locally on push
 
 ## How It Works
 
@@ -155,15 +156,15 @@ BREAKING CHANGE: Navigation component now requires theme prop"
 ### Why This Approach?
 
 - **Pre-commit** (fast ~1-5s): Lint & format only staged files
-- **Pre-push** (moderate ~30s-2min): All tests (unit + E2E)
-- Ensures comprehensive test coverage before code reaches remote
+- **Pre-push** (fast ~5-15s): Unit tests only
+- **CI** (GitHub Actions): Lighthouse audits and E2E tests on every push/PR
 
 This provides:
 
 - ✅ Quick commits during development
-- ✅ Fully verified code before it reaches remote
+- ✅ Fast local push gate with unit test coverage
 - ✅ Prevents broken code in repository
-- ✅ Catches integration issues before pushing
+- ✅ Lighthouse and E2E coverage enforced in CI before merge
 
 **Why no linting on push?** Every commit already passed ESLint via the pre-commit hook, so running it again would be redundant.
 
@@ -179,7 +180,7 @@ yarn test:watch
 # Run E2E tests
 yarn test:e2e
 
-# Run all tests (unit + E2E)
+# Run all tests (unit + lighthouse + e2e)
 yarn test:all
 ```
 
