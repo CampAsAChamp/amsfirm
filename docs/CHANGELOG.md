@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## <small>1.7.2 (2026-08-02)</small>
+
+* chore: remove lighthouse from local git push ([6a43d2f](https://github.com/CampAsAChamp/amsfirm/commit/6a43d2f))
+* fix: animation timing on hero paragraph ([b401c42](https://github.com/CampAsAChamp/amsfirm/commit/b401c42))
+* style: fix logo styling on hero page ([24130d7](https://github.com/CampAsAChamp/amsfirm/commit/24130d7))
+* style: make secondary cta buttons have similar color hover effect ([66cd382](https://github.com/CampAsAChamp/amsfirm/commit/66cd382))
+* style: use same copy button in entire site ([475f5bc](https://github.com/CampAsAChamp/amsfirm/commit/475f5bc))
+
 ## <small>1.7.1 (2026-07-18)</small>
 
 * chore: add claude launch.json ([35a9dc1](https://github.com/CampAsAChamp/amsfirm/commit/35a9dc1))
