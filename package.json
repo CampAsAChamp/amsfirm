@@ -1,6 +1,6 @@
 {
   "name": "amsfirm",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "Build a full-stack web application with Next.js.",
   "private": true,
   "engines": {

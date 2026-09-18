@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## <small>1.7.3 (2026-09-18)</small>
+
+* fix: add trailing comma ([9246889](https://github.com/CampAsAChamp/amsfirm/commit/9246889))
+* Remove contact page ([a5284d2](https://github.com/CampAsAChamp/amsfirm/commit/a5284d2))
+
 ## <small>1.7.2 (2026-08-02)</small>
 
 * chore: remove lighthouse from local git push ([6a43d2f](https://github.com/CampAsAChamp/amsfirm/commit/6a43d2f))
