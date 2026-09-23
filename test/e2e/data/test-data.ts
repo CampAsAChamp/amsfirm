@@ -1,45 +1,7 @@
 /**
  * Shared test data for E2E tests
- * Centralizes common test users, routes, and form data
+ * Centralizes common routes and navigation data
  */
-
-/**
- * Test user data for form submissions
- */
-export const TEST_USERS = {
-  validUser: {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    phone: "(555) 123-4567",
-    subject: "estate-planning",
-    message: "I would like to discuss estate planning options for my family.",
-    preferredContact: "email",
-  },
-  minimalUser: {
-    name: "Jane Smith",
-    email: "jane.smith@example.com",
-    phone: "",
-    subject: "wills",
-    message: "I need help with creating a will.",
-    preferredContact: "phone",
-  },
-  completeUser: {
-    name: "Test User",
-    email: "test@example.com",
-    phone: "(555) 987-6543",
-    subject: "general",
-    message: "Test message",
-    preferredContact: "either",
-  },
-  longName: {
-    name: "Christopher Alexander Montgomery III",
-    email: "christopher.montgomery@example.com",
-    phone: "(555) 555-5555",
-    subject: "trust-administration",
-    message: "I require assistance with trust administration and related legal matters.",
-    preferredContact: "email",
-  },
-} as const
 
 /**
  * Page routes with URL patterns and verification selectors
@@ -68,7 +30,7 @@ export const PAGE_ROUTES = {
   contact: {
     path: "/contact",
     urlPattern: /.*contact/,
-    verifySelector: { label: /full name/i },
+    verifySelector: { text: /office information/i },
   },
 } as const
 
@@ -95,18 +57,10 @@ export const VIEWPORTS = {
 } as const
 
 /**
- * API endpoints used in tests
- */
-export const API_ENDPOINTS = {
-  contact: "**/api/contact",
-} as const
-
-/**
  * Common test timeouts (in milliseconds)
  */
 export const TIMEOUTS = {
   animation: 1000,
   apiCall: 5000,
-  formSubmit: 10000,
   pageLoad: 15000,
 } as const

@@ -48,8 +48,7 @@ test.describe("Navigation Flow", () => {
   })
 
   test("navigates from Home to Contact", async ({ page }) => {
-    await navigateAndVerify(page, NAV_LINKS.contact, PAGE_ROUTES.contact.urlPattern)
-    await expect(page.getByLabel(PAGE_ROUTES.contact.verifySelector.label)).toBeVisible()
+    await navigateAndVerify(page, NAV_LINKS.contact, PAGE_ROUTES.contact.urlPattern, PAGE_ROUTES.contact.verifySelector.text)
   })
 
   test("navigates through all pages in sequence", async ({ page }) => {

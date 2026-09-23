@@ -51,11 +51,6 @@ updates:
           - "tailwindcss"
           - "postcss*"
           - "autoprefixer"
-      # Group email libraries
-      email:
-        patterns:
-          - "resend"
-          - "@react-email/*"
       # Group other dev dependencies
       dev-dependencies:
         dependency-type: "development"

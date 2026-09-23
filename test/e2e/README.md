@@ -2,7 +2,7 @@
 
 ## Overview
 
-This directory contains comprehensive E2E tests for the entire application, including navigation, forms, animations, and accessibility.
+This directory contains comprehensive E2E tests for the entire application, including navigation, animations, and accessibility.
 
 ## Shared Test Utilities (NEW)
 
@@ -11,10 +11,7 @@ This directory contains comprehensive E2E tests for the entire application, incl
 Centralized test data for consistent testing across all E2E tests:
 
 ```typescript
-import { NAV_LINKS, PAGE_ROUTES, TEST_USERS, VIEWPORTS } from "./data/test-data"
-
-// Use pre-defined test users
-await fillContactForm(page, TEST_USERS.validUser)
+import { NAV_LINKS, PAGE_ROUTES, VIEWPORTS } from "./data/test-data"
 
 // Use route constants for navigation
 await navigateAndVerify(page, NAV_LINKS.about, PAGE_ROUTES.about.urlPattern)
@@ -25,11 +22,9 @@ await page.setViewportSize(VIEWPORTS.mobile)
 
 **Available constants:**
 
-- `TEST_USERS` - Pre-configured user data for forms (validUser, minimalUser, etc.)
 - `PAGE_ROUTES` - Route paths, URL patterns, and verification selectors
 - `NAV_LINKS` - Navigation link names
 - `VIEWPORTS` - Common viewport sizes
-- `API_ENDPOINTS` - API endpoint patterns
 - `TIMEOUTS` - Standard timeout values
 
 ### Test Helpers (`helpers/test-helpers.ts`)
@@ -66,23 +61,6 @@ await closeMobileMenu(page)
 if (isMobileViewport(testInfo)) {
   await openMobileMenu(page)
 }
-```
-
-**Form helpers:**
-
-```typescript
-// Mock contact form API
-await mockContactFormSubmit(page, true) // success
-await mockContactFormSubmit(page, false, 1000) // failure with delay
-
-// Fill contact form from test data
-await fillContactForm(page, TEST_USERS.validUser)
-
-// Submit and wait for completion
-await submitContactForm(page)
-
-// Verify form cleared
-await expectFormCleared(page)
 ```
 
 **Page helpers:**
@@ -142,7 +120,7 @@ expectMotionAnimation(element, {
 ### Unit Test Mocks (`test/unit/mocks.tsx`)
 
 ```typescript
-import { createUserEvent, fillContactFormFields, mockFormData, mockFramerMotion, mockNextNavigation } from "@test/unit/mocks"
+import { createUserEvent, mockFramerMotion, mockNextNavigation } from "@test/unit/mocks"
 
 // Mock framer-motion in tests
 vi.mock("framer-motion", () => mockFramerMotion())
@@ -152,9 +130,6 @@ vi.mock("next/navigation", () => mockNextNavigation("/about"))
 
 // Create userEvent instance
 const user = await createUserEvent()
-
-// Fill contact form in unit tests
-await fillContactFormFields(user, screen, mockFormData)
 ```
 
 ## Best Practices
@@ -162,7 +137,7 @@ await fillContactFormFields(user, screen, mockFormData)
 ### DRY Principle
 
 1. **Use test data constants** instead of hardcoding values
-2. **Use helper functions** for repeated actions (navigation, form filling)
+2. **Use helper functions** for repeated actions (navigation)
 3. **Extract common mocks** to shared files
 4. **Create reusable fixtures** for common setup
 
@@ -202,22 +177,6 @@ if (isMobileViewport(testInfo)) {
 }
 ```
 
-### Form Testing
-
-Use helper functions to reduce duplication:
-
-```typescript
-// Setup API mock
-await mockContactFormSubmit(page, true)
-
-// Fill form
-await fillContactForm(page, TEST_USERS.validUser)
-
-// Submit and verify
-await submitContactForm(page)
-await expectFormCleared(page)
-```
-
 ## Test Files
 
 ### Navigation Tests (`navigation.spec.ts`)
@@ -228,10 +187,6 @@ Tests all navigation flows including:
 - Browser back/forward buttons
 - Active link indicators
 - Keyboard accessibility
-
-### Contact Form Tests (`contact-form.spec.ts`)
-
-Tests form submission, validation, and API integration.
 
 ### Accessibility Tests (`accessibility.spec.ts`)
 

@@ -4,7 +4,7 @@ This file is read automatically by Claude Code at the start of every session.
 
 ## Project Overview
 
-Next.js 15 + React 19 website for Anna M. Schneider Law, deployed on Cloudflare Workers via OpenNext. Uses Tailwind CSS v4, TypeScript, Vitest for unit tests, Playwright for E2E, and Resend for email.
+Next.js 15 + React 19 website for Anna M. Schneider Law, deployed on Cloudflare Workers via OpenNext. Uses Tailwind CSS v4, TypeScript, Vitest for unit tests, and Playwright for E2E.
 
 **Package manager:** Yarn 4 (`yarn` not `npm`)
 **Node:** ≥22 (enforced by `scripts/check-node-version.mjs`)
@@ -29,7 +29,6 @@ yarn deploy       # OpenNext Cloudflare build + deploy
 src/
   app/
     (pages)/        # Route groups: /about, /contact, /faq, /services
-    api/contact/    # Resend email API route
     components/
       common/       # Shared: AnimatedContainer, Logo, ThemeProvider, ThemeToggle, etc.
       hero/         # HeroSection

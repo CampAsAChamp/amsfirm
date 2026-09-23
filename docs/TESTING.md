@@ -8,25 +8,18 @@ This project includes comprehensive testing for critical functionality using Vit
 amsfirm/
 ├── src/
 │   └── app/                              # Application source code
-│       ├── components/ui/
-│       │   └── FormField.tsx
-│       ├── (pages)/contact/
-│       │   └── ContactForm.tsx
-│       └── api/contact/
-│           └── route.ts
+│       ├── (pages)/                      # Route pages (about, contact, faq, services)
+│       ├── components/                   # Shared UI components
+│       └── data/                         # Static content
 ├── test/
 │   ├── unit/                             # Unit and integration tests
 │   │   ├── setup.ts                      # Global test configuration
-│   │   ├── mocks.ts                      # Mock utilities and fixtures
+│   │   ├── helpers/                      # Mock utilities and fixtures
 │   │   └── app/                          # Mirrors src/app structure
-│   │       ├── components/ui/
-│   │       │   └── FormField.test.tsx
-│   │       ├── (pages)/contact/
-│   │       │   └── ContactForm.test.tsx
-│   │       └── api/contact/
-│   │           └── route.test.ts
 │   └── e2e/                              # End-to-end tests
-│       └── contact-form.spec.ts
+│       ├── accessibility.spec.ts
+│       ├── navigation.spec.ts
+│       └── ...
 ├── vitest.config.ts                      # Vitest configuration
 └── playwright.config.ts                  # Playwright configuration
 ```
@@ -37,113 +30,40 @@ amsfirm/
 
 ```bash
 # Run all tests (unit, integration, and E2E)
-npm run test:all
+yarn test:all
 ```
 
 ### Unit & Integration Tests (Vitest)
 
 ```bash
 # Run tests once (default)
-npm test
+yarn test
 
 # Run tests in watch mode (recommended during development)
-npm run test:watch
-
-# Run tests with UI (interactive browser interface)
-npm run test:ui
-
-# Generate coverage report
-npm run test:coverage
+yarn test:watch
 ```
 
-### End-to-End Tests (Playwright)
+### E2E Tests (Playwright)
 
 ```bash
-# Run E2E tests (starts dev server automatically)
-npm run test:e2e
-
-# Run E2E tests with UI (interactive mode)
-npm run test:e2e:ui
-
-# Debug E2E tests (step through with debugger)
-npm run test:e2e:debug
+yarn test:e2e
 ```
-
-## Test Coverage
-
-### Current Test Suite
-
-**Unit Tests (6 tests):**
-
-- FormField component rendering and interactions
-- Input type variations (text, email, tel, select, textarea)
-- Required field indicators
-- Value change handling
-
-**Integration Tests (7 tests):**
-
-- ContactForm rendering
-- Form data updates
-- Form submission with success/error handling
-- Form reset after submission
-- Submit button state management
-- Custom onSubmit handler
-
-**API Route Tests (5 tests):**
-
-- Missing required fields validation
-- Successful email sending
-- Test email prefix in non-production
-- Email service failure handling
-- JSON parsing error handling
-
-**E2E Tests (5 tests):**
-
-- Complete form submission flow
-- Error handling with preserved form data
-- Required field validation
-- Submit button disabled state
-- Navigation to contact page
-
-**Total: 23 tests**
-
-## Email Handling in Tests
-
-### Automated Tests
-
-**No real emails are sent during automated testing.** All tests mock the email API:
-
-- **Unit/Integration tests**: Mock the Resend client
-- **E2E tests**: Intercept API calls with Playwright's `page.route()`
-
-### Manual Testing
-
-When testing manually in development, emails will include a `[TEST]` prefix in the subject line.
-
-**Gmail Auto-Delete Filter Setup:**
-
-1. Open Gmail Settings → Filters and Blocked Addresses
-2. Create filter with: **Subject contains `[TEST]`**
-3. Action: **Skip Inbox** and **Delete it**
-4. Apply to future emails
-
-This ensures test emails are automatically deleted and never clutter your inbox.
 
 ## Writing New Tests
 
 ### Unit Test Example
 
 ```typescript
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import MyComponent from './MyComponent';
+import { describe, it, expect } from "vitest"
+import { render, screen } from "@testing-library/react"
+import MyComponent from "./MyComponent"
 
-describe('MyComponent', () => {
-  it('renders correctly', () => {
-    render(<MyComponent />);
-    expect(screen.getByText('Hello')).toBeInTheDocument();
-  });
-});
+describe("MyComponent", () => {
+  it("renders correctly", () => {
+    render(<MyComponent />)
+    expect(screen.getByText("Hello")).toBeInTheDocument()
+  })
+})
 ```
 
 ### E2E Test Example
@@ -151,20 +71,11 @@ describe('MyComponent', () => {
 ```typescript
 import { expect, test } from "@playwright/test"
 
-test("user can complete action", async ({ page }) => {
-  // Mock API if needed
-  await page.route("**/api/endpoint", async (route) => {
-    await route.fulfill({
-      status: 200,
-      body: JSON.stringify({ success: true }),
-    })
-  })
-
-  await page.goto("/page")
-  await page.getByLabel("Field").fill("value")
-  await page.getByRole("button", { name: "Submit" }).click()
-
-  await expect(page.getByText("Success")).toBeVisible()
+test("user can navigate to contact", async ({ page }) => {
+  await page.goto("/")
+  await page.getByRole("link", { name: "Contact" }).first().click()
+  await expect(page).toHaveURL(/.*contact/)
+  await expect(page.getByRole("heading", { name: /Office Information/i })).toBeVisible()
 })
 ```
 
@@ -178,13 +89,9 @@ Automatically mocked in `test/unit/setup.ts` to avoid animation issues.
 
 Mocked in `test/unit/setup.ts` with basic router functions.
 
-### Resend Email Service
-
-Mocked in API route tests to prevent real emails.
-
 ### Fetch API
 
-Use `mockFetch()` helper from `test/unit/mocks.ts`:
+Use `mockFetch()` helper from `test/unit/helpers/mocks.tsx`:
 
 ```typescript
 import { mockFetch, mockSuccessResponse } from "@test/unit/mocks"
@@ -199,10 +106,10 @@ Tests can be run in CI/CD pipelines:
 ```yaml
 # Example GitHub Actions workflow
 - name: Run unit tests
-  run: npm test -- --run
+  run: yarn test
 
 - name: Run E2E tests
-  run: npm run test:e2e
+  run: yarn test:e2e
 ```
 
 ## Troubleshooting
@@ -233,8 +140,7 @@ This is already handled in `test/unit/setup.ts`. If you see this error, ensure t
    - Avoid `getByTestId` unless necessary
 
 3. **Mock external dependencies**
-   - Always mock API calls
-   - Mock third-party services (Resend, etc.)
+   - Always mock API calls and third-party services
 
 4. **Keep tests focused**
    - One concept per test
@@ -248,4 +154,3 @@ This is already handled in `test/unit/setup.ts`. If you see this error, ensure t
 - [Vitest Documentation](https://vitest.dev/)
 - [Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Playwright Documentation](https://playwright.dev/)
-- [Testing Best Practices](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)

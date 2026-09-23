@@ -4,7 +4,7 @@ Quick reference for AI agents working in this repo. Detailed rules live in `.cur
 
 ## Project
 
-Next.js 15 + React 19 law firm website for Anna M. Schneider Law. Deployed on Cloudflare Workers via OpenNext. Tailwind CSS v4, TypeScript, Vitest, Playwright, Resend email.
+Next.js 15 + React 19 law firm website for Anna M. Schneider Law. Deployed on Cloudflare Workers via OpenNext. Tailwind CSS v4, TypeScript, Vitest, Playwright.
 
 **Package manager:** Yarn 4 (`yarn`, not `npm`)  
 **Node:** ≥22 (enforced by `scripts/check-node-version.mjs`)
@@ -26,7 +26,6 @@ yarn deploy       # OpenNext Cloudflare build + deploy
 ```
 src/app/
   (pages)/          # Routes: /, /about, /services, /faq, /contact
-  api/contact/      # Resend email API
   components/       # common/, hero/, layout/, sections/
   data/             # Static content (navigation, services, faq, etc.)
   globals.css       # ALL colors — never hardcode elsewhere

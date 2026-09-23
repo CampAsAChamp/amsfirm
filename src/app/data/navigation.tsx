@@ -18,4 +18,9 @@ export const navigationLinks: NavLink[] = [
     href: "/faq",
     label: "FAQ",
   },
+  {
+    href: "/contact",
+    label: "Contact",
+    isButton: true,
+  },
 ]

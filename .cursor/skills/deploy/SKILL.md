@@ -43,7 +43,6 @@ Pushes to `main` trigger automatic build and deployment on Cloudflare Workers. M
 ## After deploy
 
 - Verify live site at [amsfirm.com](https://amsfirm.com)
-- Check contact form email delivery (Resend)
 - Confirm new routes appear in sitemap if pages were added
 
 ## Troubleshooting
@@ -53,7 +52,6 @@ Pushes to `main` trigger automatic build and deployment on Cloudflare Workers. M
 | Build fails        | Run `yarn build` locally for full error output |
 | Node version error | Use Node 22+ (`node -v`)                       |
 | Missing env vars   | Compare against `.env.example`                 |
-| Email not sending  | Resend API key and domain verification         |
 
 ## Releases
 

@@ -1,37 +1,7 @@
 import { ReactElement } from "react"
 import { vi } from "vitest"
 
-import { FormData } from "@/types"
 import { ThemeProvider } from "@/app/components/common/ThemeProvider"
-
-// Sample test form data
-export const mockFormData: FormData = {
-  name: "John Doe",
-  email: "john.doe@example.com",
-  phone: "(555) 123-4567",
-  subject: "estate-planning",
-  message: "I would like to discuss estate planning options.",
-  preferredContact: "email",
-}
-
-// Additional form data variations
-export const mockFormDataMinimal: FormData = {
-  name: "Jane Smith",
-  email: "jane@example.com",
-  phone: "",
-  subject: "general",
-  message: "Quick question",
-  preferredContact: "email",
-}
-
-export const mockFormDataComplete: FormData = {
-  name: "Robert Johnson",
-  email: "robert.johnson@example.com",
-  phone: "(555) 987-6543",
-  subject: "wills",
-  message: "I need comprehensive will planning services for my family.",
-  preferredContact: "phone",
-}
 
 // Test wrapper that provides ThemeProvider context
 export const TestWrapper = ({ children }: { children: ReactElement }) => {
@@ -51,13 +21,6 @@ export const mockSuccessResponse = () => createMockResponse({ success: true })
 
 // Mock error API response
 export const mockErrorResponse = (message = "Internal server error") => createMockResponse({ error: message }, 500)
-
-// Mock Resend client
-export const mockResendClient = {
-  emails: {
-    send: vi.fn().mockResolvedValue({ id: "mock-email-id" }),
-  },
-}
 
 // Helper to mock global fetch
 export const mockFetch = (response: Response) => {
@@ -154,42 +117,4 @@ export const mockNextNavigation = (pathname: string = "/") => {
 export const createUserEvent = async () => {
   const { default: userEvent } = await import("@testing-library/user-event")
   return userEvent.setup({ delay: null })
-}
-
-/**
- * Helper to fill contact form fields for testing
- * @param user - UserEvent instance
- * @param screen - Testing library screen object
- * @param data - Form data to fill (partial supported)
- */
-export const fillContactFormFields = async (
-  user: ReturnType<typeof import("@testing-library/user-event").default.setup>,
-  screen: typeof import("@testing-library/react").screen,
-  data: Partial<FormData> = mockFormData,
-) => {
-  const formData = { ...mockFormData, ...data }
-
-  if (formData.name) {
-    await user.type(screen.getByLabelText(/full name/i), formData.name)
-  }
-
-  if (formData.email) {
-    await user.type(screen.getByLabelText(/email address/i), formData.email)
-  }
-
-  if (formData.phone) {
-    await user.type(screen.getByLabelText(/phone number/i), formData.phone)
-  }
-
-  if (formData.subject) {
-    await user.selectOptions(screen.getByLabelText(/subject/i), formData.subject)
-  }
-
-  if (formData.preferredContact) {
-    await user.selectOptions(screen.getByLabelText(/preferred contact method/i), formData.preferredContact)
-  }
-
-  if (formData.message) {
-    await user.type(screen.getByLabelText(/message/i), formData.message)
-  }
 }

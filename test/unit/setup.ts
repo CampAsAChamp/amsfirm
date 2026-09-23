@@ -3,7 +3,7 @@ import "@testing-library/jest-dom"
 import { cleanup } from "@testing-library/react"
 import { afterEach, vi } from "vitest"
 
-// Mock matchMedia for react-hot-toast
+// Mock matchMedia for components that query media features
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: vi.fn().mockImplementation((query) => ({

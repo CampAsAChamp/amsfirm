@@ -79,15 +79,12 @@ test.describe("Accessibility", () => {
     }
   })
 
-  test("form inputs have labels", async ({ page }) => {
+  test("contact page shows office information", async ({ page }) => {
     await page.goto("/contact")
 
-    // Check that all form inputs have associated labels (use first() to handle multiple matches from footer)
-    await expect(page.getByLabel(/Full Name/i).first()).toBeVisible()
-    await expect(page.getByLabel(/Email Address/i).first()).toBeVisible()
-    await expect(page.getByLabel(/Phone Number/i).first()).toBeVisible()
-    await expect(page.getByLabel(/Subject/i).first()).toBeVisible()
-    await expect(page.getByLabel(/Message/i).first()).toBeVisible()
+    await expect(page.getByRole("heading", { name: /Office Information/i })).toBeVisible()
+    await expect(page.getByRole("link", { name: /\(310\) 792-7454/i }).first()).toBeVisible()
+    await expect(page.getByRole("link", { name: /amschneiderlaw@gmail\.com/i }).first()).toBeVisible()
   })
 
   test("navigation has proper ARIA landmarks", async ({ page }) => {

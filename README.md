@@ -14,7 +14,7 @@ This is the official website for Anna M. Schneider Law, a law firm specializing 
 
 ## Skills & Technologies
 
-[![My Skills](https://skills.syvixor.com/api/icons?perline=9&i=nextjs,reactjs,typescript,tailwindcss,postcss,nodejs,framer,lucide,resend,vitest,playwright,eslint,prettier,commitlint,dependabot,git,github,cloudflare)](https://builder.syvixor.com/)
+[![My Skills](https://skills.syvixor.com/api/icons?perline=9&i=nextjs,reactjs,typescript,tailwindcss,postcss,nodejs,framer,lucide,vitest,playwright,eslint,prettier,commitlint,dependabot,git,github,cloudflare)](https://builder.syvixor.com/)
 
 ## Tech Stack
 
@@ -23,8 +23,6 @@ This is the official website for Anna M. Schneider Law, a law firm specializing 
 - **Styling**: Tailwind CSS v4 with custom CSS variables for theming
 - **Animation**: Framer Motion for smooth transitions
 - **Icons**: Lucide React for consistent iconography
-- **Email**: [Resend](https://resend.com) with React Email components
-- **Notifications**: react-hot-toast for user feedback
 - **Deployment**: Cloudflare Workers via [OpenNext](https://opennext.js.org/) with automatic deployment
 - **Runtime**: Node.js 22
 - **Package Manager**: Yarn 4 (Berry) for fast, reliable dependency management
@@ -39,7 +37,7 @@ The website includes the following pages:
 - **About** (`/about`) - Attorney profile, philosophy, experience, and client reviews from Yelp
 - **Services** (`/services`) - Detailed information about legal services offered
 - **FAQ** (`/faq`) - Frequently asked questions about estate planning, living trusts, and wills
-- **Contact** (`/contact`) - Contact form with email integration, office information, and map
+- **Contact** (`/contact`) - Office information, phone, email, hours, and map
 
 ## Prerequisites
 
@@ -60,8 +58,7 @@ This project requires:
 - **Accessibility** - WCAG AA compliant with skip links, keyboard navigation, ARIA labels, and focus indicators
 - **Smooth Animations** - Framer Motion for enhanced user experience
 - **Modern Icons** - Lucide React icon library
-- **Contact Form** - Integrated contact form with Resend email delivery and React Email templates
-- **User Notifications** - Toast notifications for form submissions and user feedback
+- **Contact Page** - Office information, phone, email, hours, and interactive map
 - **Yelp Reviews Integration** - Automatically displays latest client reviews from Yelp
 - **Interactive Maps** - Office location map integration
 - **FAQ Section** - Comprehensive answers to common estate planning questions
@@ -88,7 +85,6 @@ Dependabot groups related packages together to reduce PR noise:
 - **Testing** - Testing libraries (Vitest, Playwright, Testing Library)
 - **Linting** - ESLint, Prettier, TypeScript, and related plugins
 - **Styling** - Tailwind CSS and PostCSS
-- **Email** - Resend and React Email packages
 - **Dev Dependencies** - All development dependencies
 
 **Pull Request Features:**
@@ -290,14 +286,11 @@ src/
 ├── app/
 │   ├── (pages)/         # Route pages
 │   │   ├── about/       # About page and components
-│   │   ├── contact/     # Contact page and form
+│   │   ├── contact/     # Contact page (office info and map)
 │   │   ├── faq/         # FAQ page and components
 │   │   └── services/    # Services page and components
-│   ├── api/             # API routes
-│   │   └── contact/     # Contact form email endpoint
 │   ├── components/      # Reusable UI components
 │   │   ├── common/      # Common utilities (AddressDisplay, CopyButton, cards)
-│   │   ├── contact/     # Contact-related (email templates, forms)
 │   │   ├── hero/        # Hero section
 │   │   ├── layout/      # Navigation, Footer, Banners
 │   │   └── sections/    # Section components (CallToAction, SectionHeader)
@@ -466,120 +459,6 @@ The project includes several configuration files that control different aspects 
 | `wrangler.jsonc`        | Cloudflare Workers deployment configuration                                 |
 | `.cursorrules`          | Project-specific coding standards and conventions                           |
 
-### Email Setup (Contact Form)
-
-The contact form uses [Resend](https://resend.com) for email delivery and React Email components for beautiful, responsive email templates. Here's how to set it up:
-
-#### 1. Sign Up for Resend
-
-1. Go to [resend.com](https://resend.com)
-2. Sign up for a free account (100 emails/day, 3,000 emails/month)
-3. Verify your email address
-
-#### 2. Get Your API Key
-
-1. Go to [API Keys](https://resend.com/api-keys)
-2. Click "Create API Key"
-3. Name it something like "AMS Law Website"
-4. Copy the API key (starts with `re_`)
-
-#### 3. Configure Environment Variables
-
-**For Local Development:**
-
-Copy `.env.example` to `.env.local` and fill in your values:
-
-```bash
-cp .env.example .env.local
-```
-
-Then edit `.env.local`:
-
-```bash
-# Resend API Configuration
-RESEND_API_KEY=re_your_api_key_here
-
-# Email address where contact form submissions will be sent
-CONTACT_EMAIL=anna@schneiderlaw.com
-```
-
-**For Production (Cloudflare Workers):**
-
-1. Update `CONTACT_EMAIL` in `wrangler.jsonc`:
-
-```jsonc
-"vars": {
-  "CONTACT_EMAIL": "your-email@example.com"
-}
-```
-
-2. Set `RESEND_API_KEY` as a secret using Wrangler CLI:
-
-```bash
-yarn wrangler secret put RESEND_API_KEY
-```
-
-When prompted, paste your Resend API key. This stores it securely in Cloudflare and persists across all deployments.
-
-#### 4. Verify Your Domain (Optional but Recommended)
-
-For the free tier, you can use Resend's default sending domain (`onboarding@resend.dev`), but emails will be more professional from your own domain.
-
-To use your own domain:
-
-1. Go to [Domains](https://resend.com/domains) in Resend dashboard
-2. Click "Add Domain"
-3. Enter your domain (e.g., `schneiderlaw.com`)
-4. Add the DNS records shown to your domain provider
-5. Wait for verification (usually 5-10 minutes)
-6. Update the API route to use your domain:
-
-In `src/app/api/contact/route.ts`, change:
-
-```typescript
-from: 'AMS Law Contact Form <onboarding@resend.dev>',
-```
-
-to:
-
-```typescript
-from: 'AMS Law Contact Form <contact@yourdomain.com>',
-```
-
-#### 5. Test the Contact Form
-
-1. Start your development server: `yarn dev`
-2. Navigate to the Contact page
-3. Fill out and submit the form
-4. Check your email!
-
-#### Troubleshooting
-
-**"Failed to send email" error:**
-
-- Check that your `.env.local` file exists and has the correct API key
-- Restart your dev server after creating/updating `.env.local`
-- Verify your API key is active in the Resend dashboard
-
-**Not receiving emails:**
-
-- Check your spam folder
-- Verify the `CONTACT_EMAIL` is correct (in `.env.local` for local, `wrangler.jsonc` for production)
-- Check the Resend dashboard [Emails](https://resend.com/emails) to see if they're being sent
-- For production, verify you've set the `RESEND_API_KEY` secret using `yarn wrangler secret put RESEND_API_KEY`
-
-**Environment Variables:**
-
-- ✅ Local: Use `.env.local` (never commit this file)
-- ✅ Production: Set `CONTACT_EMAIL` in `wrangler.jsonc` and `RESEND_API_KEY` via Wrangler CLI
-- Make sure you've verified your domain for better deliverability
-
-**Security Notes:**
-
-- Never commit your `.env.local` file to git
-- The API key is server-side only (Next.js API route)
-- Users cannot see or access your API key from the browser
-
 ### Yelp Reviews Display
 
 The About page displays client reviews from Yelp with star ratings and reviewer information. These are currently stored as static data for reliability and performance.
@@ -710,7 +589,7 @@ yarn wrangler secret delete SECRET_NAME
 
 **Configuration in `wrangler.jsonc`:**
 
-- `vars` - Public environment variables (e.g., `CONTACT_EMAIL`)
+- `vars` - Public environment variables (e.g., `NEXT_PUBLIC_SITE_URL`)
 - `compatibility_date` - Cloudflare Workers compatibility date
 - `compatibility_flags` - Node.js compatibility and other feature flags
 - `observability` - Logging and monitoring configuration
@@ -720,8 +599,8 @@ yarn wrangler secret delete SECRET_NAME
 
 Environment variables are configured in `wrangler.jsonc`:
 
-- **Non-sensitive variables** (like `CONTACT_EMAIL`, `NEXT_PUBLIC_SITE_URL`): Set in the `vars` section of `wrangler.jsonc`
-- **Secrets** (like `RESEND_API_KEY`): Set using `yarn wrangler secret put VARIABLE_NAME`
+- **Non-sensitive variables** (like `NEXT_PUBLIC_SITE_URL`): Set in the `vars` section of `wrangler.jsonc`
+- **Secrets**: Set using `yarn wrangler secret put VARIABLE_NAME` when needed
 
 Secrets set via Wrangler CLI are encrypted and stored securely in Cloudflare, persisting across all deployments.
 
@@ -858,8 +737,6 @@ These documents serve as content reference for the website and can be used for F
 - [Next.js Documentation](https://nextjs.org/docs) - Next.js features and API
 - [React Documentation](https://react.dev/) - React 19 features and hooks
 - [Tailwind CSS v4](https://tailwindcss.com/docs) - Utility-first CSS framework
-- [React Email](https://react.email/) - Build and send emails with React components
-- [Resend Documentation](https://resend.com/docs) - Email delivery API
 - [OpenNext Documentation](https://opennext.js.org/) - Learn about the deployment adapter
 - [Cloudflare Workers](https://developers.cloudflare.com/workers/) - Deployment platform
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/) - TypeScript language reference

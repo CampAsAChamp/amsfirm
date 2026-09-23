@@ -1,7 +1,7 @@
 import { expect, Locator, Page, TestInfo } from "@playwright/test"
 
 // eslint-disable-next-line no-restricted-imports
-import { API_ENDPOINTS, NAV_LINKS } from "../data/test-data"
+import { NAV_LINKS } from "../data/test-data"
 
 /**
  * Navigate to a page and verify navigation succeeded
@@ -59,74 +59,6 @@ export function isMobileViewport(testInfo: TestInfo): boolean {
 }
 
 /**
- * Mock the contact form API endpoint
- * @param page - Playwright page object
- * @param success - Whether the submission should succeed
- * @param delay - Optional delay in milliseconds
- */
-export async function mockContactFormSubmit(page: Page, success: boolean = true, delay: number = 0): Promise<void> {
-  await page.route(API_ENDPOINTS.contact, async (route) => {
-    if (delay > 0) {
-      await new Promise((resolve) => setTimeout(resolve, delay))
-    }
-
-    if (success) {
-      await route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        body: JSON.stringify({ success: true, messageId: "mock-id" }),
-      })
-    } else {
-      await route.fulfill({
-        status: 500,
-        contentType: "application/json",
-        body: JSON.stringify({ error: "Internal server error" }),
-      })
-    }
-  })
-}
-
-/**
- * Fill the contact form with provided data
- * @param page - Playwright page object
- * @param data - Form data to fill
- */
-export async function fillContactForm(
-  page: Page,
-  data: {
-    name: string
-    email: string
-    phone?: string
-    subject: string
-    message: string
-    preferredContact: string
-  },
-): Promise<void> {
-  await page.getByLabel("Full Name").fill(data.name)
-  await page.getByRole("textbox", { name: /Email Address/i }).fill(data.email)
-
-  if (data.phone) {
-    await page.getByRole("textbox", { name: /Phone Number/i }).fill(data.phone)
-  }
-
-  await page.getByLabel("Subject").selectOption(data.subject)
-  await page.getByLabel("Preferred Contact Method").selectOption(data.preferredContact)
-  await page.getByLabel("Message").fill(data.message)
-}
-
-/**
- * Verify all contact form fields are cleared
- * @param page - Playwright page object
- * @param timeout - Optional timeout in milliseconds
- */
-export async function expectFormCleared(page: Page, timeout: number = 15000): Promise<void> {
-  await expect(page.getByLabel("Full Name")).toHaveValue("", { timeout })
-  await expect(page.getByRole("textbox", { name: /Email Address/i })).toHaveValue("", { timeout })
-  await expect(page.getByRole("textbox", { name: /Phone Number/i })).toHaveValue("", { timeout })
-  await expect(page.getByLabel("Message")).toHaveValue("", { timeout })
-}
-
-/**
  * Find a navigation link scoped to the main navigation
  * @param page - Playwright page object
  * @param linkName - Name of the link to find
@@ -167,21 +99,6 @@ export async function clickLinkAndWait(page: Page, linkName: string, scope?: str
 
   await link.click()
   await page.waitForLoadState("networkidle")
-}
-
-/**
- * Submit the contact form and wait for button to return to normal state
- * @param page - Playwright page object
- */
-export async function submitContactForm(page: Page): Promise<void> {
-  const submitButton = page.getByRole("button", { name: /send message/i })
-  await submitButton.click()
-
-  // Wait for button to return to normal state (not "Sending...")
-  await expect(submitButton).toContainText(/^Send Message$/, { timeout: 10000 })
-
-  // Additional wait for state updates to propagate
-  await page.waitForTimeout(500)
 }
 
 /**
